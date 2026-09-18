@@ -1438,6 +1438,12 @@ async function submitForm(event, form, url) {
         });
         if (response.ok) {
             document.getElementById('modal-success').classList.remove('hidden');
+            
+            // Redirigir a WhatsApp si es el formulario de inscripción
+            if (form.id === 'form-inscripcion') {
+                const mensaje = encodeURIComponent("Black prueba fuck al reservar de forma autnklaotca");
+                window.open(`https://wa.me/51994381708?text=${mensaje}`, '_blank');
+            }
             form.reset();
         } else {
             alert('Hubo un error al procesar tu solicitud.');
