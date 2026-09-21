@@ -1261,8 +1261,38 @@ Ver opciones de hospedaje
 </div>
 <div class="mb-6">
 <label class="block text-gray-700 mb-2" for="email">Correo Electrónico</label>
-<input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
+<input type="email" id="email" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
 </div>
+
+<div class="mb-6 bg-gray-50 p-4 rounded-lg border border-gray-200">
+    <h4 class="font-bold text-gray-800 mb-4">Datos de Facturación (Ayni Sport S.A.C.)</h4>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div>
+            <label class="block text-gray-700 mb-2 font-bold" for="tipo_comprobante">Tipo de Comprobante</label>
+            <select id="tipo_comprobante" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary" onchange="toggleFacturaFields()">
+                <option value="Boleta">Boleta de Venta</option>
+                <option value="Factura">Factura</option>
+            </select>
+        </div>
+        <div>
+            <label class="block text-gray-700 mb-2 font-bold" id="label_doc" for="documento">DNI / Pasaporte</label>
+            <input type="text" id="documento" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
+        </div>
+    </div>
+    
+    <!-- Campos exclusivos para Factura -->
+    <div id="campos_factura" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+            <label class="block text-gray-700 mb-2 font-bold" for="razon_social">Razón Social</label>
+            <input type="text" id="razon_social" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
+        </div>
+        <div>
+            <label class="block text-gray-700 mb-2 font-bold" for="direccion_fiscal">Dirección Fiscal</label>
+            <input type="text" id="direccion_fiscal" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
+        </div>
+    </div>
+</div>
+
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
 <div>
 <label class="block text-gray-700 mb-2" for="pais">País</label>
@@ -1694,6 +1724,10 @@ function submitForm(event, form, url) {
         data.email = document.getElementById('email').value;
         data.pais = document.getElementById('pais').value;
         data.edad = document.getElementById('edad').value;
+        data.tipo_comprobante = document.getElementById('tipo_comprobante').value;
+        data.documento = document.getElementById('documento').value;
+        data.razon_social = document.getElementById('razon_social').value;
+
         const cat = document.querySelector('input[name="categoria"]:checked');
         data.categoria = cat ? cat.nextElementSibling.textContent.trim() : '';
 
@@ -1731,6 +1765,7 @@ Nombre: ${data.nombre} ${data.apellido}
 Paquete: ${data.paquete}
 Método de pago: ${data.metodo_pago}
 Operación: ${data.operacion}
+Comprobante: ${data.tipo_comprobante} (${data.documento}) ${data.tipo_comprobante === 'Factura' ? ' - ' + data.razon_social : ''}
 
 *Por favor adjunta aquí la foto/captura de pantalla de tu voucher o Yape para validar tu inscripción.*`);
                 window.open(`https://wa.me/51993022225?text=${mensaje}`, '_blank');
