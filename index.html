@@ -2100,5 +2100,38 @@ window.host = 'readdy.ai';
         }
     </script>
 
+
+<script>
+    // Countdown Timer Logic
+    document.addEventListener('DOMContentLoaded', () => {
+        const countDownDate = new Date("Nov 20, 2026 00:00:00").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            if (distance < 0) {
+                clearInterval(x);
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            const elDays = document.getElementById("cd-days");
+            const elHours = document.getElementById("cd-hours");
+            const elMins = document.getElementById("cd-minutes");
+            const elSecs = document.getElementById("cd-seconds");
+
+            if (elDays) elDays.innerHTML = days.toString().padStart(2, '0');
+            if (elHours) elHours.innerHTML = hours.toString().padStart(2, '0');
+            if (elMins) elMins.innerHTML = minutes.toString().padStart(2, '0');
+            if (elSecs) elSecs.innerHTML = seconds.toString().padStart(2, '0');
+        }, 1000);
+    });
+</script>
+
 </body>
 </html>
