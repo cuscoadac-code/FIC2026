@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados - Ciclovía del Maíz 2026</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config={
+            theme:{
+                extend:{
+                    colors:{
+                        primary:'#FFB800',
+                        secondary:'#2C5F2D'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Open Sans', sans-serif; color: #333; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
+        .table-row-hover:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <header class="bg-secondary text-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold"><a href="index.html">Ciclovía del Maíz</a></h1>
+            <div class="hidden md:flex space-x-8 text-sm">
+                <a href="index.html#inicio" class="hover:text-primary transition-colors">Inicio</a>
+                <a href="index.html#ruta" class="hover:text-primary transition-colors">La Ruta</a>
+                <a href="resultados.html" class="text-primary font-bold">Resultados</a>
+                <a href="blog.html" class="hover:text-primary transition-colors">Blog</a>
+                <a href="index.html#inscripcion" class="hover:text-primary transition-colors">Inscripción</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-6 py-12">
+        <div class="text-center mb-12">
+            <span class="text-primary font-bold tracking-widest uppercase text-sm mb-2 block">Tiempos y Clasificaciones</span>
+            <h2 class="text-4xl font-bold text-secondary mb-4">Resultados FIC 2026</h2>
+            <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+            <p class="text-gray-600 max-w-2xl mx-auto text-lg">Busca tu nombre, número de dorsal o filtra por categoría para ver los tiempos oficiales de la carrera.</p>
+        </div>
+
+        <!-- Filtros -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="flex-1">
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Buscar Ciclista</label>
+                    <div class="relative">
+                        <i class="ri-search-line absolute left-3 top-3 text-gray-400"></i>
+                        <input type="text" id="searchInput" placeholder="Nombre o número de dorsal..." class="w-full pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:border-primary">
+                    </div>
+                </div>
+                <div class="w-full md:w-64">
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Filtrar Categoría</label>
+                    <select id="categoryFilter" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-primary">
+                        <option value="all">Todas las Categorías</option>
+                        <option value="Elite Masculino">Elite Masculino</option>
+                        <option value="Elite Femenino">Elite Femenino</option>
+                        <option value="Master A">Master A (30-39)</option>
+                        <option value="Master B">Master B (40-49)</option>
+                        <option value="Master C">Master C (50+)</option>
+                        <option value="E-Bike">E-Bike</option>
+                    </select>
+                </div>
+                <div class="w-full md:w-48">
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Etapa</label>
+                    <select id="stageFilter" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-primary">
+                        <option value="general">Clasificación General</option>
+                        <option value="etapa1">Etapa 1 (Contrarreloj)</option>
+                        <option value="etapa2">Etapa 2 (XCM)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabla de Resultados -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden overflow-x-auto">
+            <table class="w-full text-left border-collapse" id="resultsTable">
+                <thead>
+                    <tr class="bg-secondary text-white">
+                        <th class="p-4 font-bold border-b">Pos</th>
+                        <th class="p-4 font-bold border-b">Dorsal</th>
+                        <th class="p-4 font-bold border-b">Ciclista</th>
+                        <th class="p-4 font-bold border-b">Categoría</th>
+                        <th class="p-4 font-bold border-b">Equipo/País</th>
+                        <th class="p-4 font-bold border-b">Tiempo</th>
+                        <th class="p-4 font-bold border-b">Diferencia</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-700" id="resultsBody">
+                    <tr class="border-b table-row-hover">
+                        <td class="p-4 font-bold text-primary">1</td>
+                        <td class="p-4">101</td>
+                        <td class="p-4 font-bold">Carlos Ramírez</td>
+                        <td class="p-4">Elite Masculino</td>
+                        <td class="p-4">Perú 🇵🇪</td>
+                        <td class="p-4 font-mono font-bold">04:15:22</td>
+                        <td class="p-4 font-mono text-gray-500">-</td>
+                    </tr>
+                    <tr class="border-b table-row-hover">
+                        <td class="p-4 font-bold text-gray-600">2</td>
+                        <td class="p-4">105</td>
+                        <td class="p-4 font-bold">Juan Pablo Silva</td>
+                        <td class="p-4">Elite Masculino</td>
+                        <td class="p-4">Colombia 🇨🇴</td>
+                        <td class="p-4 font-mono font-bold">04:18:10</td>
+                        <td class="p-4 font-mono text-red-500">+00:02:48</td>
+                    </tr>
+                    <tr class="border-b table-row-hover">
+                        <td class="p-4 font-bold text-gray-600">3</td>
+                        <td class="p-4">112</td>
+                        <td class="p-4 font-bold">Diego Vásquez</td>
+                        <td class="p-4">Elite Masculino</td>
+                        <td class="p-4">Perú 🇵🇪</td>
+                        <td class="p-4 font-mono font-bold">04:22:45</td>
+                        <td class="p-4 font-mono text-red-500">+00:07:23</td>
+                    </tr>
+                    <tr class="border-b table-row-hover bg-gray-50">
+                        <td class="p-4 font-bold text-primary">1</td>
+                        <td class="p-4">201</td>
+                        <td class="p-4 font-bold">María José López</td>
+                        <td class="p-4">Elite Femenino</td>
+                        <td class="p-4">Chile 🇨🇱</td>
+                        <td class="p-4 font-mono font-bold">05:02:15</td>
+                        <td class="p-4 font-mono text-gray-500">-</td>
+                    </tr>
+                    <tr class="border-b table-row-hover bg-gray-50">
+                        <td class="p-4 font-bold text-gray-600">2</td>
+                        <td class="p-4">203</td>
+                        <td class="p-4 font-bold">Ana Torres</td>
+                        <td class="p-4">Elite Femenino</td>
+                        <td class="p-4">Perú 🇵🇪</td>
+                        <td class="p-4 font-mono font-bold">05:15:30</td>
+                        <td class="p-4 font-mono text-red-500">+00:13:15</td>
+                    </tr>
+                    <tr class="border-b table-row-hover">
+                        <td class="p-4 font-bold text-primary">1</td>
+                        <td class="p-4">350</td>
+                        <td class="p-4 font-bold">Roberto Gómez</td>
+                        <td class="p-4">Master A</td>
+                        <td class="p-4">Cusco Addac 🇵🇪</td>
+                        <td class="p-4 font-mono font-bold">04:30:00</td>
+                        <td class="p-4 font-mono text-gray-500">-</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- Empty State (Hidden by default) -->
+            <div id="emptyState" class="hidden p-8 text-center text-gray-500">
+                <i class="ri-search-eye-line text-4xl mb-2"></i>
+                <p>No se encontraron resultados para la búsqueda.</p>
+            </div>
+        </div>
+        
+        <div class="mt-8 text-center text-sm text-gray-500">
+            <p>* Los resultados son extraoficiales hasta ser confirmados por los jueces de carrera.</p>
+            <p>Última actualización: En vivo.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2026 Ciclovía del Maíz. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Script para filtro de resultados -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const categoryFilter = document.getElementById('categoryFilter');
+            const tbody = document.getElementById('resultsBody');
+            const rows = tbody.getElementsByTagName('tr');
+            const emptyState = document.getElementById('emptyState');
+            const table = document.getElementById('resultsTable');
+
+            function filterTable() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const category = categoryFilter.value;
+                let visibleCount = 0;
+
+                for (let i = 0; i < rows.length; i++) {
+                    const row = rows[i];
+                    const text = row.textContent.toLowerCase();
+                    const rowCategory = row.cells[3].textContent;
+                    
+                    const matchesSearch = text.includes(searchTerm);
+                    const matchesCategory = category === 'all' || rowCategory === category;
+
+                    if (matchesSearch && matchesCategory) {
+                        row.style.display = '';
+                        visibleCount++;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+
+                if (visibleCount === 0) {
+                    emptyState.classList.remove('hidden');
+                    table.classList.add('hidden');
+                } else {
+                    emptyState.classList.add('hidden');
+                    table.classList.remove('hidden');
+                }
+            }
+
+            searchInput.addEventListener('keyup', filterTable);
+            categoryFilter.addEventListener('change', filterTable);
+        });
+    </script>
+</body>
+</html>
