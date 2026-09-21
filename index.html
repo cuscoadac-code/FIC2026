@@ -6,8 +6,1559 @@
 <title>Festival Internacional de Ciclismo – Ciclovía del Maíz 2026</title>
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <script>tailwind.config={theme:{extend:{colors:{primary:'#FFB800',secondary:'#2C5F2D'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Open Sans', sans-serif;
+color: #333;
+}
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Montserrat', sans-serif;
+}
+.countdown-item {
+background: rgba(255, 255, 255, 0.15);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.glassmorphism {
+background: rgba(255, 255, 255, 0.1);
+backdrop-filter: blur(10px);
+border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.custom-checkbox {
+appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #2C5F2D;
+border-radius: 4px;
+position: relative;
+cursor: pointer;
+}
+.custom-checkbox:checked {
+background-color: #2C5F2D;
+}
+.custom-checkbox:checked::after {
+content: '';
+position: absolute;
+top: 2px;
+left: 6px;
+width: 6px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 50px;
+height: 24px;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.switch-slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+transition: .4s;
+border-radius: 24px;
+}
+.switch-slider:before {
+position: absolute;
+content: "";
+height: 18px;
+width: 18px;
+left: 3px;
+bottom: 3px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .switch-slider {
+background-color: #2C5F2D;
+}
+input:checked + .switch-slider:before {
+transform: translateX(26px);
+}
+.custom-range {
+-webkit-appearance: none;
+width: 100%;
+height: 6px;
+background: #ddd;
+border-radius: 5px;
+outline: none;
+}
+.custom-range::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 18px;
+height: 18px;
+background: #2C5F2D;
+border-radius: 50%;
+cursor: pointer;
+}
+.custom-range::-moz-range-thumb {
+width: 18px;
+height: 18px;
+background: #2C5F2D;
+border-radius: 50%;
+cursor: pointer;
+border: none;
+}
+.tab-active {
+background-color: #FFB800;
+color: white;
+}
+.route-dot {
+width: 12px;
+height: 12px;
+border-radius: 50%;
+background-color: #FFB800;
+position: relative;
+}
+.route-dot::after {
+content: '';
+position: absolute;
+top: -4px;
+left: -4px;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background-color: rgba(255, 184, 0, 0.3);
+z-index: -1;
+}
+.route-line {
+height: 50px;
+width: 2px;
+background-color: #2C5F2D;
+}
+</style>
+
+<!-- Meta SEO & Open Graph -->
+<meta name="description" content="Festival Internacional de Ciclismo Ciclovía del Maíz 2026. Únete a la mejor aventura de MTB en el Valle Sagrado de los Incas, Cusco, Perú.">
+<meta property="og:title" content="FIC 2026 - Ciclovía del Maíz">
+<meta property="og:description" content="Festival Internacional de Ciclismo Ciclovía del Maíz 2026. Únete a la mejor aventura de MTB en el Valle Sagrado de los Incas, Cusco, Perú.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ficperu.online">
+<meta property="og:image" content="https://ficperu.online/logo.png"> <!-- Cambiar logo.png por la ruta real si existe -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FIC 2026 - Ciclovía del Maíz">
+<meta name="twitter:description" content="Festival Internacional de Ciclismo Ciclovía del Maíz 2026. Únete a la mejor aventura de MTB en el Valle Sagrado de los Incas, Cusco, Perú.">
+
+<!-- Datos Estructurados JSON-LD (Schema.org) para Buscadores y LLMs -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Festival Internacional de Ciclismo Ciclovía del Maíz 2026",
+  "startDate": "2026-11-20",
+  "endDate": "2026-11-22",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "Place",
+    "name": "Valle Sagrado de los Incas",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cusco",
+      "addressCountry": "PE"
+    }
+  },
+  "description": "El Festival Internacional de Ciclismo Ciclovía del Maíz es una carrera épica de MTB por etapas en el Valle Sagrado de los Incas.",
+  "offers": {
+    "@type": "Offer",
+    "url": "https://ficperu.online",
+    "priceCurrency": "USD",
+    "price": "80",
+    "availability": "https://schema.org/InStock"
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Cusco Addac",
+    "url": "https://ficperu.online"
+  }
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚴</text></svg>">
+</head>
+<body>
+<!-- Navegación -->
+<header class="fixed top-0 left-0 right-0 z-50 glassmorphism">
+<nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+<div class="flex items-center">
+<h1 class="text-white text-2xl font-bold">Ciclovía del Maíz</h1>
+</div>
+<div class="hidden md:flex space-x-8 text-white">
+<a href="index.html#inicio" class="hover:text-primary transition-colors">Inicio</a>
+<a href="index.html#ruta" class="hover:text-primary transition-colors">La Ruta</a>
+<a href="index.html#festival" class="hover:text-primary transition-colors">El Festival</a>
+<a href="index.html#categorias" class="hover:text-primary transition-colors">Categorías</a>
+<a href="index.html#turismo" class="hover:text-primary transition-colors">Turismo</a>
+<a href="index.html#galeria" class="hover:text-primary transition-colors">Galería</a>
+<a href="index.html#voluntariado" class="hover:text-primary transition-colors">Voluntariado</a>
+<a href="resultados.html" class="hover:text-primary transition-colors">Resultados</a>
+<a href="blog.html" class="hover:text-primary transition-colors">Blog</a>
+<a href="index.html#inscripcion" class="hover:text-primary transition-colors">Inscripción</a>
+</div>
+<div class="md:hidden flex items-center">
+<button id="mobile-menu-btn" class="text-white focus:outline-none">
+<div class="w-10 h-10 flex items-center justify-center">
+<i class="ri-menu-line ri-lg"></i>
+</div>
+</button>
+</div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-800">
+    <div class="flex flex-col px-6 py-4 space-y-4 text-white font-bold">
+        <a href="#inicio" class="mobile-link hover:text-primary transition-colors">Inicio</a>
+        <a href="#ruta" class="mobile-link hover:text-primary transition-colors">La Ruta</a>
+        <a href="#festival" class="mobile-link hover:text-primary transition-colors">El Festival</a>
+        <a href="#categorias" class="mobile-link hover:text-primary transition-colors">Categorías</a>
+        <a href="#turismo" class="mobile-link hover:text-primary transition-colors">Turismo</a>
+        <a href="#galeria" class="mobile-link hover:text-primary transition-colors">Galería</a>
+        <a href="#voluntariado" class="mobile-link hover:text-primary transition-colors">Voluntariado</a>
+        <a href="#faq" class="mobile-link hover:text-primary transition-colors">FAQ</a>
+        <a href="resultados.html" class="hover:text-primary transition-colors">Resultados</a>
+        <a href="blog.html" class="hover:text-primary transition-colors">Blog</a>
+        <a href="#inscripcion" class="mobile-link text-primary hover:text-white transition-colors">Inscripción</a>
+    </div>
+</div>
+
+</header>
+<!-- Hero Section -->
+<section id="inicio" class="relative h-screen flex items-center" style="background-image: url('https://readdy.ai/api/search-image?query=Breathtaking%20panoramic%20view%20of%20cyclists%20riding%20through%20the%20Sacred%20Valley%20of%20the%20Incas%20in%20Peru%2C%20with%20majestic%20mountains%20in%20the%20background%2C%20lush%20green%20fields%20of%20corn%2C%20ancient%20terraces%2C%20and%20the%20winding%20Vilcanota%20river.%20Golden%20sunlight%20illuminates%20the%20scene%2C%20creating%20a%20magical%20atmosphere.%20Professional%20photography%20with%20dramatic%20lighting.&width=1920&height=1080&seq=1&orientation=landscape'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-black bg-opacity-40"></div>
+<div class="container mx-auto px-6 relative z-10">
+<div class="max-w-3xl text-white">
+<h1 class="text-5xl md:text-6xl font-bold mb-4">Festival Internacional de Ciclismo</h1>
+<h2 class="text-4xl md:text-5xl font-bold mb-6 text-primary">Ciclovía del Maíz 2026</h2>
+<p class="text-xl md:text-2xl mb-8">Pedale entre leyendas. Vive la Ciclovía del Maíz</p>
+<p class="text-lg mb-8">20-22 de Noviembre, 2026 • Valle Sagrado de los Incas, Cusco, Perú</p>
+<a href="#inscripcion" class="inline-block bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-8 !rounded-button text-lg shadow-lg transition-all whitespace-nowrap">
+Inscríbete ahora
+</a>
+</div>
+</div>
+<!-- Countdown -->
+<div class="absolute bottom-10 left-0 right-0">
+<div class="container mx-auto px-6">
+<div class="flex justify-center space-x-4 md:space-x-8">
+<div class="countdown-item w-20 h-20 md:w-24 md:h-24 rounded-lg flex flex-col items-center justify-center text-white">
+<span class="text-2xl md:text-3xl font-bold" id="days">126</span>
+<span class="text-xs md:text-sm">Días</span>
+</div>
+<div class="countdown-item w-20 h-20 md:w-24 md:h-24 rounded-lg flex flex-col items-center justify-center text-white">
+<span class="text-2xl md:text-3xl font-bold" id="hours">14</span>
+<span class="text-xs md:text-sm">Horas</span>
+</div>
+<div class="countdown-item w-20 h-20 md:w-24 md:h-24 rounded-lg flex flex-col items-center justify-center text-white">
+<span class="text-2xl md:text-3xl font-bold" id="minutes">35</span>
+<span class="text-xs md:text-sm">Minutos</span>
+</div>
+<div class="countdown-item w-20 h-20 md:w-24 md:h-24 rounded-lg flex flex-col items-center justify-center text-white">
+<span class="text-2xl md:text-3xl font-bold" id="seconds">22</span>
+<span class="text-xs md:text-sm">Segundos</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- La Ruta Sagrada -->
+<section id="ruta" class="py-20 bg-white">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold mb-4">La Ruta Sagrada</h2>
+<p class="text-xl text-gray-600 max-w-3xl mx-auto">Descubre los tres sectores mágicos que componen la Ciclovía del Maíz, cada uno con su propio encanto y desafíos.</p>
+</div>
+<div class="mb-16 rounded-lg overflow-hidden shadow-lg">
+<div class="h-96 bg-gray-200 relative">
+<div style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png'); background-size: cover; background-position: center;" class="absolute inset-0"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-white bg-opacity-90 p-6 rounded-lg max-w-md">
+<h3 class="text-2xl font-bold mb-3 text-gray-800">Mapa Interactivo</h3>
+<p class="text-gray-600">Explora los tres sectores de la ruta: Taray–Pisac, Taray–Ollantaytambo y Calca–Ollantaytambo. Cada tramo ofrece paisajes únicos y experiencias inolvidables.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Sector 1 -->
+<div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
+<div class="h-56 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Scenic%20cycling%20route%20through%20San%20Salvador%20to%20Pisac%20in%20Perus%20Sacred%20Valley%2C%20showing%20cyclists%20on%20a%20well-maintained%20path%20alongside%20corn%20fields%2C%20with%20ancient%20Inca%20terraces%20visible%20in%20the%20background.%20Beautiful%20morning%20light%20illuminates%20the%20Andean%20mountains.%20Professional%20travel%20photography.&width=600&height=400&seq=2&orientation=landscape" alt="Taray–Pisac" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="flex items-center mb-4">
+<div class="route-dot"></div>
+<div class="ml-3">
+<h3 class="text-xl font-bold">Sector 1: Taray–Pisac</h3>
+<p class="text-gray-600">25 km • Dificultad: Media</p>
+</div>
+</div>
+<p class="text-gray-700 mb-4">Comienza tu aventura en Taray, atravesando campos de maíz dorado y disfrutando de vistas panorámicas del río Vilcanota. El recorrido te llevará hasta el místico pueblo de Pisac.</p>
+<div class="flex items-center justify-between text-sm">
+<span class="flex items-center text-gray-600">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-arrow-up-line"></i>
+</div>
+450m elevación
+</span>
+<span class="flex items-center text-gray-600">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-time-line"></i>
+</div>
+2-3 horas
+</span>
+</div>
+</div>
+</div>
+<!-- Sector 2 -->
+<div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
+<div class="h-56 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Cyclists%20riding%20through%20the%20picturesque%20route%20from%20Taray%20to%20Ollantaytambo%20in%20Perus%20Sacred%20Valley%2C%20with%20traditional%20Andean%20haciendas%2C%20vast%20corn%20fields%2C%20and%20snow-capped%20mountains%20in%20the%20background.%20The%20path%20follows%20alongside%20ancient%20irrigation%20channels.%20Golden%20afternoon%20light%20creates%20a%20warm%20atmosphere.%20Professional%20adventure%20photography.&width=600&height=400&seq=3&orientation=landscape" alt="Taray–Ollantaytambo" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="flex items-center mb-4">
+<div class="route-dot"></div>
+<div class="ml-3">
+<h3 class="text-xl font-bold">Sector 2: Taray–Ollantaytambo</h3>
+<p class="text-gray-600">30 km • Dificultad: Alta</p>
+</div>
+</div>
+<p class="text-gray-700 mb-4">Recorre el corazón del Valle Sagrado, pasando por antiguas haciendas de maíz y comunidades locales. Las vistas de los Apus (montañas sagradas) te acompañarán en todo momento.</p>
+<div class="flex items-center justify-between text-sm">
+<span class="flex items-center text-gray-600">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-arrow-up-line"></i>
+</div>
+620m elevación
+</span>
+<span class="flex items-center text-gray-600">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-time-line"></i>
+</div>
+3-4 horas
+</span>
+</div>
+</div>
+</div>
+<!-- Sector 3 -->
+<div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
+<div class="h-56 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Mountain%20bikers%20on%20the%20challenging%20route%20from%20Calca%20to%20Ollantaytambo%20in%20Perus%20Sacred%20Valley%2C%20with%20dramatic%20mountain%20landscapes%2C%20traditional%20Andean%20villages%2C%20and%20archaeological%20sites%20visible%20in%20the%20distance.%20The%20trail%20winds%20through%20diverse%20terrain%20with%20lush%20vegetation%20and%20corn%20fields.%20Dramatic%20clouds%20cast%20interesting%20shadows%20on%20the%20landscape.%20Professional%20mountain%20biking%20photography.&width=600&height=400&seq=4&orientation=landscape" alt="Calca–Ollantaytambo" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="flex items-center mb-4">
+<div class="route-dot"></div>
+<div class="ml-3">
+<h3 class="text-xl font-bold">Sector 3: Calca–Ollantaytambo</h3>
+<p class="text-gray-600">28 km • Dificultad: Media-Alta</p>
+</div>
+</div>
+<p class="text-gray-700 mb-4">El tramo más desafiante te lleva por senderos ancestrales entre Calca y Ollantaytambo, ofreciendo impresionantes vistas de sitios arqueológicos y la majestuosidad de los Andes.</p>
+<div class="flex items-center justify-between text-sm">
+<span class="flex items-center text-gray-600">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-arrow-up-line"></i>
+</div>
+580m elevación
+</span>
+<span class="flex items-center text-gray-600">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-time-line"></i>
+</div>
+3-4 horas
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center">
+<a href="data:application/pdf;base64,JVBERi0xLjcKCjEgMCBvYmogICUgZW50cnkgcG9pbnQKPDwKICAvVHlwZSAvQ2F0YWxvZwogIC9QYWdlcyAyIDAgUgo+PgplbmRvYmoKCjIgMCBvYmoKPDwKICAvVHlwZSAvUGFnZXMKICAvTWVkaWFCb3ggWyAwIDAgMjAwIDIwMCBdCiAgL0NvdW50IDEKICAvS2lkcyBbIDMgMCBSIF0KPj4KZW5kb2JqCgozIDAgb2JqCjw8CiAgL1R5cGUgL1BhZ2UKICAvUGFyZW50IDIgMCBSCiAgL1Jlc291cmNlcyA8PAogICAgL0ZvbnQgPDwKICAgICAgL0YxIDQgMCBSCgkJPj4KICA+PgogIC9Db250ZW50cyA1IDAgUgo+PgplbmRvYmoKCjQgMCBvYmoKPDwKICAvVHlwZSAvRm9udAogIC9TdWJ0eXBlIC9UeXBlMQogIC9CYXNlRm9udCAvVGltZXMtUm9tYW4KPj4KZW5kb2JqCgo1IDAgb2JqCjw8IC9MZW5ndGggNjAgPj4Kc3RyZWFtCjIgSwoxIDAgMCBSRwoKRlQKICAvRjEgMjQgVGYKICAxMCAxMDAgVGQKICAoTWFwYSBkZSBQcnVlYmEpIFRqCkVUCnN0cmVhbQplbmRvYmoKCnhyZWYKMCA2CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAxMCAwMDAwMCBuIAowMDAwMDAwMDYwIDAwMDAwIG4gCjAwMDAwMDAxNDkgMDAwMDAgbiAKMDAwMDAwMDI1OCAwMDAwMCBuIAowMDAwMDAwMzQ3IDAwMDAwIG4gCnRyYWlsZXIKPDwKICAvU2l6ZSA2CiAgL1Jvb3QgMSAwIFIKPj4Kc3RhcnR4cmVmCjQ1OAolJUVPRgo=" download="mapa_ciclovia_prueba.pdf" class="bg-secondary hover:bg-opacity-90 text-white font-bold py-3 px-8 !rounded-button text-lg shadow-lg transition-all whitespace-nowrap flex mx-auto items-center w-max">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-download-line"></i>
+</div>
+Descargar mapa completo
+</a>
+</div>
+</div>
+</section>
+<!-- El Festival -->
+<section id="festival" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold mb-4">El Festival</h2>
+<p class="text-xl text-gray-600 max-w-3xl mx-auto">Mucho más que una competencia de ciclismo, la Ciclovía del Maíz es una celebración de la cultura, la naturaleza y el deporte.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+<div class="rounded-lg overflow-hidden shadow-lg h-96 relative">
+<img src="https://readdy.ai/api/search-image?query=Vibrant%20cultural%20festival%20in%20Perus%20Sacred%20Valley%20with%20cyclists%20and%20locals%20celebrating%20together.%20Traditional%20Andean%20dancers%20in%20colorful%20costumes%20perform%20while%20spectators%20enjoy%20local%20cuisine.%20Festive%20atmosphere%20with%20decorations%20featuring%20corn%20motifs%2C%20music%20performances%2C%20and%20cycling-themed%20activities.%20Professional%20event%20photography%20with%20dynamic%20composition.&width=800&height=600&seq=5&orientation=landscape" alt="Celebración cultural" class="w-full h-full object-cover object-top">
+<div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+<div class="absolute bottom-0 left-0 p-6 text-white">
+<h3 class="text-2xl font-bold mb-2">Celebración Cultural</h3>
+<p>Danzas tradicionales, música en vivo y rituales andinos que honran a la Pachamama.</p>
+</div>
+</div>
+<div class="rounded-lg overflow-hidden shadow-lg h-96 relative">
+<img src="https://readdy.ai/api/search-image?query=Cyclists%20and%20families%20enjoying%20a%20community%20festival%20in%20Perus%20Sacred%20Valley%2C%20with%20food%20stalls%20serving%20traditional%20Andean%20cuisine%2C%20craft%20markets%20selling%20local%20artisanal%20products%2C%20and%20children%20participating%20in%20mini%20cycling%20activities.%20The%20atmosphere%20is%20joyful%20with%20colorful%20decorations%20and%20banners.%20Professional%20event%20photography%20capturing%20authentic%20moments%20of%20connection.&width=800&height=600&seq=6&orientation=landscape" alt="Experiencia familiar" class="w-full h-full object-cover object-top">
+<div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+<div class="absolute bottom-0 left-0 p-6 text-white">
+<h3 class="text-2xl font-bold mb-2">Experiencia Familiar</h3>
+<p>Actividades para todas las edades, talleres de artesanía y gastronomía local.</p>
+</div>
+</div>
+</div>
+<!-- Testimonios -->
+<div class="mb-16">
+<h3 class="text-2xl font-bold mb-8 text-center">Lo que dicen nuestros participantes</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white p-6 rounded-lg shadow-md">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20portrait%20of%20a%20female%20cyclist%20in%20her%2030s%20with%20athletic%20build%2C%20wearing%20casual%20sportswear%2C%20smiling%20confidently%20at%20camera.%20Natural%20lighting%2C%20neutral%20background%2C%20authentic%20expression.%20Professional%20photography%20with%20shallow%20depth%20of%20field.&width=200&height=200&seq=7&orientation=squarish" alt="María Fernández" class="w-full h-full object-cover">
+</div>
+<div>
+<h4 class="font-bold">María Fernández</h4>
+<p class="text-sm text-gray-600">Madrid, España</p>
+</div>
+</div>
+<p class="text-gray-700">"Una experiencia que transformó mi visión del ciclismo. Pedalear entre montañas sagradas, campos de maíz y sitios arqueológicos fue simplemente mágico. Volveré el próximo año sin duda."</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20portrait%20of%20a%20male%20cyclist%20in%20his%2040s%20with%20athletic%20build%2C%20wearing%20casual%20sportswear%2C%20smiling%20confidently%20at%20camera.%20Natural%20lighting%2C%20neutral%20background%2C%20authentic%20expression.%20Professional%20photography%20with%20shallow%20depth%20of%20field.&width=200&height=200&seq=8&orientation=squarish" alt="Carlos Ramírez" class="w-full h-full object-cover">
+</div>
+<div>
+<h4 class="font-bold">Carlos Ramírez</h4>
+<p class="text-sm text-gray-600">Bogotá, Colombia</p>
+</div>
+</div>
+<p class="text-gray-700">"Más que una competencia, es un viaje cultural. La organización es impecable y la calidez de las comunidades locales hace que te sientas como en casa. Una aventura inolvidable."</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20portrait%20of%20a%20female%20cyclist%20in%20her%2020s%20with%20athletic%20build%2C%20wearing%20casual%20sportswear%2C%20smiling%20confidently%20at%20camera.%20Natural%20lighting%2C%20neutral%20background%2C%20authentic%20expression.%20Professional%20photography%20with%20shallow%20depth%20of%20field.&width=200&height=200&seq=9&orientation=squarish" alt="Luisa Mendoza" class="w-full h-full object-cover">
+</div>
+<div>
+<h4 class="font-bold">Luisa Mendoza</h4>
+<p class="text-sm text-gray-600">Lima, Perú</p>
+</div>
+</div>
+<p class="text-gray-700">"Como peruana, me enorgullece este evento que muestra lo mejor de nuestra cultura y paisajes. La combinación de deporte, tradición y sostenibilidad es perfecta. ¡Imperdible!"</p>
+</div>
+</div>
+</div>
+<!-- Cronograma -->
+<div>
+<h3 class="text-2xl font-bold mb-8 text-center">Cronograma del Festival</h3>
+<div class="max-w-3xl mx-auto">
+<!-- Día 1 -->
+<div class="flex mb-8">
+<div class="flex flex-col items-center mr-6">
+<div class="route-dot"></div>
+<div class="route-line"></div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md flex-1">
+<h4 class="text-xl font-bold mb-2">Día 1: Viernes 20 de Noviembre</h4>
+<ul class="space-y-3">
+<li class="flex items-start">
+<span class="text-primary font-bold mr-2">09:00 - 12:00</span>
+<span>Registro de participantes y entrega de kits - Plaza de Armas de Cusco</span>
+</li>
+<li class="flex items-start">
+<span class="text-primary font-bold mr-2">14:00 - 16:00</span>
+<span>Ceremonia de apertura y bendición andina - Templo de Coricancha</span>
+</li>
+<li class="flex items-start">
+<span class="text-primary font-bold mr-2">17:00 - 20:00</span>
+<span>Feria gastronómica y exposición de bicicletas - Centro de Convenciones</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Día 2 -->
+<div class="flex mb-8">
+<div class="flex flex-col items-center mr-6">
+<div class="route-dot"></div>
+<div class="route-line"></div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md flex-1">
+<h4 class="text-xl font-bold mb-2">Día 2: Sábado 21 de Noviembre</h4>
+<ul class="space-y-3">
+<li class="flex items-start">
+<span class="text-primary font-bold mr-2">07:00 - 08:00</span>
+<span>Concentración y calentamiento - Taray</span>
+</li>
+<li class="flex items-start">
+<span class="text-primary font-bold mr-2">08:30 - 14:00</span>
+<span>Competencia sectores 1 y 2 - Taray a Ollantaytambo</span>
+</li>
+<li class="flex items-start">
+<span class="text-primary font-bold mr-2">15:00 - 18:00</span>
+<span>Festival cultural y almuerzo comunitario - Plaza de Ollantaytambo</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Día 3 -->
+<div class="flex">
+<div class="flex flex-col items-center mr-6">
+<div class="route-dot"></div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md flex-1">
+<h4 class="text-xl font-bold mb-2">Día 3: Domingo 22 de Noviembre</h4>
+<ul class="space-y-3">
+<li class="flex items-start">
+<span class="text-primary font-bold mr-2">07:00 - 08:00</span>
+<span>Concentración y calentamiento - Calca</span>
+</li>
+<li class="flex items-start">
+<span class="text-primary font-bold mr-2">08:30 - 12:00</span>
+<span>Competencia sector 3 - Calca a Ollantaytambo</span>
+</li>
+<li class="flex items-start">
+<span class="text-primary font-bold mr-2">13:00 - 15:00</span>
+<span>Ceremonia de premiación - Plaza de Armas de Ollantaytambo</span>
+</li>
+<li class="flex items-start">
+<span class="text-primary font-bold mr-2">16:00 - 20:00</span>
+<span>Fiesta de clausura con música en vivo - Centro Cultural de Ollantaytambo</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+            
+            <!-- Botón Descargar Programa -->
+            <div class="text-center mt-12">
+                <a href="programa-fic-2026.pdf" target="_blank" download class="inline-block bg-primary hover:bg-opacity-90 text-white font-bold py-4 px-10 rounded-full text-lg shadow-xl transition-all hover:-translate-y-1">
+                    <i class="ri-file-download-line mr-2"></i> Descargar Programa Oficial (PDF)
+                </a>
+                <p class="text-sm text-gray-500 mt-3">* El programa descargable contiene detalles de rutas, horarios y reglamento completo.</p>
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Categorías y Competencia -->
+<section id="categorias" class="py-20 bg-white">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold mb-4">Categorías y Competencia</h2>
+<p class="text-xl text-gray-600 max-w-3xl mx-auto">Encuentra la categoría perfecta para ti y prepárate para vivir la aventura de la Ciclovía del Maíz.</p>
+</div>
+<!-- Tabs de categorías -->
+<div class="max-w-4xl mx-auto mb-16">
+<div class="flex justify-center mb-8">
+<div class="inline-flex p-1 bg-gray-100 rounded-full">
+<button class="tab-button px-6 py-2 rounded-full tab-active whitespace-nowrap" data-tab="elite">Elite</button>
+<button class="tab-button px-6 py-2 rounded-full whitespace-nowrap" data-tab="amateur">Amateur</button>
+<button class="tab-button px-6 py-2 rounded-full whitespace-nowrap" data-tab="familiar">Familiar</button>
+<button class="tab-button px-6 py-2 rounded-full whitespace-nowrap" data-tab="juvenil">Juvenil</button>
+</div>
+</div>
+<!-- Contenido de tabs -->
+<div class="bg-white rounded-lg shadow-lg p-8">
+<!-- Elite -->
+<div class="tab-content" id="elite-content">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<h3 class="text-2xl font-bold mb-4">Categoría Elite</h3>
+<p class="text-gray-700 mb-6">Para ciclistas experimentados que buscan el máximo desafío. Recorrido completo de los tres sectores con cronometraje oficial.</p>
+<ul class="space-y-3">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Edad: 18-45 años</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Distancia: 83 km (recorrido completo)</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Bicicletas: MTB o Gravel</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Premios: $5,000 USD en total para ganadores</span>
+</li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4">Requisitos</h4>
+<ul class="space-y-3 mb-6">
+
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-file-list-line"></i>
+</div>
+<span>Seguro de accidentes (obligatorio)</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-file-list-line"></i>
+</div>
+<span>Casco y equipo de protección completo</span>
+</li>
+</ul>
+<div class="text-center">
+<button onclick="document.getElementById('cat-elite').checked = true; location.href='#inscripcion'" class="bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-8 !rounded-button text-lg shadow-lg transition-all whitespace-nowrap">
+Inscríbete en Elite
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Amateur -->
+<div class="tab-content hidden" id="amateur-content">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<h3 class="text-2xl font-bold mb-4">Categoría Amateur</h3>
+<p class="text-gray-700 mb-6">Para ciclistas con experiencia intermedia que buscan disfrutar del recorrido sin la presión competitiva de elite.</p>
+<ul class="space-y-3">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Edad: 18+ años</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Distancia: 55 km (sectores 1 y 2)</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Bicicletas: MTB, Gravel o Híbrida</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Premios: Medallas y productos de patrocinadores</span>
+</li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4">Requisitos</h4>
+<ul class="space-y-3 mb-6">
+
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-file-list-line"></i>
+</div>
+<span>Seguro de accidentes (obligatorio)</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-file-list-line"></i>
+</div>
+<span>Casco y equipo de protección básico</span>
+</li>
+</ul>
+<div class="text-center">
+<button onclick="document.getElementById('cat-amateur').checked = true; location.href='#inscripcion'" class="bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-8 !rounded-button text-lg shadow-lg transition-all whitespace-nowrap">
+Inscríbete en Amateur
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Familiar -->
+<div class="tab-content hidden" id="familiar-content">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<h3 class="text-2xl font-bold mb-4">Categoría Familiar</h3>
+<p class="text-gray-700 mb-6">Disfruta de un recorrido recreativo pensado para familias, con paradas culturales y actividades para todas las edades.</p>
+<ul class="space-y-3">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Edad: Todas las edades (menores acompañados)</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Distancia: 25 km (sector 1 con paradas)</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Bicicletas: Cualquier tipo en buen estado</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Premios: Recuerdos para todos los participantes</span>
+</li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4">Incluye</h4>
+<ul class="space-y-3 mb-6">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-double-line"></i>
+</div>
+<span>Guías bilingües en todo el recorrido</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-double-line"></i>
+</div>
+<span>Paradas con actividades culturales</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-double-line"></i>
+</div>
+<span>Almuerzo tradicional incluido</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-double-line"></i>
+</div>
+<span>Asistencia mecánica y médica</span>
+</li>
+</ul>
+<div class="text-center">
+<button onclick="document.getElementById('cat-familiar').checked = true; location.href='#inscripcion'" class="bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-8 !rounded-button text-lg shadow-lg transition-all whitespace-nowrap">
+Inscríbete en Familiar
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Juvenil -->
+<div class="tab-content hidden" id="juvenil-content">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<h3 class="text-2xl font-bold mb-4">Categoría Juvenil</h3>
+<p class="text-gray-700 mb-6">Especialmente diseñada para jóvenes ciclistas que quieren iniciarse en las competencias de montaña.</p>
+<ul class="space-y-3">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Edad: 12-17 años (autorización de padres)</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Distancia: 30 km (sector 2 adaptado)</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Bicicletas: MTB o Gravel juvenil</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Premios: Trofeos y equipamiento deportivo</span>
+</li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4">Requisitos</h4>
+<ul class="space-y-3 mb-6">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-file-list-line"></i>
+</div>
+<span>Autorización firmada por padres o tutores</span>
+</li>
+
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-file-list-line"></i>
+</div>
+<span>Casco y equipo de protección completo</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-file-list-line"></i>
+</div>
+<span>Seguro de accidentes (incluido en la inscripción)</span>
+</li>
+</ul>
+<div class="text-center">
+<button onclick="document.getElementById('cat-juvenil').checked = true; location.href='#inscripcion'" class="bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-8 !rounded-button text-lg shadow-lg transition-all whitespace-nowrap">
+Inscríbete en Juvenil
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Precios y paquetes -->
+<div class="max-w-4xl mx-auto">
+<h3 class="text-2xl font-bold mb-8 text-center">Precios y Paquetes</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Paquete Básico -->
+<div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
+<div class="bg-gray-100 p-6">
+<h4 class="text-xl font-bold mb-2">Paquete Básico</h4>
+<div class="text-3xl font-bold text-primary">$80 USD</div>
+</div>
+<div class="p-6">
+<ul class="space-y-3 mb-6">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Inscripción a la competencia</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Kit de participante</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Hidratación y snacks</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Medalla de finalista</span>
+</li>
+</ul>
+<button onclick="document.getElementById('pack-basico').checked = true; location.href='#inscripcion'" class="w-full bg-primary hover:bg-opacity-90 text-white font-bold py-3 !rounded-button shadow-lg transition-all whitespace-nowrap">
+Seleccionar
+</button>
+</div>
+</div>
+<!-- Paquete Premium -->
+<div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105 transform scale-105 border-2 border-primary">
+<div class="bg-primary p-6 text-white">
+<div class="flex justify-between items-center mb-2">
+<h4 class="text-xl font-bold">Paquete Premium</h4>
+<span class="bg-white text-primary text-xs font-bold px-2 py-1 rounded">POPULAR</span>
+</div>
+<div class="text-3xl font-bold">$150 USD</div>
+</div>
+<div class="p-6">
+<ul class="space-y-3 mb-6">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Todo lo del paquete básico</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Jersey oficial del evento</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Transporte de equipaje</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Asistencia mecánica</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Acceso a la fiesta de clausura</span>
+</li>
+</ul>
+<button onclick="document.getElementById('pack-premium').checked = true; location.href='#inscripcion'" class="w-full bg-primary hover:bg-opacity-90 text-white font-bold py-3 !rounded-button shadow-lg transition-all whitespace-nowrap">
+Seleccionar
+</button>
+</div>
+</div>
+<!-- Paquete VIP -->
+<div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
+<div class="bg-gray-100 p-6">
+<h4 class="text-xl font-bold mb-2">Paquete VIP</h4>
+<div class="text-3xl font-bold text-primary">$250 USD</div>
+</div>
+<div class="p-6">
+<ul class="space-y-3 mb-6">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Todo lo del paquete premium</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>2 noches de hospedaje</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Traslados aeropuerto-hotel</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-check-line"></i>
+</div>
+<span>Tour guiado a Machu Picchu</span>
+</li>
+</ul>
+<button onclick="document.getElementById('pack-vip').checked = true; location.href='#inscripcion'" class="w-full bg-primary hover:bg-opacity-90 text-white font-bold py-3 !rounded-button shadow-lg transition-all whitespace-nowrap">
+Seleccionar
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Turismo y Cultura Viva -->
+<section id="turismo" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold mb-4">Turismo y Cultura Viva</h2>
+<p class="text-xl text-gray-600 max-w-3xl mx-auto">Complementa tu experiencia deportiva con la riqueza cultural y natural del Valle Sagrado de los Incas.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
+<div>
+<h3 class="text-2xl font-bold mb-6">Experiencias Auténticas</h3>
+<div class="space-y-6">
+<div class="bg-white p-6 rounded-lg shadow-md flex">
+<div class="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=Traditional%20Andean%20weaving%20demonstration%20with%20colorful%20textiles%20and%20patterns%20in%20a%20small%20village%20in%20Perus%20Sacred%20Valley.%20A%20local%20artisan%20shows%20ancient%20techniques%20using%20natural%20dyes%20and%20traditional%20looms.%20Warm%2C%20authentic%20atmosphere%20with%20mountains%20visible%20through%20windows.&width=200&height=200&seq=10&orientation=squarish" alt="Talleres artesanales" class="w-full h-full object-cover">
+</div>
+<div>
+<h4 class="font-bold mb-2">Talleres Artesanales</h4>
+<p class="text-gray-600 text-sm">Aprende técnicas ancestrales de tejido y cerámica con artesanos locales. Llévate una pieza única creada por ti mismo.</p>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md flex">
+<div class="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=Traditional%20Andean%20cooking%20class%20in%20a%20rustic%20kitchen%20in%20Perus%20Sacred%20Valley.%20Local%20chef%20teaching%20visitors%20how%20to%20prepare%20authentic%20Peruvian%20dishes%20using%20local%20ingredients%20like%20corn%2C%20potatoes%2C%20and%20quinoa.%20Warm%20lighting%2C%20traditional%20cookware%2C%20and%20a%20friendly%20atmosphere.&width=200&height=200&seq=11&orientation=squarish" alt="Gastronomía andina" class="w-full h-full object-cover">
+</div>
+<div>
+<h4 class="font-bold mb-2">Gastronomía Andina</h4>
+<p class="text-gray-600 text-sm">Participa en clases de cocina tradicional y aprende a preparar platos típicos con productos locales y técnicas ancestrales.</p>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md flex">
+<div class="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=Traditional%20Andean%20ceremony%20with%20a%20local%20shaman%20making%20an%20offering%20to%20Pachamama%20%28Mother%20Earth%29%20in%20Perus%20Sacred%20Valley.%20Colorful%20ritual%20elements%20including%20coca%20leaves%2C%20flowers%2C%20and%20ceremonial%20items%20arranged%20on%20a%20textile.%20Mountains%20in%20background%2C%20mystical%20atmosphere.&width=200&height=200&seq=12&orientation=squarish" alt="Rituales andinos" class="w-full h-full object-cover">
+</div>
+<div>
+<h4 class="font-bold mb-2">Rituales Andinos</h4>
+<p class="text-gray-600 text-sm">Participa en auténticas ceremonias de agradecimiento a la Pachamama guiadas por chamanes locales.</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-2xl font-bold mb-6">Hospedaje Sostenible</h3>
+<div class="bg-white rounded-lg shadow-lg overflow-hidden">
+<div class="h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Eco-friendly%20lodge%20in%20Perus%20Sacred%20Valley%20with%20traditional%20Andean%20architecture%2C%20surrounded%20by%20mountains%20and%20corn%20fields.%20Sustainable%20building%20materials%2C%20solar%20panels%20visible%2C%20and%20native%20gardens.%20Comfortable%20outdoor%20seating%20areas%20with%20panoramic%20views.%20Professional%20architectural%20photography.&width=800&height=500&seq=13&orientation=landscape" alt="Hospedaje sostenible" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h4 class="font-bold mb-4">Alojamientos Eco-amigables</h4>
+<p class="text-gray-600 mb-6">Hemos seleccionado cuidadosamente alojamientos que respetan el medio ambiente y las comunidades locales, ofreciendo una experiencia auténtica y sostenible.</p>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center text-secondary mr-2">
+<i class="ri-recycle-line"></i>
+</div>
+<span class="text-sm">Energía renovable</span>
+</div>
+<div class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center text-secondary mr-2">
+<i class="ri-water-flash-line"></i>
+</div>
+<span class="text-sm">Agua purificada</span>
+</div>
+<div class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center text-secondary mr-2">
+<i class="ri-plant-line"></i>
+</div>
+<span class="text-sm">Alimentos locales</span>
+</div>
+<div class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center text-secondary mr-2">
+<i class="ri-community-line"></i>
+</div>
+<span class="text-sm">Gestión comunitaria</span>
+</div>
+</div>
+<button onclick="document.getElementById('modal-hospedaje').classList.remove('hidden')" class="bg-secondary hover:bg-opacity-90 text-white font-bold py-2 px-6 !rounded-button shadow-lg transition-all whitespace-nowrap flex items-center mx-auto">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-hotel-line"></i>
+</div>
+Ver opciones de hospedaje
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sitios de interés -->
+<h3 class="text-2xl font-bold mb-8 text-center">Sitios de Interés</h3>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Ancient%20Inca%20ruins%20of%20Pisac%20archaeological%20site%20in%20Perus%20Sacred%20Valley%2C%20with%20terraced%20hillsides%2C%20stone%20structures%2C%20and%20panoramic%20mountain%20views.%20Early%20morning%20light%20creating%20dramatic%20shadows%20on%20the%20stonework.%20Professional%20archaeological%20photography.&width=400&height=300&seq=14&orientation=landscape" alt="Ruinas de Pisac" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h4 class="font-bold mb-1">Ruinas de Pisac</h4>
+<p class="text-gray-600 text-sm">Impresionante ciudadela inca con terrazas agrícolas y templos ceremoniales.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Traditional%20salt%20evaporation%20ponds%20at%20Maras%20in%20Perus%20Sacred%20Valley%2C%20with%20thousands%20of%20terraced%20white%20salt%20pools%20cascading%20down%20the%20mountainside.%20People%20working%20in%20the%20distance%20harvesting%20salt.%20Golden%20afternoon%20light%20creating%20contrast%20between%20white%20salt%20and%20surrounding%20landscape.%20Professional%20landscape%20photography.&width=400&height=300&seq=15&orientation=landscape" alt="Salineras de Maras" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h4 class="font-bold mb-1">Salineras de Maras</h4>
+<p class="text-gray-600 text-sm">Miles de pozas de sal que se extienden por la ladera de la montaña.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Circular%20Inca%20agricultural%20terraces%20at%20Moray%20archaeological%20site%20in%20Perus%20Sacred%20Valley%2C%20with%20concentric%20rings%20descending%20into%20the%20earth.%20Perfect%20geometric%20patterns%20visible%20from%20above%2C%20surrounded%20by%20rolling%20hills%20and%20farmland.%20Professional%20archaeological%20photography%20with%20clear%20blue%20sky.&width=400&height=300&seq=16&orientation=landscape" alt="Moray" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h4 class="font-bold mb-1">Moray</h4>
+<p class="text-gray-600 text-sm">Antiguo laboratorio agrícola inca con terrazas circulares concéntricas.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Colorful%20Sunday%20market%20in%20Chinchero%2C%20Peru%20with%20local%20Andean%20people%20in%20traditional%20dress%20selling%20fresh%20produce%2C%20textiles%2C%20and%20crafts.%20Vibrant%20displays%20of%20corn%2C%20potatoes%2C%20and%20other%20local%20foods.%20Authentic%20cultural%20atmosphere%20with%20mountains%20in%20the%20background.%20Professional%20cultural%20photography.&width=400&height=300&seq=17&orientation=landscape" alt="Mercado de Chinchero" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-4">
+<h4 class="font-bold mb-1">Mercado de Chinchero</h4>
+<p class="text-gray-600 text-sm">Auténtico mercado tradicional con artesanías, textiles y productos locales.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Inscripción -->
+
+    <!-- Sección de Galería -->
+    <section id="galeria" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-secondary mb-4">Galería de Eventos Anteriores</h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Revive la emoción, el esfuerzo y los increíbles paisajes de nuestras ediciones pasadas a través de nuestra selección de fotos y videos.</p>
+            </div>
+
+            <!-- Videos -->
+            <h3 class="text-3xl font-bold text-secondary mb-8 border-b-2 border-primary pb-2 inline-block">Videos Destacados</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <div class="relative pb-[56.25%] h-0 rounded-lg overflow-hidden shadow-lg bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-500 absolute inset-0 flex items-center justify-center">Video de YouTube (Reemplazar src)</span>
+                    <iframe src="https://www.youtube.com/embed/Ejemplo1" title="Video resumen FIC" class="absolute top-0 left-0 w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="relative pb-[56.25%] h-0 rounded-lg overflow-hidden shadow-lg bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-500 absolute inset-0 flex items-center justify-center">Video de YouTube (Reemplazar src)</span>
+                    <iframe src="https://www.youtube.com/embed/Ejemplo2" title="Testimonios FIC" class="absolute top-0 left-0 w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Fotos -->
+            <h3 class="text-3xl font-bold text-secondary mb-8 border-b-2 border-primary pb-2 inline-block">Galería de Fotos</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="group relative overflow-hidden rounded-lg shadow-md aspect-square bg-gray-200">
+                    <img src="https://images.unsplash.com/photo-1544181093-c712c9a1d131?q=80&w=600&auto=format&fit=crop" alt="Ciclismo Cusco" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="group relative overflow-hidden rounded-lg shadow-md aspect-square bg-gray-200">
+                    <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?q=80&w=600&auto=format&fit=crop" alt="MTB Action" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="group relative overflow-hidden rounded-lg shadow-md aspect-square bg-gray-200">
+                    <img src="https://images.unsplash.com/photo-1579224422204-032c3f15c1e5?q=80&w=600&auto=format&fit=crop" alt="MTB Trail" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="group relative overflow-hidden rounded-lg shadow-md aspect-square bg-gray-200">
+                    <img src="https://images.unsplash.com/photo-1534777367038-9404f45b869a?q=80&w=600&auto=format&fit=crop" alt="Cycling Group" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="group relative overflow-hidden rounded-lg shadow-md aspect-square bg-gray-200">
+                    <img src="https://images.unsplash.com/photo-1507034589631-9433cc6bc453?q=80&w=600&auto=format&fit=crop" alt="Mountain Bike" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="group relative overflow-hidden rounded-lg shadow-md aspect-square bg-gray-200">
+                    <img src="https://images.unsplash.com/photo-1521360098595-5ee3a8542da6?q=80&w=600&auto=format&fit=crop" alt="Bike Wheel" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="group relative overflow-hidden rounded-lg shadow-md aspect-square bg-gray-200">
+                    <img src="https://images.unsplash.com/photo-1596706939989-d9d1502476d0?q=80&w=600&auto=format&fit=crop" alt="Cyclist Sunset" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="group relative overflow-hidden rounded-lg shadow-md aspect-square bg-gray-200">
+                    <img src="https://images.unsplash.com/photo-1541336032412-2048a678540d?q=80&w=600&auto=format&fit=crop" alt="Mountain Path" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
 
 
+    <!-- Sección de Voluntariado -->
+    <section id="voluntariado" class="py-20 bg-gray-50 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: url('https://www.transparenttextures.com/patterns/cubes.png');"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="w-full md:w-1/2 h-64 md:h-auto relative">
+                    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?q=80&w=1000&auto=format&fit=crop" alt="Voluntarios" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-secondary bg-opacity-30"></div>
+                </div>
+                <div class="w-full md:w-1/2 p-10 md:p-16">
+                    <span class="text-primary font-bold tracking-widest uppercase text-sm mb-2 block">Únete al Equipo</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-6">Sé Voluntario en la FIC 2026</h2>
+                    <p class="text-gray-600 mb-6 text-lg">
+                        El éxito de la Ciclovía del Maíz depende en gran medida de personas apasionadas como tú. Vive la competencia desde adentro, conoce a ciclistas de todo el mundo y sé parte de la organización del evento deportivo más grande del Valle Sagrado.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-700">
+                            <i class="ri-checkbox-circle-fill text-primary text-xl mr-3"></i> Certificado de participación oficial
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="ri-checkbox-circle-fill text-primary text-xl mr-3"></i> Kit exclusivo de staff (Polo y gorra)
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="ri-checkbox-circle-fill text-primary text-xl mr-3"></i> Alimentación durante los días del evento
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Preguntas Frecuentes -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-16">
+                <span class="text-primary font-bold tracking-widest uppercase text-sm mb-2 block">Dudas Comunes</span>
+                <h2 class="text-4xl font-bold text-secondary mb-4">Preguntas Frecuentes</h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 text-lg">Todo lo que necesitas saber sobre el evento, las rutas y las inscripciones.</p>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="border rounded-lg overflow-hidden">
+                    <button class="w-full text-left px-6 py-4 bg-gray-50 hover:bg-gray-100 font-bold text-secondary flex justify-between items-center focus:outline-none faq-toggle">
+                        <span>¿Es obligatorio tener licencia UCI para participar?</span>
+                        <i class="ri-arrow-down-s-line text-xl transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-6 py-4 text-gray-600 bg-white border-t hidden faq-content">
+                        No, la Ciclovía del Maíz es un evento de formato abierto. Tenemos categorías tanto para ciclistas profesionales (Elite) como para aficionados y principiantes. ¡Todos son bienvenidos!
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="border rounded-lg overflow-hidden">
+                    <button class="w-full text-left px-6 py-4 bg-gray-50 hover:bg-gray-100 font-bold text-secondary flex justify-between items-center focus:outline-none faq-toggle">
+                        <span>¿Qué incluye el kit de inscripción?</span>
+                        <i class="ri-arrow-down-s-line text-xl transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-6 py-4 text-gray-600 bg-white border-t hidden faq-content">
+                        El kit básico incluye: Dorsal oficial, medalla finisher (al completar la carrera), puntos de hidratación y nutrición en ruta, y asistencia médica. Los paquetes Premium y VIP incluyen jerseys oficiales, pases a eventos VIP y más sorpresas.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="border rounded-lg overflow-hidden">
+                    <button class="w-full text-left px-6 py-4 bg-gray-50 hover:bg-gray-100 font-bold text-secondary flex justify-between items-center focus:outline-none faq-toggle">
+                        <span>¿Puedo cambiar de categoría después de inscribirme?</span>
+                        <i class="ri-arrow-down-s-line text-xl transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-6 py-4 text-gray-600 bg-white border-t hidden faq-content">
+                        Sí, se permiten cambios de categoría hasta 30 días antes del evento. Deberás comunicarte con soporte vía WhatsApp para realizar la gestión sin costo adicional.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="border rounded-lg overflow-hidden">
+                    <button class="w-full text-left px-6 py-4 bg-gray-50 hover:bg-gray-100 font-bold text-secondary flex justify-between items-center focus:outline-none faq-toggle">
+                        <span>¿Cuáles son las restricciones para la categoría E-Bike?</span>
+                        <i class="ri-arrow-down-s-line text-xl transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-6 py-4 text-gray-600 bg-white border-t hidden faq-content">
+                        Las E-Bikes (Bicicletas de pedaleo asistido) solo pueden competir en su propia categoría exclusiva. Está estrictamente prohibido usar E-Bikes en categorías Master o Elite convencionales.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <p class="text-gray-600 mb-4">¿Tienes otra duda?</p>
+                <a href="https://wa.me/51993022225" target="_blank" class="inline-flex items-center text-primary font-bold hover:text-secondary transition-colors text-lg">
+                    Contáctanos por WhatsApp <i class="ri-whatsapp-line ml-2 text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+<section id="inscripcion" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold mb-4">Inscripción</h2>
+<p class="text-xl text-gray-600 max-w-3xl mx-auto">Asegura tu lugar en la experiencia ciclista más emocionante del Valle Sagrado de los Incas.</p>
+</div>
+<div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+<div class="grid grid-cols-1 md:grid-cols-2">
+<div class="p-8">
+<h3 class="text-2xl font-bold mb-6">Formulario de Inscripción</h3>
+<form id="form-inscripcion" onsubmit="submitForm(event, this, '/api/inscribir')">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+<div>
+<label class="block text-gray-700 mb-2" for="nombre">Nombre</label>
+<input type="text" id="nombre" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
+</div>
+<div>
+<label class="block text-gray-700 mb-2" for="apellido">Apellido</label>
+<input type="text" id="apellido" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
+</div>
+</div>
+<div class="mb-6">
+<label class="block text-gray-700 mb-2" for="email">Correo Electrónico</label>
+<input type="email" id="email" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
+</div>
+
+<div class="mb-6 bg-gray-50 p-4 rounded-lg border border-gray-200">
+    <h4 class="font-bold text-gray-800 mb-4">Datos de Facturación (Ayni Sport S.A.C.)</h4>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div>
+            <label class="block text-gray-700 mb-2 font-bold" for="tipo_comprobante">Tipo de Comprobante</label>
+            <select id="tipo_comprobante" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary" onchange="toggleFacturaFields()">
+                <option value="Boleta">Boleta de Venta</option>
+                <option value="Factura">Factura</option>
+            </select>
+        </div>
+        <div>
+            <label class="block text-gray-700 mb-2 font-bold" id="label_doc" for="documento">DNI / Pasaporte</label>
+            <input type="text" id="documento" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
+        </div>
+    </div>
+    
+    <!-- Campos exclusivos para Factura -->
+    <div id="campos_factura" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+            <label class="block text-gray-700 mb-2 font-bold" for="razon_social">Razón Social</label>
+            <input type="text" id="razon_social" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
+        </div>
+        <div>
+            <label class="block text-gray-700 mb-2 font-bold" for="direccion_fiscal">Dirección Fiscal</label>
+            <input type="text" id="direccion_fiscal" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
+        </div>
+    </div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+<div>
+<label class="block text-gray-700 mb-2" for="pais">País</label>
+<div class="relative">
+<select id="pais" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary appearance-none pr-8">
+<option value="">Selecciona tu país</option>
+<option value="es">España</option>
+<option value="pe">Perú</option>
+<option value="co">Colombia</option>
+<option value="mx">México</option>
+<option value="ar">Argentina</option>
+<option value="cl">Chile</option>
+<option value="us">Estados Unidos</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+<div class="w-5 h-5 flex items-center justify-center text-gray-500">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-gray-700 mb-2" for="edad">Edad</label>
+<input type="number" id="edad" min="12" max="99" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
+</div>
+</div>
+<div class="mb-6">
+<label class="block text-gray-700 mb-2">Categoría</label>
+<div class="space-y-2">
+<label class="flex items-center">
+<input type="radio" name="categoria" id="cat-elite" class="custom-checkbox" checked>
+<span class="ml-2">Elite</span>
+</label>
+<label class="flex items-center">
+<input type="radio" name="categoria" id="cat-amateur" class="custom-checkbox">
+<span class="ml-2">Amateur</span>
+</label>
+<label class="flex items-center">
+<input type="radio" name="categoria" id="cat-familiar" class="custom-checkbox">
+<span class="ml-2">Familiar</span>
+</label>
+<label class="flex items-center">
+<input type="radio" name="categoria" id="cat-juvenil" class="custom-checkbox">
+<span class="ml-2">Juvenil</span>
+</label>
+</div>
+</div>
+<div class="mb-6">
+<label class="block text-gray-700 mb-2">Paquete</label>
+<div class="space-y-2">
+<label class="flex items-center">
+<input type="radio" name="paquete" id="pack-basico" class="custom-checkbox">
+<span class="ml-2">Inscripción General (S/ 80)</span>
+</label>
+<label class="flex items-center">
+<input type="radio" name="paquete" id="pack-premium" class="custom-checkbox" checked>
+<span class="ml-2">Inscripción + Movilidad (S/ 120)</span>
+</label>
+<label class="flex items-center">
+<input type="radio" name="paquete" id="pack-vip" class="custom-checkbox">
+<span class="ml-2">Paquete Completo: Inscripción, Transporte, Hospedaje y Tour (S/ 890)</span>
+</label>
+</div>
+</div>
+
+<div class="mb-6">
+<label class="block text-gray-700 mb-2">Método de Pago</label>
+<div class="space-y-2 mb-4">
+<label class="flex items-center">
+<input type="radio" name="metodo_pago" value="Yape" class="custom-checkbox" onchange="togglePaymentInfo()" checked>
+<span class="ml-2">Yape</span>
+</label>
+<label class="flex items-center">
+<input type="radio" name="metodo_pago" value="Plin" class="custom-checkbox" onchange="togglePaymentInfo()">
+<span class="ml-2">Plin</span>
+</label>
+<label class="flex items-center">
+<input type="radio" name="metodo_pago" value="Depósito Bancario" class="custom-checkbox" onchange="togglePaymentInfo()">
+<span class="ml-2">Depósito Bancario</span>
+</label>
+<label class="flex items-center">
+<input type="radio" name="metodo_pago" value="PayPal" class="custom-checkbox" onchange="togglePaymentInfo()">
+<span class="ml-2">PayPal</span>
+</label>
+</div>
+
+<div id="pago-yape-plin" class="bg-gray-100 p-4 rounded mb-4 border-l-4 border-purple-500">
+<p class="text-sm font-bold mb-2 text-purple-700">Instrucciones Yape / Plin:</p>
+<p class="text-sm text-gray-700">1. Envía el monto al número: <span class="font-bold text-lg text-gray-900">993 022 225</span> <br><span class="text-xs text-gray-500">(A nombre de Ayni Sport S.A.C.)</span></p>
+<p class="text-sm text-gray-700 mt-2">2. Presiona el botón <b>"Inscribirse y Pagar"</b> para abrir WhatsApp.</p>
+<p class="text-sm text-gray-700 mt-2">3. <b>Adjunta la captura de pantalla</b> de tu pago directamente en el chat.</p>
+</div>
+
+<div id="pago-deposito" class="bg-gray-100 p-4 rounded mb-4 hidden">
+<p class="text-sm font-bold mb-2">Instrucciones (BCP / BBVA / Interbank):</p>
+<p class="text-sm">Cuenta BCP Soles: <span class="font-bold">194-0000000-0-00</span></p>
+<p class="text-sm">CCI: <span class="font-bold">002-194-0000000000-00</span></p>
+<p class="text-sm mt-2">Ingresa tu número de operación bancaria:</p>
+<input type="text" id="num_operacion_banco" class="w-full px-4 py-2 mt-2 border border-gray-300 rounded focus:outline-none focus:border-primary" placeholder="Ej. 098765">
+</div>
+
+<div id="pago-paypal" class="bg-gray-100 p-4 rounded mb-4 hidden">
+<p class="text-sm">Haz clic en el siguiente enlace para pagar mediante PayPal y anota tu código de transacción aquí.</p>
+<a href="https://paypal.me/cuscoaddac" target="_blank" class="text-primary font-bold hover:underline">paypal.me/cuscoaddac</a>
+<input type="text" id="num_operacion_paypal" class="w-full px-4 py-2 mt-2 border border-gray-300 rounded focus:outline-none focus:border-primary" placeholder="Código de transacción (Ej. 3LX9... )">
+</div>
+</div>
+<div class="mb-6">
+<label class="flex items-center">
+<input type="checkbox" class="custom-checkbox">
+<span class="ml-2 text-sm">Acepto los términos y condiciones del evento</span>
+</label>
+</div>
+<button type="submit" class="bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-8 !rounded-button text-lg shadow-lg transition-all whitespace-nowrap w-full">
+Completar Inscripción
+</button>
+</form>
+</div>
+<div class="bg-gray-100 p-8">
+<h3 class="text-2xl font-bold mb-6">Información Importante</h3>
+<div class="mb-6">
+<h4 class="font-bold mb-2">Métodos de Pago</h4>
+<div class="flex flex-wrap gap-4 mb-4">
+<div class="flex items-center bg-white px-3 py-2 rounded border border-gray-200">
+<div class="w-6 h-6 flex items-center justify-center mr-2 bg-purple-600 text-white rounded font-bold text-xs">Y</div>
+<span class="text-sm font-bold text-purple-600">Yape</span>
+</div>
+<div class="flex items-center bg-white px-3 py-2 rounded border border-gray-200">
+<div class="w-6 h-6 flex items-center justify-center mr-2 bg-blue-500 text-white rounded font-bold text-xs">P</div>
+<span class="text-sm font-bold text-blue-500">Plin</span>
+</div>
+<div class="flex items-center bg-white px-3 py-2 rounded">
+<div class="w-6 h-6 flex items-center justify-center mr-2">
+<i class="ri-paypal-fill text-blue-600"></i>
+</div>
+<span class="text-sm">PayPal</span>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<h4 class="font-bold mb-2">Documentos Requeridos</h4>
+<ul class="space-y-2">
+
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-file-list-line"></i>
+</div>
+<span class="text-sm">Documento de identidad o pasaporte</span>
+</li>
+
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-file-list-line"></i>
+</div>
+<span class="text-sm">Autorización de padres (menores de 18 años)</span>
+</li>
+</ul>
+</div>
+<div class="mb-6">
+<h4 class="font-bold mb-2">Fechas Importantes</h4>
+<ul class="space-y-2">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-calendar-line"></i>
+</div>
+<div>
+<span class="text-sm font-bold">15 de octubre, 2026</span>
+<p class="text-xs text-gray-600">Cierre de inscripciones</p>
+</div>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-calendar-line"></i>
+</div>
+<div>
+<span class="text-sm font-bold">19 de noviembre, 2026</span>
+<p class="text-xs text-gray-600">Entrega de kits en Cusco</p>
+</div>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+<i class="ri-calendar-line"></i>
+</div>
+<div>
+<span class="text-sm font-bold">20-22 de noviembre, 2026</span>
+<p class="text-xs text-gray-600">Festival y competencia</p>
+</div>
+</li>
+</ul>
+</div>
+<div>
+<a href="data:application/pdf;base64,JVBERi0xLjcKCjEgMCBvYmogICUgZW50cnkgcG9pbnQKPDwKICAvVHlwZSAvQ2F0YWxvZwogIC9QYWdlcyAyIDAgUgo+PgplbmRvYmoKCjIgMCBvYmoKPDwKICAvVHlwZSAvUGFnZXMKICAvTWVkaWFCb3ggWyAwIDAgMjAwIDIwMCBdCiAgL0NvdW50IDEKICAvS2lkcyBbIDMgMCBSIF0KPj4KZW5kb2JqCgozIDAgb2JqCjw8CiAgL1R5cGUgL1BhZ2UKICAvUGFyZW50IDIgMCBSCiAgL1Jlc291cmNlcyA8PAogICAgL0ZvbnQgPDwKICAgICAgL0YxIDQgMCBSCgkJPj4KICA+PgogIC9Db250ZW50cyA1IDAgUgo+PgplbmRvYmoKCjQgMCBvYmoKPDwKICAvVHlwZSAvRm9udAogIC9TdWJ0eXBlIC9UeXBlMQogIC9CYXNlRm9udCAvVGltZXMtUm9tYW4KPj4KZW5kb2JqCgo1IDAgb2JqCjw8IC9MZW5ndGggNzEgPj4Kc3RyZWFtCjIgSwoxIDAgMCBSRwoKRlQKICAvRjEgMjQgVGYKICAxMCAxMDAgVGQKICAoUmVnbGFtZW50byBkZSBQcnVlYmEpIFRqCkVUCnN0cmVhbQplbmRvYmoKCnhyZWYKMCA2CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAxMCAwMDAwMCBuIAowMDAwMDAwMDYwIDAwMDAwIG4gCjAwMDAwMDAxNDkgMDAwMDAgbiAKMDAwMDAwMDI1OCAwMDAwMCBuIAowMDAwMDAwMzQ3IDAwMDAwIG4gCnRyYWlsZXIKPDwKICAvU2l6ZSA2CiAgL1Jvb3QgMSAwIFIKPj4Kc3RhcnR4cmVmCjQ2OQolJUVPRgo=" download="reglamento_prueba.pdf" class="flex items-center text-secondary hover:underline cursor-pointer">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-download-line"></i>
+</div>
+<span>Descargar reglamento completo</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-16">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+<div>
+<h3 class="text-xl font-bold mb-4">Ciclovía del Maíz</h3>
+<p class="text-gray-400 mb-4">Festival Internacional de Ciclismo en el Valle Sagrado de los Incas, Cusco, Perú.</p>
+<div class="flex space-x-4">
+<a href="https://www.facebook.com/profile.php?id=61562076251040&locale=es_LA" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-facebook-fill"></i>
+</div>
+</a>
+<a href="#" class="text-gray-400 hover:text-white transition-colors">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-instagram-line"></i>
+</div>
+</a>
+<a href="#" class="text-gray-400 hover:text-white transition-colors">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-twitter-x-line"></i>
+</div>
+</a>
+<a href="#" class="text-gray-400 hover:text-white transition-colors">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-youtube-line"></i>
+</div>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-bold mb-4">Enlaces Rápidos</h4>
+<ul class="space-y-2">
+<li><a href="#inicio" class="text-gray-400 hover:text-white transition-colors">Inicio</a></li>
+<li><a href="#ruta" class="text-gray-400 hover:text-white transition-colors">La Ruta</a></li>
+<li><a href="#festival" class="text-gray-400 hover:text-white transition-colors">El Festival</a></li>
+<li><a href="#categorias" class="text-gray-400 hover:text-white transition-colors">Categorías</a></li>
+<li><a href="#turismo" class="text-gray-400 hover:text-white transition-colors">Turismo</a></li>
+<li><a href="#galeria" class="text-gray-400 hover:text-white transition-colors">Galería</a></li>
+<li><a href="#voluntariado" class="text-gray-400 hover:text-white transition-colors">Voluntariado</a></li>
+<li><a href="#faq" class="text-gray-400 hover:text-white transition-colors">Preguntas Frecuentes</a></li>
+<li><a href="resultados.html" class="text-gray-400 hover:text-white transition-colors">Resultados</a></li>
+<li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+<li><a href="#inscripcion" class="text-primary font-bold hover:text-white transition-colors">Inscripción</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4">Contacto</h4>
+<ul class="space-y-2">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-gray-400 mt-1 mr-2">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-gray-400">Mz. a Lote 21 Urb. Mariscal Gamarra I Etapa, Cusco</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-gray-400 mt-1 mr-2">
+<i class="ri-mail-line"></i>
+</div>
+
+</li>
 <li class="flex items-start">
 <div class="w-5 h-5 flex items-center justify-center text-gray-400 mt-1 mr-2">
 <i class="ri-mail-line"></i>
@@ -100,10 +1651,28 @@ Suscribir
   <div class="bg-white rounded-lg shadow-xl w-full max-w-lg">
     <div class="p-6 border-b border-gray-200 flex justify-between items-center">
       <h3 id="modal-legal-title" class="text-xl font-bold">Título</h3>
-      
+      <button onclick="document.getElementById('modal-legal').classList.add('hidden')" class="text-gray-500 hover:text-gray-700">
+        <i class="ri-close-line ri-xl"></i>
+      </button>
+    </div>
+    <div class="p-6">
+      <p id="modal-legal-content" class="text-gray-700">Contenido...</p>
+    </div>
+  </div>
 </div>
 
+<!-- Chat UI & Button -->
+<div class="fixed bottom-6 right-6 z-50">
 
+</div>
+
+<div id="chatWindow" class="fixed bottom-24 right-6 w-80 bg-white rounded-lg shadow-2xl overflow-hidden hidden z-50 flex flex-col" style="height: 400px;">
+  <div class="bg-primary text-white px-4 py-3 flex justify-between items-center">
+    <h3 class="font-bold">Asistente Virtual</h3>
+    <button id="closeChat" class="text-white hover:text-gray-200">
+      <i class="ri-close-line ri-lg"></i>
+    </button>
+  </div>
   <div id="chatMessages" class="flex-1 p-4 overflow-y-auto bg-gray-50 flex flex-col space-y-3">
     <div class="bg-gray-200 text-gray-800 rounded-lg p-2 max-w-[80%] self-start text-sm">
       ¡Hola! ¿En qué puedo ayudarte con la Ciclovía del Maíz?
