@@ -1754,14 +1754,25 @@ function submitForm(event, form, url) {
             
             // Redirigir a WhatsApp si es el formulario de inscripción
             if (form.id === 'form-inscripcion') {
-                const mensaje = encodeURIComponent(`¡Hola! Me he inscrito en la Ciclovía del Maíz 2026.
-Nombre: ${data.nombre} ${data.apellido}
-Paquete: ${data.paquete}
-Método de pago: ${data.metodo_pago}
-Operación: ${data.operacion}
-Comprobante: ${data.tipo_comprobante} (${data.documento}) ${data.tipo_comprobante === 'Factura' ? ' - ' + data.razon_social : ''}
+                const mensaje = encodeURIComponent(`🚴‍♂️ *¡Hola FIC 2026! Deseo confirmar mi inscripción.* 🚴‍♀️
 
-*Por favor adjunta aquí la foto/captura de pantalla de tu voucher o Yape para validar tu inscripción.*`);
+📝 *MIS DATOS:*
+👤 *Nombre:* ${data.nombre} ${data.apellido}
+📧 *Correo:* ${data.email}
+🌍 *País:* ${data.pais}
+🎂 *Edad:* ${data.edad} años
+🏆 *Categoría:* ${data.categoria}
+🎒 *Paquete Elegido:* ${data.paquete}
+
+💳 *DATOS DE FACTURACIÓN (Ayni Sport S.A.C.):*
+📄 *Comprobante:* ${data.tipo_comprobante}
+🆔 *Documento:* ${data.documento} ${data.tipo_comprobante === 'Factura' ? '\n🏢 *Razón Social:* ' + data.razon_social : ''}
+
+💰 *DETALLES DE PAGO:*
+🏦 *Método:* ${data.metodo_pago}
+🔢 *Operación/Ref:* ${data.operacion}
+
+📲 *NOTA:* A continuación adjuntaré la captura de pantalla de mi Yape/Plin o voucher para validar mi cupo. ¡Gracias! ✨`);
                 window.open(`https://wa.me/51993022225?text=${mensaje}`, '_blank');
             }
             form.reset();
