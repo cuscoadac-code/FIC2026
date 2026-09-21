@@ -594,12 +594,7 @@ Descargar mapa completo
 <div>
 <h4 class="font-bold mb-4">Requisitos</h4>
 <ul class="space-y-3 mb-6">
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-file-list-line"></i>
-</div>
-<span>Certificado médico (emitido máximo 3 meses antes)</span>
-</li>
+
 <li class="flex items-start">
 <div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
 <i class="ri-file-list-line"></i>
@@ -657,12 +652,7 @@ Inscríbete en Elite
 <div>
 <h4 class="font-bold mb-4">Requisitos</h4>
 <ul class="space-y-3 mb-6">
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-file-list-line"></i>
-</div>
-<span>Certificado médico (emitido máximo 3 meses antes)</span>
-</li>
+
 <li class="flex items-start">
 <div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
 <i class="ri-file-list-line"></i>
@@ -795,12 +785,7 @@ Inscríbete en Familiar
 </div>
 <span>Autorización firmada por padres o tutores</span>
 </li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-file-list-line"></i>
-</div>
-<span>Certificado médico (emitido máximo 3 meses antes)</span>
-</li>
+
 <li class="flex items-start">
 <div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
 <i class="ri-file-list-line"></i>
@@ -1108,7 +1093,7 @@ Ver opciones de hospedaje
             </div>
 
             <!-- Fotos -->
-            <h3 class="text-3xl font-bold text-secondary mb-8 border-b-2 border-primary pb-2 inline-block">Fotos Históricas</h3>
+            <h3 class="text-3xl font-bold text-secondary mb-8 border-b-2 border-primary pb-2 inline-block">Galería de Fotos</h3>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <div class="group relative overflow-hidden rounded-lg shadow-md aspect-square bg-gray-200">
                     <img src="https://images.unsplash.com/photo-1544181093-c712c9a1d131?q=80&w=600&auto=format&fit=crop" alt="Ciclismo Cusco" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
@@ -1380,11 +1365,11 @@ Ver opciones de hospedaje
 </label>
 </div>
 
-<div id="pago-yape-plin" class="bg-gray-100 p-4 rounded mb-4">
-<p class="text-sm font-bold mb-2">Instrucciones:</p>
-<p class="text-sm">Envía el monto al número: <span class="font-bold text-primary">993 022 225</span> (A nombre de Cusco Addac).</p>
-<p class="text-sm mt-2">Luego, ingresa tu número de operación/referencia:</p>
-<input type="text" id="num_operacion" class="w-full px-4 py-2 mt-2 border border-gray-300 rounded focus:outline-none focus:border-primary" placeholder="Ej. 12345678">
+<div id="pago-yape-plin" class="bg-gray-100 p-4 rounded mb-4 border-l-4 border-purple-500">
+<p class="text-sm font-bold mb-2 text-purple-700">Instrucciones Yape / Plin:</p>
+<p class="text-sm text-gray-700">1. Envía el monto al número: <span class="font-bold text-lg text-gray-900">993 022 225</span> <br><span class="text-xs text-gray-500">(A nombre de Ayni Sport S.A.C.)</span></p>
+<p class="text-sm text-gray-700 mt-2">2. Presiona el botón <b>"Inscribirse y Pagar"</b> para abrir WhatsApp.</p>
+<p class="text-sm text-gray-700 mt-2">3. <b>Adjunta la captura de pantalla</b> de tu pago directamente en el chat.</p>
 </div>
 
 <div id="pago-deposito" class="bg-gray-100 p-4 rounded mb-4 hidden">
@@ -1417,17 +1402,13 @@ Completar Inscripción
 <div class="mb-6">
 <h4 class="font-bold mb-2">Métodos de Pago</h4>
 <div class="flex flex-wrap gap-4 mb-4">
-<div class="flex items-center bg-white px-3 py-2 rounded">
-<div class="w-6 h-6 flex items-center justify-center mr-2">
-<i class="ri-visa-fill text-blue-700"></i>
+<div class="flex items-center bg-white px-3 py-2 rounded border border-gray-200">
+<div class="w-6 h-6 flex items-center justify-center mr-2 bg-purple-600 text-white rounded font-bold text-xs">Y</div>
+<span class="text-sm font-bold text-purple-600">Yape</span>
 </div>
-<span class="text-sm">Visa</span>
-</div>
-<div class="flex items-center bg-white px-3 py-2 rounded">
-<div class="w-6 h-6 flex items-center justify-center mr-2">
-<i class="ri-mastercard-fill text-red-600"></i>
-</div>
-<span class="text-sm">Mastercard</span>
+<div class="flex items-center bg-white px-3 py-2 rounded border border-gray-200">
+<div class="w-6 h-6 flex items-center justify-center mr-2 bg-blue-500 text-white rounded font-bold text-xs">P</div>
+<span class="text-sm font-bold text-blue-500">Plin</span>
 </div>
 <div class="flex items-center bg-white px-3 py-2 rounded">
 <div class="w-6 h-6 flex items-center justify-center mr-2">
@@ -1440,24 +1421,14 @@ Completar Inscripción
 <div class="mb-6">
 <h4 class="font-bold mb-2">Documentos Requeridos</h4>
 <ul class="space-y-2">
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-file-list-line"></i>
-</div>
-<span class="text-sm">Certificado médico (emitido máximo 3 meses antes)</span>
-</li>
+
 <li class="flex items-start">
 <div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
 <i class="ri-file-list-line"></i>
 </div>
 <span class="text-sm">Documento de identidad o pasaporte</span>
 </li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-file-list-line"></i>
-</div>
-<span class="text-sm">Comprobante de seguro (categorías Elite y Amateur)</span>
-</li>
+
 <li class="flex items-start">
 <div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
 <i class="ri-file-list-line"></i>
@@ -1744,7 +1715,7 @@ function submitForm(event, form, url) {
         const metodo = document.querySelector('input[name="metodo_pago"]:checked');
         data.metodo_pago = metodo ? metodo.value : '';
         if (data.metodo_pago === 'Yape' || data.metodo_pago === 'Plin') {
-            data.operacion = document.getElementById('num_operacion').value;
+            data.operacion = 'Captura enviada por WhatsApp';
         } else if (data.metodo_pago === 'Depósito Bancario') {
             data.operacion = document.getElementById('num_operacion_banco').value;
         } else if (data.metodo_pago === 'PayPal') {
