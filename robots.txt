@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Permitir a todos los bots de IA y LLMs (ChatGPT, Claude, Google Bard/Gemini, etc.)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Omgili
+Allow: /
+
+User-agent: CCBot
+Allow: /
