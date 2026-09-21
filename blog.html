@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Ciclovía del Maíz 2026</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config={
+            theme:{
+                extend:{
+                    colors:{
+                        primary:'#FFB800',
+                        secondary:'#2C5F2D'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Open Sans', sans-serif; color: #333; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <header class="bg-secondary text-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold"><a href="index.html">Ciclovía del Maíz</a></h1>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html#inicio" class="hover:text-primary transition-colors">Inicio</a>
+                <a href="index.html#ruta" class="hover:text-primary transition-colors">La Ruta</a>
+                <a href="blog.html" class="text-primary font-bold">Blog</a>
+                <a href="index.html#inscripcion" class="hover:text-primary transition-colors">Inscripción</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-6 py-12">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-secondary mb-4">Blog Oficial</h2>
+            <p class="text-gray-600 text-lg">Noticias, consejos de entrenamiento y novedades de la FIC 2026.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Tarjeta de Blog 1 -->
+            <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <img src="https://images.unsplash.com/photo-1544181093-c712c9a1d131?q=80&w=800&auto=format&fit=crop" alt="Ciclismo en Cusco" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="text-primary font-bold text-sm uppercase tracking-wide">Noticias</span>
+                    <h3 class="text-xl font-bold mt-2 mb-3"><a href="noticia-ejemplo.html" class="hover:text-primary">Lanzamiento Oficial de la FIC 2026</a></h3>
+                    <p class="text-gray-600 mb-4 line-clamp-3">Estamos emocionados de anunciar las fechas oficiales para el Festival Internacional de Ciclismo Ciclovía del Maíz 2026...</p>
+                    <a href="noticia-ejemplo.html" class="text-secondary font-bold hover:text-primary flex items-center">
+                        Leer más <i class="ri-arrow-right-line ml-2"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Tarjeta de Blog 2 -->
+            <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?q=80&w=800&auto=format&fit=crop" alt="Entrenamiento" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="text-primary font-bold text-sm uppercase tracking-wide">Entrenamiento</span>
+                    <h3 class="text-xl font-bold mt-2 mb-3"><a href="#" class="hover:text-primary">Cómo prepararte para la altura del Valle Sagrado</a></h3>
+                    <p class="text-gray-600 mb-4 line-clamp-3">Competir a más de 2,800 metros sobre el nivel del mar es un reto. Aquí te dejamos 5 consejos clave para aclimatarte.</p>
+                    <a href="#" class="text-secondary font-bold hover:text-primary flex items-center">
+                        Leer más <i class="ri-arrow-right-line ml-2"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Tarjeta de Blog 3 -->
+            <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <img src="https://images.unsplash.com/photo-1579224422204-032c3f15c1e5?q=80&w=800&auto=format&fit=crop" alt="Bicicleta" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="text-primary font-bold text-sm uppercase tracking-wide">Equipo</span>
+                    <h3 class="text-xl font-bold mt-2 mb-3"><a href="#" class="hover:text-primary">El equipo esencial para XCM</a></h3>
+                    <p class="text-gray-600 mb-4 line-clamp-3">Asegúrate de llevar todo lo necesario para sobrevivir a los terrenos exigentes del Cross Country Maratón.</p>
+                    <a href="#" class="text-secondary font-bold hover:text-primary flex items-center">
+                        Leer más <i class="ri-arrow-right-line ml-2"></i>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2026 Ciclovía del Maíz. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/51994381708" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 w-16 h-16 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-2xl flex items-center justify-center z-50 transition-transform transform hover:scale-110">
+        <i class="ri-whatsapp-line" style="font-size: 2rem;"></i>
+    </a>
+</body>
+</html>

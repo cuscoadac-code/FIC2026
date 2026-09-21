@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanzamiento Oficial FIC 2026</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config={
+            theme:{
+                extend:{
+                    colors:{
+                        primary:'#FFB800',
+                        secondary:'#2C5F2D'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Open Sans', sans-serif; color: #333; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <header class="bg-secondary text-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold"><a href="index.html">Ciclovía del Maíz</a></h1>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html#inicio" class="hover:text-primary transition-colors">Inicio</a>
+                <a href="blog.html" class="text-primary font-bold">Blog</a>
+                <a href="index.html#inscripcion" class="hover:text-primary transition-colors">Inscripción</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-6 py-12 max-w-4xl">
+        <a href="blog.html" class="text-secondary hover:text-primary flex items-center mb-6">
+            <i class="ri-arrow-left-line mr-2"></i> Volver al blog
+        </a>
+        
+        <article class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1544181093-c712c9a1d131?q=80&w=1200&auto=format&fit=crop" alt="Ciclismo en Cusco" class="w-full h-64 md:h-96 object-cover">
+            
+            <div class="p-8 md:p-12">
+                <div class="flex items-center mb-4 text-sm text-gray-500">
+                    <span class="bg-primary text-white px-3 py-1 rounded-full uppercase tracking-wide font-bold mr-4">Noticias</span>
+                    <span><i class="ri-calendar-line mr-1"></i> 20 de Septiembre, 2026</span>
+                </div>
+                
+                <h1 class="text-3xl md:text-5xl font-bold text-secondary mb-6 leading-tight">Lanzamiento Oficial de la FIC 2026: Una aventura en el Valle Sagrado</h1>
+                
+                <div class="prose max-w-none text-gray-700 text-lg leading-relaxed space-y-6">
+                    <p>
+                        Es un placer anunciar oficialmente las fechas para el esperado <strong>Festival Internacional de Ciclismo Ciclovía del Maíz 2026</strong>. Prepárate para vivir una experiencia inolvidable del 20 al 22 de Noviembre en el majestuoso Valle Sagrado de los Incas.
+                    </p>
+                    <p>
+                        Este año hemos preparado rutas renovadas y mayores desafíos. Desde el Prólogo Contrarreloj hasta el demandante Cross Country Maratón (XCM), la edición 2026 promete ser un reto técnico y físico, envuelto en los paisajes andinos más espectaculares del mundo.
+                    </p>
+                    <h3 class="text-2xl font-bold text-secondary mt-8 mb-4">¿Qué hay de nuevo este año?</h3>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li><strong>Rutas Optimizadas:</strong> Tramos técnicos rediseñados en colaboración con ciclistas locales de élite.</li>
+                        <li><strong>Categoría E-Bike Mejorada:</strong> Una pista exclusiva adaptada para sacar el máximo provecho a las bicicletas eléctricas.</li>
+                        <li><strong>Mayor Feria Gastronómica:</strong> Disfruta de lo mejor de la cocina andina en nuestra feria de cierre.</li>
+                    </ul>
+                    <p>
+                        Las inscripciones ya se encuentran abiertas con precios de preventa. No pierdas la oportunidad de ser parte de esta leyenda. ¡Nos vemos en la línea de partida!
+                    </p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2026 Ciclovía del Maíz. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/51994381708" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 w-16 h-16 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-2xl flex items-center justify-center z-50 transition-transform transform hover:scale-110">
+        <i class="ri-whatsapp-line" style="font-size: 2rem;"></i>
+    </a>
+</body>
+</html>
