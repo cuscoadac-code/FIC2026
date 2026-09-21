@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Festival Internacional de Ciclismo – Ciclovía del Maíz 2025</title>
+<title>Festival Internacional de Ciclismo – Ciclovía del Maíz 2026</title>
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <script>tailwind.config={theme:{extend:{colors:{primary:'#FFB800',secondary:'#2C5F2D'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -177,9 +177,9 @@ background-color: #2C5F2D;
 <div class="container mx-auto px-6 relative z-10">
 <div class="max-w-3xl text-white">
 <h1 class="text-5xl md:text-6xl font-bold mb-4">Festival Internacional de Ciclismo</h1>
-<h2 class="text-4xl md:text-5xl font-bold mb-6 text-primary">Ciclovía del Maíz 2025</h2>
+<h2 class="text-4xl md:text-5xl font-bold mb-6 text-primary">Ciclovía del Maíz 2026</h2>
 <p class="text-xl md:text-2xl mb-8">Pedale entre leyendas. Vive la Ciclovía del Maíz</p>
-<p class="text-lg mb-8">15-17 de Agosto, 2025 • Valle Sagrado de los Incas, Cusco, Perú</p>
+<p class="text-lg mb-8">20-22 de Noviembre, 2026 • Valle Sagrado de los Incas, Cusco, Perú</p>
 <a href="#inscripcion" class="inline-block bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-8 !rounded-button text-lg shadow-lg transition-all whitespace-nowrap">
 Inscríbete ahora
 </a>
@@ -407,7 +407,7 @@ Descargar mapa completo
 <div class="route-line"></div>
 </div>
 <div class="bg-white p-6 rounded-lg shadow-md flex-1">
-<h4 class="text-xl font-bold mb-2">Día 1: Viernes 15 de Agosto</h4>
+<h4 class="text-xl font-bold mb-2">Día 1: Viernes 20 de Noviembre</h4>
 <ul class="space-y-3">
 <li class="flex items-start">
 <span class="text-primary font-bold mr-2">09:00 - 12:00</span>
@@ -431,7 +431,7 @@ Descargar mapa completo
 <div class="route-line"></div>
 </div>
 <div class="bg-white p-6 rounded-lg shadow-md flex-1">
-<h4 class="text-xl font-bold mb-2">Día 2: Sábado 16 de Agosto</h4>
+<h4 class="text-xl font-bold mb-2">Día 2: Sábado 21 de Noviembre</h4>
 <ul class="space-y-3">
 <li class="flex items-start">
 <span class="text-primary font-bold mr-2">07:00 - 08:00</span>
@@ -454,7 +454,7 @@ Descargar mapa completo
 <div class="route-dot"></div>
 </div>
 <div class="bg-white p-6 rounded-lg shadow-md flex-1">
-<h4 class="text-xl font-bold mb-2">Día 3: Domingo 17 de Agosto</h4>
+<h4 class="text-xl font-bold mb-2">Día 3: Domingo 22 de Noviembre</h4>
 <ul class="space-y-3">
 <li class="flex items-start">
 <span class="text-primary font-bold mr-2">07:00 - 08:00</span>
@@ -1113,6 +1113,49 @@ Ver opciones de hospedaje
 </label>
 </div>
 </div>
+
+<div class="mb-6">
+<label class="block text-gray-700 mb-2">Método de Pago</label>
+<div class="space-y-2 mb-4">
+<label class="flex items-center">
+<input type="radio" name="metodo_pago" value="Yape" class="custom-checkbox" onchange="togglePaymentInfo()" checked>
+<span class="ml-2">Yape</span>
+</label>
+<label class="flex items-center">
+<input type="radio" name="metodo_pago" value="Plin" class="custom-checkbox" onchange="togglePaymentInfo()">
+<span class="ml-2">Plin</span>
+</label>
+<label class="flex items-center">
+<input type="radio" name="metodo_pago" value="Depósito Bancario" class="custom-checkbox" onchange="togglePaymentInfo()">
+<span class="ml-2">Depósito Bancario</span>
+</label>
+<label class="flex items-center">
+<input type="radio" name="metodo_pago" value="PayPal" class="custom-checkbox" onchange="togglePaymentInfo()">
+<span class="ml-2">PayPal</span>
+</label>
+</div>
+
+<div id="pago-yape-plin" class="bg-gray-100 p-4 rounded mb-4">
+<p class="text-sm font-bold mb-2">Instrucciones:</p>
+<p class="text-sm">Envía el monto al número: <span class="font-bold text-primary">999 999 999</span> (A nombre de Cusco Addac).</p>
+<p class="text-sm mt-2">Luego, ingresa tu número de operación/referencia:</p>
+<input type="text" id="num_operacion" class="w-full px-4 py-2 mt-2 border border-gray-300 rounded focus:outline-none focus:border-primary" placeholder="Ej. 12345678">
+</div>
+
+<div id="pago-deposito" class="bg-gray-100 p-4 rounded mb-4 hidden">
+<p class="text-sm font-bold mb-2">Instrucciones (BCP / BBVA / Interbank):</p>
+<p class="text-sm">Cuenta BCP Soles: <span class="font-bold">194-0000000-0-00</span></p>
+<p class="text-sm">CCI: <span class="font-bold">002-194-0000000000-00</span></p>
+<p class="text-sm mt-2">Ingresa tu número de operación bancaria:</p>
+<input type="text" id="num_operacion_banco" class="w-full px-4 py-2 mt-2 border border-gray-300 rounded focus:outline-none focus:border-primary" placeholder="Ej. 098765">
+</div>
+
+<div id="pago-paypal" class="bg-gray-100 p-4 rounded mb-4 hidden">
+<p class="text-sm">Haz clic en el siguiente enlace para pagar mediante PayPal y anota tu código de transacción aquí.</p>
+<a href="https://paypal.me/cuscoaddac" target="_blank" class="text-primary font-bold hover:underline">paypal.me/cuscoaddac</a>
+<input type="text" id="num_operacion_paypal" class="w-full px-4 py-2 mt-2 border border-gray-300 rounded focus:outline-none focus:border-primary" placeholder="Código de transacción (Ej. 3LX9... )">
+</div>
+</div>
 <div class="mb-6">
 <label class="flex items-center">
 <input type="checkbox" class="custom-checkbox">
@@ -1186,7 +1229,7 @@ Completar Inscripción
 <i class="ri-calendar-line"></i>
 </div>
 <div>
-<span class="text-sm font-bold">15 de julio, 2025</span>
+<span class="text-sm font-bold">15 de octubre, 2026</span>
 <p class="text-xs text-gray-600">Cierre de inscripciones</p>
 </div>
 </li>
@@ -1195,7 +1238,7 @@ Completar Inscripción
 <i class="ri-calendar-line"></i>
 </div>
 <div>
-<span class="text-sm font-bold">14 de agosto, 2025</span>
+<span class="text-sm font-bold">19 de noviembre, 2026</span>
 <p class="text-xs text-gray-600">Entrega de kits en Cusco</p>
 </div>
 </li>
@@ -1204,7 +1247,7 @@ Completar Inscripción
 <i class="ri-calendar-line"></i>
 </div>
 <div>
-<span class="text-sm font-bold">15-17 de agosto, 2025</span>
+<span class="text-sm font-bold">20-22 de noviembre, 2026</span>
 <p class="text-xs text-gray-600">Festival y competencia</p>
 </div>
 </li>
@@ -1301,7 +1344,7 @@ Suscribir
 </div>
 <div class="border-t border-gray-800 pt-8">
 <div class="flex flex-col md:flex-row justify-between items-center">
-<p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 Ciclovía del Maíz. Todos los derechos reservados.</p>
+<p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2026 Ciclovía del Maíz. Todos los derechos reservados.</p>
 <div class="flex space-x-4">
 <button onclick="showLegalModal('Términos y Condiciones', 'Estos son los términos y condiciones de prueba para la participación en la Ciclovía del Maíz...')" class="text-gray-400 hover:text-white transition-colors text-sm">Términos y Condiciones</button>
 <button onclick="showLegalModal('Política de Privacidad', 'Nuestra política de privacidad protege tus datos de acuerdo a las leyes vigentes...')" class="text-gray-400 hover:text-white transition-colors text-sm">Política de Privacidad</button>
@@ -1405,7 +1448,23 @@ Suscribir
   </div>
 </div>
 <script>
-async function submitForm(event, form, url) {
+async 
+function togglePaymentInfo() {
+    const metodo = document.querySelector('input[name="metodo_pago"]:checked').value;
+    document.getElementById('pago-yape-plin').classList.add('hidden');
+    document.getElementById('pago-deposito').classList.add('hidden');
+    document.getElementById('pago-paypal').classList.add('hidden');
+    
+    if (metodo === 'Yape' || metodo === 'Plin') {
+        document.getElementById('pago-yape-plin').classList.remove('hidden');
+    } else if (metodo === 'Depósito Bancario') {
+        document.getElementById('pago-deposito').classList.remove('hidden');
+    } else if (metodo === 'PayPal') {
+        document.getElementById('pago-paypal').classList.remove('hidden');
+    }
+}
+
+function submitForm(event, form, url) {
     event.preventDefault();
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn ? submitBtn.innerHTML : '';
@@ -1423,8 +1482,20 @@ async function submitForm(event, form, url) {
         data.edad = document.getElementById('edad').value;
         const cat = document.querySelector('input[name="categoria"]:checked');
         data.categoria = cat ? cat.nextElementSibling.textContent.trim() : '';
+
         const pack = document.querySelector('input[name="paquete"]:checked');
         data.paquete = pack ? pack.nextElementSibling.textContent.trim() : '';
+        
+        const metodo = document.querySelector('input[name="metodo_pago"]:checked');
+        data.metodo_pago = metodo ? metodo.value : '';
+        if (data.metodo_pago === 'Yape' || data.metodo_pago === 'Plin') {
+            data.operacion = document.getElementById('num_operacion').value;
+        } else if (data.metodo_pago === 'Depósito Bancario') {
+            data.operacion = document.getElementById('num_operacion_banco').value;
+        } else if (data.metodo_pago === 'PayPal') {
+            data.operacion = document.getElementById('num_operacion_paypal').value;
+        }
+
     } else {
         const emailInput = form.querySelector('input[type="email"]');
         if (emailInput) data.email = emailInput.value;
@@ -1441,7 +1512,11 @@ async function submitForm(event, form, url) {
             
             // Redirigir a WhatsApp si es el formulario de inscripción
             if (form.id === 'form-inscripcion') {
-                const mensaje = encodeURIComponent("Black prueba fuck al reservar de forma autnklaotca");
+                const mensaje = encodeURIComponent(`¡Hola! Me he inscrito en la Ciclovía del Maíz 2026.
+Nombre: ${data.nombre} ${data.apellido}
+Paquete: ${data.paquete}
+Método de pago: ${data.metodo_pago}
+Operación: ${data.operacion}`);
                 window.open(`https://wa.me/51994381708?text=${mensaje}`, '_blank');
             }
             form.reset();
@@ -1467,7 +1542,7 @@ function showLegalModal(title, content) {
 document.addEventListener('DOMContentLoaded', function() {
 // Countdown Timer
 function updateCountdown() {
-const eventDate = new Date('August 15, 2025 08:00:00').getTime();
+const eventDate = new Date('November 20, 2026 08:00:00').getTime();
 const now = new Date().getTime();
 const distance = eventDate - now;
 const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -1517,7 +1592,7 @@ left: 60
 },
 xAxis: {
 type: 'category',
-data: ['2020', '2021', '2022', '2023', '2024', '2025'],
+data: ['2021', '2022', '2023', '2024', '2025', '2026'],
 axisLabel: {
 color: '#1f2937'
 }
