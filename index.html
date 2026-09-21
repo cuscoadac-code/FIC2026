@@ -558,405 +558,79 @@ Descargar mapa completo
 </div>
 </section>
 <!-- Categorías y Competencia -->
-<section id="categorias" class="py-20 bg-white">
-<div class="container mx-auto px-6">
-<div class="text-center mb-16">
-<h2 class="text-4xl font-bold mb-4">Categorías y Competencia</h2>
-<p class="text-xl text-gray-600 max-w-3xl mx-auto">Encuentra la categoría perfecta para ti y prepárate para vivir la aventura de la Ciclovía del Maíz.</p>
-</div>
-<!-- Tabs de categorías -->
-<div class="max-w-4xl mx-auto mb-16">
-<div class="flex justify-center mb-8">
-<div class="inline-flex p-1 bg-gray-100 rounded-full">
-<button class="tab-button px-6 py-2 rounded-full tab-active whitespace-nowrap" data-tab="elite">Elite</button>
-<button class="tab-button px-6 py-2 rounded-full whitespace-nowrap" data-tab="amateur">Amateur</button>
-<button class="tab-button px-6 py-2 rounded-full whitespace-nowrap" data-tab="familiar">Familiar</button>
-<button class="tab-button px-6 py-2 rounded-full whitespace-nowrap" data-tab="juvenil">Juvenil</button>
-</div>
-</div>
-<!-- Contenido de tabs -->
-<div class="bg-white rounded-lg shadow-lg p-8">
-<!-- Elite -->
-<div class="tab-content" id="elite-content">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<div>
-<h3 class="text-2xl font-bold mb-4">Categoría Elite</h3>
-<p class="text-gray-700 mb-6">Para ciclistas experimentados que buscan el máximo desafío. Recorrido completo de los tres sectores con cronometraje oficial.</p>
-<ul class="space-y-3">
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Edad: 18-45 años</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Distancia: 83 km (recorrido completo)</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Bicicletas: MTB o Gravel</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Premios: $5,000 USD en total para ganadores</span>
-</li>
-</ul>
-</div>
-<div>
-<h4 class="font-bold mb-4">Requisitos</h4>
-<ul class="space-y-3 mb-6">
-
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-file-list-line"></i>
-</div>
-<span>Seguro de accidentes (obligatorio)</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-file-list-line"></i>
-</div>
-<span>Casco y equipo de protección completo</span>
-</li>
-</ul>
-<div class="text-center">
-<button onclick="document.getElementById('cat-elite').checked = true; location.href='#inscripcion'" class="bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-8 !rounded-button text-lg shadow-lg transition-all whitespace-nowrap">
-Inscríbete en Elite
-</button>
-</div>
-</div>
-</div>
-</div>
-<!-- Amateur -->
-<div class="tab-content hidden" id="amateur-content">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<div>
-<h3 class="text-2xl font-bold mb-4">Categoría Amateur</h3>
-<p class="text-gray-700 mb-6">Para ciclistas con experiencia intermedia que buscan disfrutar del recorrido sin la presión competitiva de elite.</p>
-<ul class="space-y-3">
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Edad: 18+ años</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Distancia: 55 km (sectores 1 y 2)</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Bicicletas: MTB, Gravel o Híbrida</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Premios: Medallas y productos de patrocinadores</span>
-</li>
-</ul>
-</div>
-<div>
-<h4 class="font-bold mb-4">Requisitos</h4>
-<ul class="space-y-3 mb-6">
-
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-file-list-line"></i>
-</div>
-<span>Seguro de accidentes (obligatorio)</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-file-list-line"></i>
-</div>
-<span>Casco y equipo de protección básico</span>
-</li>
-</ul>
-<div class="text-center">
-<button onclick="document.getElementById('cat-amateur').checked = true; location.href='#inscripcion'" class="bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-8 !rounded-button text-lg shadow-lg transition-all whitespace-nowrap">
-Inscríbete en Amateur
-</button>
-</div>
-</div>
-</div>
-</div>
-<!-- Familiar -->
-<div class="tab-content hidden" id="familiar-content">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<div>
-<h3 class="text-2xl font-bold mb-4">Categoría Familiar</h3>
-<p class="text-gray-700 mb-6">Disfruta de un recorrido recreativo pensado para familias, con paradas culturales y actividades para todas las edades.</p>
-<ul class="space-y-3">
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Edad: Todas las edades (menores acompañados)</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Distancia: 25 km (sector 1 con paradas)</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Bicicletas: Cualquier tipo en buen estado</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Premios: Recuerdos para todos los participantes</span>
-</li>
-</ul>
-</div>
-<div>
-<h4 class="font-bold mb-4">Incluye</h4>
-<ul class="space-y-3 mb-6">
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-double-line"></i>
-</div>
-<span>Guías bilingües en todo el recorrido</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-double-line"></i>
-</div>
-<span>Paradas con actividades culturales</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-double-line"></i>
-</div>
-<span>Almuerzo tradicional incluido</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-double-line"></i>
-</div>
-<span>Asistencia mecánica y médica</span>
-</li>
-</ul>
-<div class="text-center">
-<button onclick="document.getElementById('cat-familiar').checked = true; location.href='#inscripcion'" class="bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-8 !rounded-button text-lg shadow-lg transition-all whitespace-nowrap">
-Inscríbete en Familiar
-</button>
-</div>
-</div>
-</div>
-</div>
-<!-- Juvenil -->
-<div class="tab-content hidden" id="juvenil-content">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<div>
-<h3 class="text-2xl font-bold mb-4">Categoría Juvenil</h3>
-<p class="text-gray-700 mb-6">Especialmente diseñada para jóvenes ciclistas que quieren iniciarse en las competencias de montaña.</p>
-<ul class="space-y-3">
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Edad: 12-17 años (autorización de padres)</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Distancia: 30 km (sector 2 adaptado)</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Bicicletas: MTB o Gravel juvenil</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Premios: Trofeos y equipamiento deportivo</span>
-</li>
-</ul>
-</div>
-<div>
-<h4 class="font-bold mb-4">Requisitos</h4>
-<ul class="space-y-3 mb-6">
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-file-list-line"></i>
-</div>
-<span>Autorización firmada por padres o tutores</span>
-</li>
-
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-file-list-line"></i>
-</div>
-<span>Casco y equipo de protección completo</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-file-list-line"></i>
-</div>
-<span>Seguro de accidentes (incluido en la inscripción)</span>
-</li>
-</ul>
-<div class="text-center">
-<button onclick="document.getElementById('cat-juvenil').checked = true; location.href='#inscripcion'" class="bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-8 !rounded-button text-lg shadow-lg transition-all whitespace-nowrap">
-Inscríbete en Juvenil
-</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Precios y paquetes -->
-<div class="max-w-4xl mx-auto">
-<h3 class="text-2xl font-bold mb-8 text-center">Precios y Paquetes</h3>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<!-- Paquete Básico -->
-<div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
-<div class="bg-gray-100 p-6">
-<h4 class="text-xl font-bold mb-2">Paquete Básico</h4>
-<div class="text-3xl font-bold text-primary">$80 USD</div>
-</div>
-<div class="p-6">
-<ul class="space-y-3 mb-6">
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Inscripción a la competencia</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Kit de participante</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Hidratación y snacks</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Medalla de finalista</span>
-</li>
-</ul>
-<button onclick="document.getElementById('pack-basico').checked = true; location.href='#inscripcion'" class="w-full bg-primary hover:bg-opacity-90 text-white font-bold py-3 !rounded-button shadow-lg transition-all whitespace-nowrap">
-Seleccionar
-</button>
-</div>
-</div>
-<!-- Paquete Premium -->
-<div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105 transform scale-105 border-2 border-primary">
-<div class="bg-primary p-6 text-white">
-<div class="flex justify-between items-center mb-2">
-<h4 class="text-xl font-bold">Paquete Premium</h4>
-<span class="bg-white text-primary text-xs font-bold px-2 py-1 rounded">POPULAR</span>
-</div>
-<div class="text-3xl font-bold">$150 USD</div>
-</div>
-<div class="p-6">
-<ul class="space-y-3 mb-6">
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Todo lo del paquete básico</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Jersey oficial del evento</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Transporte de equipaje</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Asistencia mecánica</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Acceso a la fiesta de clausura</span>
-</li>
-</ul>
-<button onclick="document.getElementById('pack-premium').checked = true; location.href='#inscripcion'" class="w-full bg-primary hover:bg-opacity-90 text-white font-bold py-3 !rounded-button shadow-lg transition-all whitespace-nowrap">
-Seleccionar
-</button>
-</div>
-</div>
-<!-- Paquete VIP -->
-<div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
-<div class="bg-gray-100 p-6">
-<h4 class="text-xl font-bold mb-2">Paquete VIP</h4>
-<div class="text-3xl font-bold text-primary">$250 USD</div>
-</div>
-<div class="p-6">
-<ul class="space-y-3 mb-6">
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Todo lo del paquete premium</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>2 noches de hospedaje</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Traslados aeropuerto-hotel</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
-<i class="ri-check-line"></i>
-</div>
-<span>Tour guiado a Machu Picchu</span>
-</li>
-</ul>
-<button onclick="document.getElementById('pack-vip').checked = true; location.href='#inscripcion'" class="w-full bg-primary hover:bg-opacity-90 text-white font-bold py-3 !rounded-button shadow-lg transition-all whitespace-nowrap">
-Seleccionar
-</button>
-</div>
-</div>
-</div>
-</div>
-</div>
+<section id="categorias" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4 text-gray-900">Categorías FIC 2026</h2>
+            <p class="text-xl text-primary font-bold max-w-3xl mx-auto uppercase tracking-wider">Total: 9 Categorías Oficiales</p>
+        </div>
+        
+        <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-primary hover:shadow-xl transition-shadow flex flex-col justify-center items-center text-center">
+                    <i class="ri-riding-line text-4xl text-primary mb-3"></i>
+                    <h3 class="text-xl font-bold text-gray-800">PRECADETE (MIXTO)</h3>
+                    <span class="text-gray-500 font-bold mt-2 bg-gray-100 px-4 py-1 rounded-full text-sm">12 - 14 años</span>
+                </div>
+                <!-- 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-primary hover:shadow-xl transition-shadow flex flex-col justify-center items-center text-center">
+                    <i class="ri-riding-fill text-4xl text-primary mb-3"></i>
+                    <h3 class="text-xl font-bold text-gray-800">CADETES (MIXTO)</h3>
+                    <span class="text-gray-500 font-bold mt-2 bg-gray-100 px-4 py-1 rounded-full text-sm">15 - 17 años</span>
+                </div>
+                <!-- 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-black hover:shadow-xl transition-shadow flex flex-col justify-center items-center text-center relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-black text-white text-xs font-bold px-3 py-1 rounded-bl-lg">PRO</div>
+                    <i class="ri-medal-fill text-4xl text-black mb-3"></i>
+                    <h3 class="text-xl font-extrabold text-black">ELITE</h3>
+                    <span class="text-gray-500 font-bold mt-2 bg-gray-100 px-4 py-1 rounded-full text-sm">18+ años</span>
+                </div>
+                <!-- 4 -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-primary hover:shadow-xl transition-shadow flex flex-col justify-center items-center text-center">
+                    <i class="ri-user-star-line text-4xl text-primary mb-3"></i>
+                    <h3 class="text-xl font-bold text-gray-800">NOVELES</h3>
+                    <span class="text-gray-500 font-bold mt-2 bg-gray-100 px-4 py-1 rounded-full text-sm">Principiantes</span>
+                </div>
+                <!-- 5 -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-orange-500 hover:shadow-xl transition-shadow flex flex-col justify-center items-center text-center">
+                    <i class="ri-fire-fill text-4xl text-orange-500 mb-3"></i>
+                    <h3 class="text-xl font-bold text-gray-800">MASTER A</h3>
+                    <span class="text-gray-500 font-bold mt-2 bg-gray-100 px-4 py-1 rounded-full text-sm">30 - 39 años</span>
+                </div>
+                <!-- 6 -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-orange-600 hover:shadow-xl transition-shadow flex flex-col justify-center items-center text-center">
+                    <i class="ri-fire-fill text-4xl text-orange-600 mb-3"></i>
+                    <h3 class="text-xl font-bold text-gray-800">MASTER B</h3>
+                    <span class="text-gray-500 font-bold mt-2 bg-gray-100 px-4 py-1 rounded-full text-sm">40 - 49 años</span>
+                </div>
+                <!-- 7 -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-red-600 hover:shadow-xl transition-shadow flex flex-col justify-center items-center text-center">
+                    <i class="ri-fire-fill text-4xl text-red-600 mb-3"></i>
+                    <h3 class="text-xl font-bold text-gray-800">MASTER C</h3>
+                    <span class="text-gray-500 font-bold mt-2 bg-gray-100 px-4 py-1 rounded-full text-sm">50+ años</span>
+                </div>
+                <!-- 8 -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-pink-500 hover:shadow-xl transition-shadow flex flex-col justify-center items-center text-center">
+                    <i class="ri-women-line text-4xl text-pink-500 mb-3"></i>
+                    <h3 class="text-xl font-bold text-gray-800">DAMAS</h3>
+                    <span class="text-gray-500 font-bold mt-2 bg-gray-100 px-4 py-1 rounded-full text-sm">Categoría Femenina</span>
+                </div>
+                <!-- 9 -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500 hover:shadow-xl transition-shadow flex flex-col justify-center items-center text-center">
+                    <i class="ri-battery-charge-fill text-4xl text-blue-500 mb-3"></i>
+                    <h3 class="text-xl font-bold text-gray-800">E-BIKE</h3>
+                    <span class="text-gray-500 font-bold mt-2 bg-gray-100 px-4 py-1 rounded-full text-sm">Bicicletas Asistidas</span>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#inscripcion" class="inline-block bg-primary hover:bg-opacity-90 text-white font-bold py-4 px-10 rounded-full text-xl shadow-lg transition-all hover:-translate-y-1">
+                    Seleccionar mi Categoría
+                </a>
+            </div>
+        </div>
+    </div>
 </section>
 <!-- Turismo y Cultura Viva -->
 <section id="turismo" class="py-20 bg-gray-50">
@@ -1723,7 +1397,7 @@ function submitForm(event, form, url) {
         data.razon_social = document.getElementById('razon_social').value;
 
         const cat = document.querySelector('input[name="categoria"]:checked');
-        data.categoria = cat ? cat.nextElementSibling.textContent.trim() : '';
+        data.categoria = cat ? cat.value : '';
 
         const pack = document.querySelector('input[name="paquete"]:checked');
         data.paquete = pack ? pack.nextElementSibling.textContent.trim() : '';
