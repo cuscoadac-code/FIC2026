@@ -1351,7 +1351,7 @@ Ver opciones de hospedaje
 
 <div id="pago-yape-plin" class="bg-gray-100 p-4 rounded mb-4">
 <p class="text-sm font-bold mb-2">Instrucciones:</p>
-<p class="text-sm">Envía el monto al número: <span class="font-bold text-primary">999 999 999</span> (A nombre de Cusco Addac).</p>
+<p class="text-sm">Envía el monto al número: <span class="font-bold text-primary">993 022 225</span> (A nombre de Cusco Addac).</p>
 <p class="text-sm mt-2">Luego, ingresa tu número de operación/referencia:</p>
 <input type="text" id="num_operacion" class="w-full px-4 py-2 mt-2 border border-gray-300 rounded focus:outline-none focus:border-primary" placeholder="Ej. 12345678">
 </div>
@@ -1730,7 +1730,9 @@ function submitForm(event, form, url) {
 Nombre: ${data.nombre} ${data.apellido}
 Paquete: ${data.paquete}
 Método de pago: ${data.metodo_pago}
-Operación: ${data.operacion}`);
+Operación: ${data.operacion}
+
+*Por favor adjunta aquí la foto/captura de pantalla de tu voucher o Yape para validar tu inscripción.*`);
                 window.open(`https://wa.me/51993022225?text=${mensaje}`, '_blank');
             }
             form.reset();
