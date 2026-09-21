@@ -10,8 +10,8 @@
             theme:{
                 extend:{
                     colors:{
-                        primary:'#FFB800',
-                        secondary:'#2C5F2D'
+                        primary:'#FF7A00', // Naranja estilo Machu Picchu Epic
+                        secondary:'#4A4A4A'
                     }
                 }
             }
@@ -20,204 +20,203 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
     <style>
-        body { font-family: 'Open Sans', sans-serif; color: #333; }
-        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
+        body { font-family: 'Open Sans', sans-serif; background-image: url('https://images.unsplash.com/photo-1544181093-c712c9a1d131?q=80&w=1920&auto=format&fit=crop'); background-attachment: fixed; background-size: cover; }
+        .glass-panel { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
         .table-row-hover:hover { background-color: #f3f4f6; }
+        
+        /* Custom scrollbar for table */
+        .table-container::-webkit-scrollbar { height: 8px; }
+        .table-container::-webkit-scrollbar-track { background: #f1f1f1; }
+        .table-container::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+        .table-container::-webkit-scrollbar-thumb:hover { background: #555; }
+        
+        .medal { font-size: 1.5rem; }
+        .btn-filter { padding: 0.5rem 1.5rem; border-radius: 9999px; font-weight: bold; border: 2px solid #FF7A00; transition: all 0.2s; background: white; color: #FF7A00; }
+        .btn-filter.active { background: #FF7A00; color: white; }
     </style>
 </head>
-<body class="bg-gray-50 flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen">
 
     <!-- Navbar -->
-    <header class="bg-secondary text-white shadow-md sticky top-0 z-50">
+    <header class="bg-gray-900 text-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold"><a href="index.html">Ciclovía del Maíz</a></h1>
-            <div class="hidden md:flex space-x-8 text-sm">
-                <a href="index.html#inicio" class="hover:text-primary transition-colors">Inicio</a>
-                <a href="index.html#ruta" class="hover:text-primary transition-colors">La Ruta</a>
-                <a href="resultados.html" class="text-primary font-bold">Resultados</a>
-                <a href="blog.html" class="hover:text-primary transition-colors">Blog</a>
-                <a href="index.html#inscripcion" class="hover:text-primary transition-colors">Inscripción</a>
+            <h1 class="text-2xl font-bold text-primary"><a href="index.html">FIC 2026</a></h1>
+            <div class="hidden md:flex space-x-8 text-sm font-bold">
+                <a href="index.html" class="hover:text-primary transition-colors">Volver al Inicio</a>
             </div>
         </nav>
     </header>
 
     <!-- Main Content -->
-    <main class="flex-grow container mx-auto px-6 py-12">
-        <div class="text-center mb-12">
-            <span class="text-primary font-bold tracking-widest uppercase text-sm mb-2 block">Tiempos y Clasificaciones</span>
-            <h2 class="text-4xl font-bold text-secondary mb-4">Resultados FIC 2026</h2>
-            <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
-            <p class="text-gray-600 max-w-2xl mx-auto text-lg">Busca tu nombre, número de dorsal o filtra por categoría para ver los tiempos oficiales de la carrera.</p>
-        </div>
-
-        <!-- Filtros -->
-        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <div class="flex flex-col md:flex-row gap-4">
-                <div class="flex-1">
-                    <label class="block text-sm font-bold text-gray-700 mb-2">Buscar Ciclista</label>
-                    <div class="relative">
-                        <i class="ri-search-line absolute left-3 top-3 text-gray-400"></i>
-                        <input type="text" id="searchInput" placeholder="Nombre o número de dorsal..." class="w-full pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:border-primary">
-                    </div>
+    <main class="flex-grow container mx-auto px-2 py-8">
+        
+        <div class="glass-panel rounded-xl shadow-2xl overflow-hidden border-t-4 border-primary">
+            
+            <!-- Filters Header -->
+            <div class="p-6 border-b border-gray-200">
+                
+                <!-- Buscador -->
+                <div class="max-w-md mx-auto mb-6 relative">
+                    <i class="ri-search-line absolute left-4 top-3 text-gray-400 text-xl"></i>
+                    <input type="text" id="searchInput" placeholder="Buscar por Nombre, Dorsal o País..." class="w-full pl-12 pr-4 py-3 rounded-full border-2 border-gray-200 focus:outline-none focus:border-primary shadow-sm text-gray-700 font-bold">
                 </div>
-                <div class="w-full md:w-64">
-                    <label class="block text-sm font-bold text-gray-700 mb-2">Filtrar Categoría</label>
-                    <select id="categoryFilter" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-primary">
+
+                <!-- Botones de Filtro -->
+                <div class="flex flex-wrap justify-center gap-3 mb-4">
+                    <button class="btn-filter active" id="btn-gen">Generales</button>
+                    <button class="btn-filter" id="btn-cat">Categorías</button>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-3" id="cat-filters" style="display: none;">
+                    <select id="categorySelect" class="btn-filter bg-white text-primary border-primary font-bold appearance-none px-6">
                         <option value="all">Todas las Categorías</option>
                         <option value="Elite Masculino">Elite Masculino</option>
                         <option value="Elite Femenino">Elite Femenino</option>
-                        <option value="Master A">Master A (30-39)</option>
-                        <option value="Master B">Master B (40-49)</option>
-                        <option value="Master C">Master C (50+)</option>
+                        <option value="Master A (30-39)">Master A (30-39)</option>
+                        <option value="Master B (40-49)">Master B (40-49)</option>
+                        <option value="Master C (50+)">Master C (50+)</option>
+                        <option value="Damas A">Damas A</option>
                         <option value="E-Bike">E-Bike</option>
                     </select>
                 </div>
-                <div class="w-full md:w-48">
-                    <label class="block text-sm font-bold text-gray-700 mb-2">Etapa</label>
-                    <select id="stageFilter" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-primary">
-                        <option value="general">Clasificación General</option>
-                        <option value="etapa1">Etapa 1 (Contrarreloj)</option>
-                        <option value="etapa2">Etapa 2 (XCM)</option>
-                    </select>
+            </div>
+
+            <!-- Tabla -->
+            <div class="table-container overflow-x-auto p-4">
+                <table class="w-full text-sm text-left border-collapse min-w-[1200px]" id="resultsTable">
+                    <thead>
+                        <tr class="bg-gray-600 text-white text-xs uppercase tracking-wider text-center">
+                            <th colspan="13" class="p-2 border border-gray-500 text-sm">Resultados de la carrera 2 Días - FIC 2026</th>
+                        </tr>
+                        <tr class="bg-gray-500 text-white text-xs uppercase tracking-wider text-center">
+                            <th class="p-3 border-r border-gray-400">Pos.<br>Gral.</th>
+                            <th class="p-3 border-r border-gray-400">Pos.<br>Género</th>
+                            <th class="p-3 border-r border-gray-400">Pos.<br>Cat.</th>
+                            <th class="p-3 border-r border-gray-400">N°</th>
+                            <th class="p-3 border-r border-gray-400 text-left min-w-[200px]">Nombre</th>
+                            <th class="p-3 border-r border-gray-400">Categoría</th>
+                            <th class="p-3 border-r border-gray-400">Género</th>
+                            <th class="p-3 border-r border-gray-400">País</th>
+                            <th class="p-3 border-r border-gray-400">Prólogo</th>
+                            <th class="p-3 border-r border-gray-400">Maratón</th>
+                            <th class="p-3 border-r border-gray-400 bg-gray-600 font-bold text-sm">Total</th>
+                            <th class="p-3 border-r border-gray-400">Diff.<br>Primero</th>
+                            <th class="p-3">Diff.<br>Anterior</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-800 font-semibold" id="tableBody">
+                        <!-- Generado por JS -->
+                    </tbody>
+                </table>
+                <div id="noResults" class="hidden text-center py-10 text-gray-500 font-bold text-lg">
+                    No se encontraron participantes.
                 </div>
             </div>
-        </div>
-
-        <!-- Tabla de Resultados -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden overflow-x-auto">
-            <table class="w-full text-left border-collapse" id="resultsTable">
-                <thead>
-                    <tr class="bg-secondary text-white">
-                        <th class="p-4 font-bold border-b">Pos</th>
-                        <th class="p-4 font-bold border-b">Dorsal</th>
-                        <th class="p-4 font-bold border-b">Ciclista</th>
-                        <th class="p-4 font-bold border-b">Categoría</th>
-                        <th class="p-4 font-bold border-b">Equipo/País</th>
-                        <th class="p-4 font-bold border-b">Tiempo</th>
-                        <th class="p-4 font-bold border-b">Diferencia</th>
-                    </tr>
-                </thead>
-                <tbody class="text-gray-700" id="resultsBody">
-                    <tr class="border-b table-row-hover">
-                        <td class="p-4 font-bold text-primary">1</td>
-                        <td class="p-4">101</td>
-                        <td class="p-4 font-bold">Carlos Ramírez</td>
-                        <td class="p-4">Elite Masculino</td>
-                        <td class="p-4">Perú 🇵🇪</td>
-                        <td class="p-4 font-mono font-bold">04:15:22</td>
-                        <td class="p-4 font-mono text-gray-500">-</td>
-                    </tr>
-                    <tr class="border-b table-row-hover">
-                        <td class="p-4 font-bold text-gray-600">2</td>
-                        <td class="p-4">105</td>
-                        <td class="p-4 font-bold">Juan Pablo Silva</td>
-                        <td class="p-4">Elite Masculino</td>
-                        <td class="p-4">Colombia 🇨🇴</td>
-                        <td class="p-4 font-mono font-bold">04:18:10</td>
-                        <td class="p-4 font-mono text-red-500">+00:02:48</td>
-                    </tr>
-                    <tr class="border-b table-row-hover">
-                        <td class="p-4 font-bold text-gray-600">3</td>
-                        <td class="p-4">112</td>
-                        <td class="p-4 font-bold">Diego Vásquez</td>
-                        <td class="p-4">Elite Masculino</td>
-                        <td class="p-4">Perú 🇵🇪</td>
-                        <td class="p-4 font-mono font-bold">04:22:45</td>
-                        <td class="p-4 font-mono text-red-500">+00:07:23</td>
-                    </tr>
-                    <tr class="border-b table-row-hover bg-gray-50">
-                        <td class="p-4 font-bold text-primary">1</td>
-                        <td class="p-4">201</td>
-                        <td class="p-4 font-bold">María José López</td>
-                        <td class="p-4">Elite Femenino</td>
-                        <td class="p-4">Chile 🇨🇱</td>
-                        <td class="p-4 font-mono font-bold">05:02:15</td>
-                        <td class="p-4 font-mono text-gray-500">-</td>
-                    </tr>
-                    <tr class="border-b table-row-hover bg-gray-50">
-                        <td class="p-4 font-bold text-gray-600">2</td>
-                        <td class="p-4">203</td>
-                        <td class="p-4 font-bold">Ana Torres</td>
-                        <td class="p-4">Elite Femenino</td>
-                        <td class="p-4">Perú 🇵🇪</td>
-                        <td class="p-4 font-mono font-bold">05:15:30</td>
-                        <td class="p-4 font-mono text-red-500">+00:13:15</td>
-                    </tr>
-                    <tr class="border-b table-row-hover">
-                        <td class="p-4 font-bold text-primary">1</td>
-                        <td class="p-4">350</td>
-                        <td class="p-4 font-bold">Roberto Gómez</td>
-                        <td class="p-4">Master A</td>
-                        <td class="p-4">Cusco Addac 🇵🇪</td>
-                        <td class="p-4 font-mono font-bold">04:30:00</td>
-                        <td class="p-4 font-mono text-gray-500">-</td>
-                    </tr>
-                </tbody>
-            </table>
             
-            <!-- Empty State (Hidden by default) -->
-            <div id="emptyState" class="hidden p-8 text-center text-gray-500">
-                <i class="ri-search-eye-line text-4xl mb-2"></i>
-                <p>No se encontraron resultados para la búsqueda.</p>
-            </div>
-        </div>
-        
-        <div class="mt-8 text-center text-sm text-gray-500">
-            <p>* Los resultados son extraoficiales hasta ser confirmados por los jueces de carrera.</p>
-            <p>Última actualización: En vivo.</p>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8 mt-12">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2026 Ciclovía del Maíz. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <!-- Script para filtro de resultados -->
+    <!-- JS Logic -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.getElementById('searchInput');
-            const categoryFilter = document.getElementById('categoryFilter');
-            const tbody = document.getElementById('resultsBody');
-            const rows = tbody.getElementsByTagName('tr');
-            const emptyState = document.getElementById('emptyState');
-            const table = document.getElementById('resultsTable');
+        const participants = [{"id": 85, "dorsal": 185, "nombre": "CAMILA SILVA SILVA", "categoria": "Elite Femenino", "genero": "F", "pais": "ECUADOR", "etapa1_sec": 1916, "etapa2_sec": 8060, "total_sec": 9976, "etapa1": "00:31:56", "etapa2": "02:14:20", "total": "02:46:16", "pos_gral": 1, "pos_genero": 1, "pos_cat": 1, "diff_primero": "-", "diff_anterior": "-"}, {"id": 77, "dorsal": 177, "nombre": "ANDR\u00c9S P\u00c9REZ FERN\u00c1NDEZ", "categoria": "Elite Masculino", "genero": "M", "pais": "ESPA\u00d1A", "etapa1_sec": 2613, "etapa2_sec": 7376, "total_sec": 9989, "etapa1": "00:43:33", "etapa2": "02:02:56", "total": "02:46:29", "pos_gral": 2, "pos_genero": 1, "pos_cat": 1, "diff_primero": "+00:00:13", "diff_anterior": "+00:00:13"}, {"id": 25, "dorsal": 125, "nombre": "ROBERTO L\u00d3PEZ P\u00c9REZ", "categoria": "Master A (30-39)", "genero": "M", "pais": "BRASIL", "etapa1_sec": 2476, "etapa2_sec": 7559, "total_sec": 10035, "etapa1": "00:41:16", "etapa2": "02:05:59", "total": "02:47:15", "pos_gral": 3, "pos_genero": 2, "pos_cat": 1, "diff_primero": "+00:00:59", "diff_anterior": "+00:00:46"}, {"id": 30, "dorsal": 130, "nombre": "MIGUEL FERN\u00c1NDEZ SILVA", "categoria": "Master C (50+)", "genero": "M", "pais": "BRASIL", "etapa1_sec": 2013, "etapa2_sec": 8051, "total_sec": 10064, "etapa1": "00:33:33", "etapa2": "02:14:11", "total": "02:47:44", "pos_gral": 4, "pos_genero": 3, "pos_cat": 1, "diff_primero": "+00:01:28", "diff_anterior": "+00:00:29"}, {"id": 45, "dorsal": 145, "nombre": "VALERIA GARC\u00cdA GARC\u00cdA", "categoria": "Damas A", "genero": "F", "pais": "COLOMBIA", "etapa1_sec": 2712, "etapa2_sec": 7719, "total_sec": 10431, "etapa1": "00:45:12", "etapa2": "02:08:39", "total": "02:53:51", "pos_gral": 5, "pos_genero": 2, "pos_cat": 1, "diff_primero": "+00:07:35", "diff_anterior": "+00:06:07"}, {"id": 59, "dorsal": 159, "nombre": "ROBERTO RODR\u00cdGUEZ MART\u00cdNEZ", "categoria": "E-Bike", "genero": "M", "pais": "ECUADOR", "etapa1_sec": 3079, "etapa2_sec": 7564, "total_sec": 10643, "etapa1": "00:51:19", "etapa2": "02:06:04", "total": "02:57:23", "pos_gral": 6, "pos_genero": 4, "pos_cat": 1, "diff_primero": "+00:11:07", "diff_anterior": "+00:03:32"}, {"id": 15, "dorsal": 115, "nombre": "CARLOS SILVA TORRES", "categoria": "E-Bike", "genero": "M", "pais": "ECUADOR", "etapa1_sec": 1955, "etapa2_sec": 8705, "total_sec": 10660, "etapa1": "00:32:35", "etapa2": "02:25:05", "total": "02:57:40", "pos_gral": 7, "pos_genero": 5, "pos_cat": 2, "diff_primero": "+00:11:24", "diff_anterior": "+00:00:17"}, {"id": 50, "dorsal": 150, "nombre": "MIGUEL V\u00c1SQUEZ L\u00d3PEZ", "categoria": "Elite Masculino", "genero": "M", "pais": "COLOMBIA", "etapa1_sec": 3297, "etapa2_sec": 7367, "total_sec": 10664, "etapa1": "00:54:57", "etapa2": "02:02:47", "total": "02:57:44", "pos_gral": 8, "pos_genero": 6, "pos_cat": 2, "diff_primero": "+00:11:28", "diff_anterior": "+00:00:04"}, {"id": 74, "dorsal": 174, "nombre": "ALEJANDRO TORRES P\u00c9REZ", "categoria": "Master C (50+)", "genero": "M", "pais": "CHILE", "etapa1_sec": 2848, "etapa2_sec": 7871, "total_sec": 10719, "etapa1": "00:47:28", "etapa2": "02:11:11", "total": "02:58:39", "pos_gral": 9, "pos_genero": 7, "pos_cat": 2, "diff_primero": "+00:12:23", "diff_anterior": "+00:00:55"}, {"id": 81, "dorsal": 181, "nombre": "VALERIA GARC\u00cdA G\u00d3MEZ", "categoria": "Damas A", "genero": "F", "pais": "BOLIVIA", "etapa1_sec": 2197, "etapa2_sec": 8558, "total_sec": 10755, "etapa1": "00:36:37", "etapa2": "02:22:38", "total": "02:59:15", "pos_gral": 10, "pos_genero": 3, "pos_cat": 2, "diff_primero": "+00:12:59", "diff_anterior": "+00:00:36"}, {"id": 4, "dorsal": 104, "nombre": "ANDR\u00c9S G\u00d3MEZ GONZ\u00c1LEZ", "categoria": "Master B (40-49)", "genero": "M", "pais": "PERU", "etapa1_sec": 3082, "etapa2_sec": 7735, "total_sec": 10817, "etapa1": "00:51:22", "etapa2": "02:08:55", "total": "03:00:17", "pos_gral": 11, "pos_genero": 8, "pos_cat": 1, "diff_primero": "+00:14:01", "diff_anterior": "+00:01:02"}, {"id": 47, "dorsal": 147, "nombre": "ANDR\u00c9S SILVA TORRES", "categoria": "Master C (50+)", "genero": "M", "pais": "ARGENTINA", "etapa1_sec": 3545, "etapa2_sec": 7356, "total_sec": 10901, "etapa1": "00:59:05", "etapa2": "02:02:36", "total": "03:01:41", "pos_gral": 12, "pos_genero": 9, "pos_cat": 3, "diff_primero": "+00:15:25", "diff_anterior": "+00:01:24"}, {"id": 90, "dorsal": 190, "nombre": "GABRIELA TORRES TORRES", "categoria": "Damas A", "genero": "F", "pais": "ARGENTINA", "etapa1_sec": 2826, "etapa2_sec": 8085, "total_sec": 10911, "etapa1": "00:47:06", "etapa2": "02:14:45", "total": "03:01:51", "pos_gral": 13, "pos_genero": 4, "pos_cat": 3, "diff_primero": "+00:15:35", "diff_anterior": "+00:00:10"}, {"id": 26, "dorsal": 126, "nombre": "LUIS FERN\u00c1NDEZ V\u00c1SQUEZ", "categoria": "E-Bike", "genero": "M", "pais": "BRASIL", "etapa1_sec": 3278, "etapa2_sec": 7647, "total_sec": 10925, "etapa1": "00:54:38", "etapa2": "02:07:27", "total": "03:02:05", "pos_gral": 14, "pos_genero": 10, "pos_cat": 3, "diff_primero": "+00:15:49", "diff_anterior": "+00:00:14"}, {"id": 53, "dorsal": 153, "nombre": "ANDR\u00c9S FERN\u00c1NDEZ P\u00c9REZ", "categoria": "E-Bike", "genero": "M", "pais": "COLOMBIA", "etapa1_sec": 3266, "etapa2_sec": 7708, "total_sec": 10974, "etapa1": "00:54:26", "etapa2": "02:08:28", "total": "03:02:54", "pos_gral": 15, "pos_genero": 11, "pos_cat": 4, "diff_primero": "+00:16:38", "diff_anterior": "+00:00:49"}, {"id": 80, "dorsal": 180, "nombre": "PAULA FERN\u00c1NDEZ MART\u00cdNEZ", "categoria": "Elite Femenino", "genero": "F", "pais": "EEUU", "etapa1_sec": 3040, "etapa2_sec": 8036, "total_sec": 11076, "etapa1": "00:50:40", "etapa2": "02:13:56", "total": "03:04:36", "pos_gral": 16, "pos_genero": 5, "pos_cat": 2, "diff_primero": "+00:18:20", "diff_anterior": "+00:01:42"}, {"id": 1, "dorsal": 101, "nombre": "DIEGO TORRES L\u00d3PEZ", "categoria": "E-Bike", "genero": "M", "pais": "ESPA\u00d1A", "etapa1_sec": 2599, "etapa2_sec": 8635, "total_sec": 11234, "etapa1": "00:43:19", "etapa2": "02:23:55", "total": "03:07:14", "pos_gral": 17, "pos_genero": 12, "pos_cat": 5, "diff_primero": "+00:20:58", "diff_anterior": "+00:02:38"}, {"id": 5, "dorsal": 105, "nombre": "ALEJANDRO FERN\u00c1NDEZ L\u00d3PEZ", "categoria": "Master C (50+)", "genero": "M", "pais": "COLOMBIA", "etapa1_sec": 1826, "etapa2_sec": 9480, "total_sec": 11306, "etapa1": "00:30:26", "etapa2": "02:38:00", "total": "03:08:26", "pos_gral": 18, "pos_genero": 13, "pos_cat": 4, "diff_primero": "+00:22:10", "diff_anterior": "+00:01:12"}, {"id": 94, "dorsal": 194, "nombre": "ROBERTO MART\u00cdNEZ G\u00d3MEZ", "categoria": "Elite Masculino", "genero": "M", "pais": "ARGENTINA", "etapa1_sec": 1923, "etapa2_sec": 9398, "total_sec": 11321, "etapa1": "00:32:03", "etapa2": "02:36:38", "total": "03:08:41", "pos_gral": 19, "pos_genero": 14, "pos_cat": 3, "diff_primero": "+00:22:25", "diff_anterior": "+00:00:15"}, {"id": 92, "dorsal": 192, "nombre": "PAULA V\u00c1SQUEZ RODR\u00cdGUEZ", "categoria": "Elite Femenino", "genero": "F", "pais": "ESPA\u00d1A", "etapa1_sec": 1823, "etapa2_sec": 9517, "total_sec": 11340, "etapa1": "00:30:23", "etapa2": "02:38:37", "total": "03:09:00", "pos_gral": 20, "pos_genero": 6, "pos_cat": 3, "diff_primero": "+00:22:44", "diff_anterior": "+00:00:19"}, {"id": 95, "dorsal": 195, "nombre": "MIGUEL V\u00c1SQUEZ GONZ\u00c1LEZ", "categoria": "Elite Masculino", "genero": "M", "pais": "BOLIVIA", "etapa1_sec": 2968, "etapa2_sec": 8385, "total_sec": 11353, "etapa1": "00:49:28", "etapa2": "02:19:45", "total": "03:09:13", "pos_gral": 21, "pos_genero": 15, "pos_cat": 4, "diff_primero": "+00:22:57", "diff_anterior": "+00:00:13"}, {"id": 42, "dorsal": 142, "nombre": "JUAN GARC\u00cdA V\u00c1SQUEZ", "categoria": "Master B (40-49)", "genero": "M", "pais": "MEXICO", "etapa1_sec": 2433, "etapa2_sec": 8960, "total_sec": 11393, "etapa1": "00:40:33", "etapa2": "02:29:20", "total": "03:09:53", "pos_gral": 22, "pos_genero": 16, "pos_cat": 2, "diff_primero": "+00:23:37", "diff_anterior": "+00:00:40"}, {"id": 73, "dorsal": 173, "nombre": "ROBERTO RAM\u00cdREZ TORRES", "categoria": "Elite Masculino", "genero": "M", "pais": "BRASIL", "etapa1_sec": 2468, "etapa2_sec": 8942, "total_sec": 11410, "etapa1": "00:41:08", "etapa2": "02:29:02", "total": "03:10:10", "pos_gral": 23, "pos_genero": 17, "pos_cat": 5, "diff_primero": "+00:23:54", "diff_anterior": "+00:00:17"}, {"id": 86, "dorsal": 186, "nombre": "DANIELA GARC\u00cdA L\u00d3PEZ", "categoria": "Damas A", "genero": "F", "pais": "CHILE", "etapa1_sec": 3289, "etapa2_sec": 8183, "total_sec": 11472, "etapa1": "00:54:49", "etapa2": "02:16:23", "total": "03:11:12", "pos_gral": 24, "pos_genero": 7, "pos_cat": 4, "diff_primero": "+00:24:56", "diff_anterior": "+00:01:02"}, {"id": 83, "dorsal": 183, "nombre": "DIEGO RAM\u00cdREZ G\u00d3MEZ", "categoria": "Master B (40-49)", "genero": "M", "pais": "EEUU", "etapa1_sec": 2394, "etapa2_sec": 9310, "total_sec": 11704, "etapa1": "00:39:54", "etapa2": "02:35:10", "total": "03:15:04", "pos_gral": 25, "pos_genero": 18, "pos_cat": 3, "diff_primero": "+00:28:48", "diff_anterior": "+00:03:52"}, {"id": 7, "dorsal": 107, "nombre": "ALEJANDRO MART\u00cdNEZ FERN\u00c1NDEZ", "categoria": "Elite Masculino", "genero": "M", "pais": "EEUU", "etapa1_sec": 3556, "etapa2_sec": 8182, "total_sec": 11738, "etapa1": "00:59:16", "etapa2": "02:16:22", "total": "03:15:38", "pos_gral": 26, "pos_genero": 19, "pos_cat": 6, "diff_primero": "+00:29:22", "diff_anterior": "+00:00:34"}, {"id": 84, "dorsal": 184, "nombre": "JUAN V\u00c1SQUEZ MART\u00cdNEZ", "categoria": "Master B (40-49)", "genero": "M", "pais": "ECUADOR", "etapa1_sec": 3403, "etapa2_sec": 8388, "total_sec": 11791, "etapa1": "00:56:43", "etapa2": "02:19:48", "total": "03:16:31", "pos_gral": 27, "pos_genero": 20, "pos_cat": 4, "diff_primero": "+00:30:15", "diff_anterior": "+00:00:53"}, {"id": 41, "dorsal": 141, "nombre": "JORGE V\u00c1SQUEZ GARC\u00cdA", "categoria": "Master A (30-39)", "genero": "M", "pais": "PERU", "etapa1_sec": 1897, "etapa2_sec": 9898, "total_sec": 11795, "etapa1": "00:31:37", "etapa2": "02:44:58", "total": "03:16:35", "pos_gral": 28, "pos_genero": 21, "pos_cat": 2, "diff_primero": "+00:30:19", "diff_anterior": "+00:00:04"}, {"id": 55, "dorsal": 155, "nombre": "JORGE GARC\u00cdA RAM\u00cdREZ", "categoria": "Elite Masculino", "genero": "M", "pais": "BOLIVIA", "etapa1_sec": 2532, "etapa2_sec": 9277, "total_sec": 11809, "etapa1": "00:42:12", "etapa2": "02:34:37", "total": "03:16:49", "pos_gral": 29, "pos_genero": 22, "pos_cat": 7, "diff_primero": "+00:30:33", "diff_anterior": "+00:00:14"}, {"id": 40, "dorsal": 140, "nombre": "FERNANDO TORRES MART\u00cdNEZ", "categoria": "E-Bike", "genero": "M", "pais": "CHILE", "etapa1_sec": 2955, "etapa2_sec": 8918, "total_sec": 11873, "etapa1": "00:49:15", "etapa2": "02:28:38", "total": "03:17:53", "pos_gral": 30, "pos_genero": 23, "pos_cat": 6, "diff_primero": "+00:31:37", "diff_anterior": "+00:01:04"}, {"id": 62, "dorsal": 162, "nombre": "CARLOS G\u00d3MEZ V\u00c1SQUEZ", "categoria": "Master B (40-49)", "genero": "M", "pais": "MEXICO", "etapa1_sec": 3474, "etapa2_sec": 8479, "total_sec": 11953, "etapa1": "00:57:54", "etapa2": "02:21:19", "total": "03:19:13", "pos_gral": 31, "pos_genero": 24, "pos_cat": 5, "diff_primero": "+00:32:57", "diff_anterior": "+00:01:20"}, {"id": 78, "dorsal": 178, "nombre": "LUIS FERN\u00c1NDEZ V\u00c1SQUEZ", "categoria": "Master C (50+)", "genero": "M", "pais": "ARGENTINA", "etapa1_sec": 2053, "etapa2_sec": 9946, "total_sec": 11999, "etapa1": "00:34:13", "etapa2": "02:45:46", "total": "03:19:59", "pos_gral": 32, "pos_genero": 25, "pos_cat": 5, "diff_primero": "+00:33:43", "diff_anterior": "+00:00:46"}, {"id": 69, "dorsal": 169, "nombre": "CARLOS V\u00c1SQUEZ FERN\u00c1NDEZ", "categoria": "Master A (30-39)", "genero": "M", "pais": "MEXICO", "etapa1_sec": 3236, "etapa2_sec": 8827, "total_sec": 12063, "etapa1": "00:53:56", "etapa2": "02:27:07", "total": "03:21:03", "pos_gral": 33, "pos_genero": 26, "pos_cat": 3, "diff_primero": "+00:34:47", "diff_anterior": "+00:01:04"}, {"id": 19, "dorsal": 119, "nombre": "PAULA GONZ\u00c1LEZ RAM\u00cdREZ", "categoria": "Elite Femenino", "genero": "F", "pais": "EEUU", "etapa1_sec": 2480, "etapa2_sec": 9611, "total_sec": 12091, "etapa1": "00:41:20", "etapa2": "02:40:11", "total": "03:21:31", "pos_gral": 34, "pos_genero": 8, "pos_cat": 4, "diff_primero": "+00:35:15", "diff_anterior": "+00:00:28"}, {"id": 18, "dorsal": 118, "nombre": "ANDR\u00c9S RODR\u00cdGUEZ V\u00c1SQUEZ", "categoria": "E-Bike", "genero": "M", "pais": "ESPA\u00d1A", "etapa1_sec": 2915, "etapa2_sec": 9178, "total_sec": 12093, "etapa1": "00:48:35", "etapa2": "02:32:58", "total": "03:21:33", "pos_gral": 35, "pos_genero": 27, "pos_cat": 7, "diff_primero": "+00:35:17", "diff_anterior": "+00:00:02"}, {"id": 49, "dorsal": 149, "nombre": "SOF\u00cdA P\u00c9REZ TORRES", "categoria": "Damas A", "genero": "F", "pais": "ARGENTINA", "etapa1_sec": 2610, "etapa2_sec": 9593, "total_sec": 12203, "etapa1": "00:43:30", "etapa2": "02:39:53", "total": "03:23:23", "pos_gral": 36, "pos_genero": 9, "pos_cat": 5, "diff_primero": "+00:37:07", "diff_anterior": "+00:01:50"}, {"id": 82, "dorsal": 182, "nombre": "VALERIA GONZ\u00c1LEZ GARC\u00cdA", "categoria": "Damas A", "genero": "F", "pais": "BOLIVIA", "etapa1_sec": 2531, "etapa2_sec": 9716, "total_sec": 12247, "etapa1": "00:42:11", "etapa2": "02:41:56", "total": "03:24:07", "pos_gral": 37, "pos_genero": 10, "pos_cat": 6, "diff_primero": "+00:37:51", "diff_anterior": "+00:00:44"}, {"id": 64, "dorsal": 164, "nombre": "FERNANDO MART\u00cdNEZ RAM\u00cdREZ", "categoria": "Master A (30-39)", "genero": "M", "pais": "BOLIVIA", "etapa1_sec": 3438, "etapa2_sec": 8882, "total_sec": 12320, "etapa1": "00:57:18", "etapa2": "02:28:02", "total": "03:25:20", "pos_gral": 38, "pos_genero": 28, "pos_cat": 4, "diff_primero": "+00:39:04", "diff_anterior": "+00:01:13"}, {"id": 52, "dorsal": 152, "nombre": "LUIS TORRES SILVA", "categoria": "Master C (50+)", "genero": "M", "pais": "ECUADOR", "etapa1_sec": 2705, "etapa2_sec": 9667, "total_sec": 12372, "etapa1": "00:45:05", "etapa2": "02:41:07", "total": "03:26:12", "pos_gral": 39, "pos_genero": 29, "pos_cat": 6, "diff_primero": "+00:39:56", "diff_anterior": "+00:00:52"}, {"id": 72, "dorsal": 172, "nombre": "DIEGO TORRES FERN\u00c1NDEZ", "categoria": "E-Bike", "genero": "M", "pais": "ESPA\u00d1A", "etapa1_sec": 2122, "etapa2_sec": 10317, "total_sec": 12439, "etapa1": "00:35:22", "etapa2": "02:51:57", "total": "03:27:19", "pos_gral": 40, "pos_genero": 30, "pos_cat": 8, "diff_primero": "+00:41:03", "diff_anterior": "+00:01:07"}, {"id": 43, "dorsal": 143, "nombre": "VALERIA RAM\u00cdREZ MART\u00cdNEZ", "categoria": "Damas A", "genero": "F", "pais": "ECUADOR", "etapa1_sec": 3262, "etapa2_sec": 9185, "total_sec": 12447, "etapa1": "00:54:22", "etapa2": "02:33:05", "total": "03:27:27", "pos_gral": 41, "pos_genero": 11, "pos_cat": 7, "diff_primero": "+00:41:11", "diff_anterior": "+00:00:08"}, {"id": 67, "dorsal": 167, "nombre": "LUIS FERN\u00c1NDEZ RAM\u00cdREZ", "categoria": "Elite Masculino", "genero": "M", "pais": "BOLIVIA", "etapa1_sec": 1933, "etapa2_sec": 10581, "total_sec": 12514, "etapa1": "00:32:13", "etapa2": "02:56:21", "total": "03:28:34", "pos_gral": 42, "pos_genero": 31, "pos_cat": 8, "diff_primero": "+00:42:18", "diff_anterior": "+00:01:07"}, {"id": 23, "dorsal": 123, "nombre": "CARLOS G\u00d3MEZ L\u00d3PEZ", "categoria": "E-Bike", "genero": "M", "pais": "MEXICO", "etapa1_sec": 3459, "etapa2_sec": 9262, "total_sec": 12721, "etapa1": "00:57:39", "etapa2": "02:34:22", "total": "03:32:01", "pos_gral": 43, "pos_genero": 32, "pos_cat": 9, "diff_primero": "+00:45:45", "diff_anterior": "+00:03:27"}, {"id": 58, "dorsal": 158, "nombre": "ANDR\u00c9S RODR\u00cdGUEZ GARC\u00cdA", "categoria": "E-Bike", "genero": "M", "pais": "MEXICO", "etapa1_sec": 2430, "etapa2_sec": 10345, "total_sec": 12775, "etapa1": "00:40:30", "etapa2": "02:52:25", "total": "03:32:55", "pos_gral": 44, "pos_genero": 33, "pos_cat": 10, "diff_primero": "+00:46:39", "diff_anterior": "+00:00:54"}, {"id": 99, "dorsal": 199, "nombre": "JORGE FERN\u00c1NDEZ GONZ\u00c1LEZ", "categoria": "Master A (30-39)", "genero": "M", "pais": "ESPA\u00d1A", "etapa1_sec": 3449, "etapa2_sec": 9440, "total_sec": 12889, "etapa1": "00:57:29", "etapa2": "02:37:20", "total": "03:34:49", "pos_gral": 45, "pos_genero": 34, "pos_cat": 5, "diff_primero": "+00:48:33", "diff_anterior": "+00:01:54"}, {"id": 97, "dorsal": 197, "nombre": "CAMILA G\u00d3MEZ FERN\u00c1NDEZ", "categoria": "Damas A", "genero": "F", "pais": "CHILE", "etapa1_sec": 3357, "etapa2_sec": 9573, "total_sec": 12930, "etapa1": "00:55:57", "etapa2": "02:39:33", "total": "03:35:30", "pos_gral": 46, "pos_genero": 12, "pos_cat": 8, "diff_primero": "+00:49:14", "diff_anterior": "+00:00:41"}, {"id": 87, "dorsal": 187, "nombre": "DANIELA RODR\u00cdGUEZ L\u00d3PEZ", "categoria": "Elite Femenino", "genero": "F", "pais": "ARGENTINA", "etapa1_sec": 3300, "etapa2_sec": 9676, "total_sec": 12976, "etapa1": "00:55:00", "etapa2": "02:41:16", "total": "03:36:16", "pos_gral": 47, "pos_genero": 13, "pos_cat": 5, "diff_primero": "+00:50:00", "diff_anterior": "+00:00:46"}, {"id": 35, "dorsal": 135, "nombre": "DIEGO GONZ\u00c1LEZ GARC\u00cdA", "categoria": "Master C (50+)", "genero": "M", "pais": "COLOMBIA", "etapa1_sec": 2660, "etapa2_sec": 10377, "total_sec": 13037, "etapa1": "00:44:20", "etapa2": "02:52:57", "total": "03:37:17", "pos_gral": 48, "pos_genero": 35, "pos_cat": 7, "diff_primero": "+00:51:01", "diff_anterior": "+00:01:01"}, {"id": 29, "dorsal": 129, "nombre": "FERNANDO TORRES TORRES", "categoria": "Master C (50+)", "genero": "M", "pais": "ARGENTINA", "etapa1_sec": 2498, "etapa2_sec": 10572, "total_sec": 13070, "etapa1": "00:41:38", "etapa2": "02:56:12", "total": "03:37:50", "pos_gral": 49, "pos_genero": 36, "pos_cat": 8, "diff_primero": "+00:51:34", "diff_anterior": "+00:00:33"}, {"id": 57, "dorsal": 157, "nombre": "PAULA MART\u00cdNEZ TORRES", "categoria": "Damas A", "genero": "F", "pais": "ECUADOR", "etapa1_sec": 3111, "etapa2_sec": 10080, "total_sec": 13191, "etapa1": "00:51:51", "etapa2": "02:48:00", "total": "03:39:51", "pos_gral": 50, "pos_genero": 14, "pos_cat": 9, "diff_primero": "+00:53:35", "diff_anterior": "+00:02:01"}, {"id": 2, "dorsal": 102, "nombre": "MIGUEL P\u00c9REZ RAM\u00cdREZ", "categoria": "Elite Masculino", "genero": "M", "pais": "ARGENTINA", "etapa1_sec": 2079, "etapa2_sec": 11158, "total_sec": 13237, "etapa1": "00:34:39", "etapa2": "03:05:58", "total": "03:40:37", "pos_gral": 51, "pos_genero": 37, "pos_cat": 9, "diff_primero": "+00:54:21", "diff_anterior": "+00:00:46"}, {"id": 70, "dorsal": 170, "nombre": "MAR\u00cdA G\u00d3MEZ G\u00d3MEZ", "categoria": "Damas A", "genero": "F", "pais": "BRASIL", "etapa1_sec": 1897, "etapa2_sec": 11365, "total_sec": 13262, "etapa1": "00:31:37", "etapa2": "03:09:25", "total": "03:41:02", "pos_gral": 52, "pos_genero": 15, "pos_cat": 10, "diff_primero": "+00:54:46", "diff_anterior": "+00:00:25"}, {"id": 33, "dorsal": 133, "nombre": "DANIELA MART\u00cdNEZ P\u00c9REZ", "categoria": "Elite Femenino", "genero": "F", "pais": "PERU", "etapa1_sec": 2169, "etapa2_sec": 11136, "total_sec": 13305, "etapa1": "00:36:09", "etapa2": "03:05:36", "total": "03:41:45", "pos_gral": 53, "pos_genero": 16, "pos_cat": 6, "diff_primero": "+00:55:29", "diff_anterior": "+00:00:43"}, {"id": 61, "dorsal": 161, "nombre": "MIGUEL TORRES G\u00d3MEZ", "categoria": "E-Bike", "genero": "M", "pais": "ESPA\u00d1A", "etapa1_sec": 3370, "etapa2_sec": 9981, "total_sec": 13351, "etapa1": "00:56:10", "etapa2": "02:46:21", "total": "03:42:31", "pos_gral": 54, "pos_genero": 38, "pos_cat": 11, "diff_primero": "+00:56:15", "diff_anterior": "+00:00:46"}, {"id": 76, "dorsal": 176, "nombre": "PAULA RAM\u00cdREZ P\u00c9REZ", "categoria": "Elite Femenino", "genero": "F", "pais": "PERU", "etapa1_sec": 2570, "etapa2_sec": 10895, "total_sec": 13465, "etapa1": "00:42:50", "etapa2": "03:01:35", "total": "03:44:25", "pos_gral": 55, "pos_genero": 17, "pos_cat": 7, "diff_primero": "+00:58:09", "diff_anterior": "+00:01:54"}, {"id": 16, "dorsal": 116, "nombre": "PAULA TORRES RAM\u00cdREZ", "categoria": "Damas A", "genero": "F", "pais": "ECUADOR", "etapa1_sec": 3078, "etapa2_sec": 10437, "total_sec": 13515, "etapa1": "00:51:18", "etapa2": "02:53:57", "total": "03:45:15", "pos_gral": 56, "pos_genero": 18, "pos_cat": 11, "diff_primero": "+00:58:59", "diff_anterior": "+00:00:50"}, {"id": 17, "dorsal": 117, "nombre": "JUAN GARC\u00cdA SILVA", "categoria": "Master B (40-49)", "genero": "M", "pais": "BOLIVIA", "etapa1_sec": 3001, "etapa2_sec": 10551, "total_sec": 13552, "etapa1": "00:50:01", "etapa2": "02:55:51", "total": "03:45:52", "pos_gral": 57, "pos_genero": 39, "pos_cat": 6, "diff_primero": "+00:59:36", "diff_anterior": "+00:00:37"}, {"id": 3, "dorsal": 103, "nombre": "ANDR\u00c9S RAM\u00cdREZ RAM\u00cdREZ", "categoria": "Master B (40-49)", "genero": "M", "pais": "EEUU", "etapa1_sec": 3369, "etapa2_sec": 10192, "total_sec": 13561, "etapa1": "00:56:09", "etapa2": "02:49:52", "total": "03:46:01", "pos_gral": 58, "pos_genero": 40, "pos_cat": 7, "diff_primero": "+00:59:45", "diff_anterior": "+00:00:09"}, {"id": 21, "dorsal": 121, "nombre": "FERNANDO L\u00d3PEZ MART\u00cdNEZ", "categoria": "Elite Masculino", "genero": "M", "pais": "ARGENTINA", "etapa1_sec": 2560, "etapa2_sec": 11085, "total_sec": 13645, "etapa1": "00:42:40", "etapa2": "03:04:45", "total": "03:47:25", "pos_gral": 59, "pos_genero": 41, "pos_cat": 10, "diff_primero": "+01:01:09", "diff_anterior": "+00:01:24"}, {"id": 6, "dorsal": 106, "nombre": "MARIANA RAM\u00cdREZ P\u00c9REZ", "categoria": "Damas A", "genero": "F", "pais": "BOLIVIA", "etapa1_sec": 2369, "etapa2_sec": 11337, "total_sec": 13706, "etapa1": "00:39:29", "etapa2": "03:08:57", "total": "03:48:26", "pos_gral": 60, "pos_genero": 19, "pos_cat": 12, "diff_primero": "+01:02:10", "diff_anterior": "+00:01:01"}, {"id": 79, "dorsal": 179, "nombre": "ANDR\u00c9S V\u00c1SQUEZ SILVA", "categoria": "E-Bike", "genero": "M", "pais": "EEUU", "etapa1_sec": 3600, "etapa2_sec": 10195, "total_sec": 13795, "etapa1": "01:00:00", "etapa2": "02:49:55", "total": "03:49:55", "pos_gral": 61, "pos_genero": 42, "pos_cat": 12, "diff_primero": "+01:03:39", "diff_anterior": "+00:01:29"}, {"id": 22, "dorsal": 122, "nombre": "JUAN SILVA SILVA", "categoria": "Elite Masculino", "genero": "M", "pais": "BRASIL", "etapa1_sec": 3589, "etapa2_sec": 10237, "total_sec": 13826, "etapa1": "00:59:49", "etapa2": "02:50:37", "total": "03:50:26", "pos_gral": 62, "pos_genero": 43, "pos_cat": 11, "diff_primero": "+01:04:10", "diff_anterior": "+00:00:31"}, {"id": 96, "dorsal": 196, "nombre": "CARLOS RAM\u00cdREZ SILVA", "categoria": "Elite Masculino", "genero": "M", "pais": "PERU", "etapa1_sec": 3506, "etapa2_sec": 10507, "total_sec": 14013, "etapa1": "00:58:26", "etapa2": "02:55:07", "total": "03:53:33", "pos_gral": 63, "pos_genero": 44, "pos_cat": 12, "diff_primero": "+01:07:17", "diff_anterior": "+00:03:07"}, {"id": 24, "dorsal": 124, "nombre": "GABRIELA MART\u00cdNEZ RODR\u00cdGUEZ", "categoria": "Damas A", "genero": "F", "pais": "CHILE", "etapa1_sec": 1845, "etapa2_sec": 12324, "total_sec": 14169, "etapa1": "00:30:45", "etapa2": "03:25:24", "total": "03:56:09", "pos_gral": 64, "pos_genero": 20, "pos_cat": 13, "diff_primero": "+01:09:53", "diff_anterior": "+00:02:36"}, {"id": 10, "dorsal": 110, "nombre": "LUIS FERN\u00c1NDEZ MART\u00cdNEZ", "categoria": "E-Bike", "genero": "M", "pais": "EEUU", "etapa1_sec": 3450, "etapa2_sec": 10722, "total_sec": 14172, "etapa1": "00:57:30", "etapa2": "02:58:42", "total": "03:56:12", "pos_gral": 65, "pos_genero": 45, "pos_cat": 13, "diff_primero": "+01:09:56", "diff_anterior": "+00:00:03"}, {"id": 20, "dorsal": 120, "nombre": "CARLOS RODR\u00cdGUEZ SILVA", "categoria": "Master C (50+)", "genero": "M", "pais": "BRASIL", "etapa1_sec": 2483, "etapa2_sec": 11742, "total_sec": 14225, "etapa1": "00:41:23", "etapa2": "03:15:42", "total": "03:57:05", "pos_gral": 66, "pos_genero": 46, "pos_cat": 9, "diff_primero": "+01:10:49", "diff_anterior": "+00:00:53"}, {"id": 36, "dorsal": 136, "nombre": "DANIELA FERN\u00c1NDEZ FERN\u00c1NDEZ", "categoria": "Elite Femenino", "genero": "F", "pais": "BOLIVIA", "etapa1_sec": 3314, "etapa2_sec": 10915, "total_sec": 14229, "etapa1": "00:55:14", "etapa2": "03:01:55", "total": "03:57:09", "pos_gral": 67, "pos_genero": 21, "pos_cat": 8, "diff_primero": "+01:10:53", "diff_anterior": "+00:00:04"}, {"id": 51, "dorsal": 151, "nombre": "JORGE P\u00c9REZ L\u00d3PEZ", "categoria": "Master C (50+)", "genero": "M", "pais": "MEXICO", "etapa1_sec": 2956, "etapa2_sec": 11284, "total_sec": 14240, "etapa1": "00:49:16", "etapa2": "03:08:04", "total": "03:57:20", "pos_gral": 68, "pos_genero": 47, "pos_cat": 10, "diff_primero": "+01:11:04", "diff_anterior": "+00:00:11"}, {"id": 9, "dorsal": 109, "nombre": "CAMILA MART\u00cdNEZ MART\u00cdNEZ", "categoria": "Damas A", "genero": "F", "pais": "BRASIL", "etapa1_sec": 2308, "etapa2_sec": 12161, "total_sec": 14469, "etapa1": "00:38:28", "etapa2": "03:22:41", "total": "04:01:09", "pos_gral": 69, "pos_genero": 22, "pos_cat": 14, "diff_primero": "+01:14:53", "diff_anterior": "+00:03:49"}, {"id": 38, "dorsal": 138, "nombre": "CAMILA SILVA G\u00d3MEZ", "categoria": "Elite Femenino", "genero": "F", "pais": "ARGENTINA", "etapa1_sec": 2404, "etapa2_sec": 12106, "total_sec": 14510, "etapa1": "00:40:04", "etapa2": "03:21:46", "total": "04:01:50", "pos_gral": 70, "pos_genero": 23, "pos_cat": 9, "diff_primero": "+01:15:34", "diff_anterior": "+00:00:41"}, {"id": 44, "dorsal": 144, "nombre": "ROBERTO RODR\u00cdGUEZ SILVA", "categoria": "E-Bike", "genero": "M", "pais": "COLOMBIA", "etapa1_sec": 2030, "etapa2_sec": 12562, "total_sec": 14592, "etapa1": "00:33:50", "etapa2": "03:29:22", "total": "04:03:12", "pos_gral": 71, "pos_genero": 48, "pos_cat": 14, "diff_primero": "+01:16:56", "diff_anterior": "+00:01:22"}, {"id": 65, "dorsal": 165, "nombre": "SOF\u00cdA GONZ\u00c1LEZ GONZ\u00c1LEZ", "categoria": "Elite Femenino", "genero": "F", "pais": "BOLIVIA", "etapa1_sec": 2307, "etapa2_sec": 12474, "total_sec": 14781, "etapa1": "00:38:27", "etapa2": "03:27:54", "total": "04:06:21", "pos_gral": 72, "pos_genero": 24, "pos_cat": 10, "diff_primero": "+01:20:05", "diff_anterior": "+00:03:09"}, {"id": 32, "dorsal": 132, "nombre": "ROBERTO SILVA L\u00d3PEZ", "categoria": "Elite Masculino", "genero": "M", "pais": "BRASIL", "etapa1_sec": 2673, "etapa2_sec": 12227, "total_sec": 14900, "etapa1": "00:44:33", "etapa2": "03:23:47", "total": "04:08:20", "pos_gral": 73, "pos_genero": 49, "pos_cat": 13, "diff_primero": "+01:22:04", "diff_anterior": "+00:01:59"}, {"id": 8, "dorsal": 108, "nombre": "ALEJANDRO TORRES V\u00c1SQUEZ", "categoria": "Master C (50+)", "genero": "M", "pais": "COLOMBIA", "etapa1_sec": 1868, "etapa2_sec": 13144, "total_sec": 15012, "etapa1": "00:31:08", "etapa2": "03:39:04", "total": "04:10:12", "pos_gral": 74, "pos_genero": 50, "pos_cat": 11, "diff_primero": "+01:23:56", "diff_anterior": "+00:01:52"}, {"id": 13, "dorsal": 113, "nombre": "LUC\u00cdA GONZ\u00c1LEZ P\u00c9REZ", "categoria": "Damas A", "genero": "F", "pais": "MEXICO", "etapa1_sec": 3475, "etapa2_sec": 11602, "total_sec": 15077, "etapa1": "00:57:55", "etapa2": "03:13:22", "total": "04:11:17", "pos_gral": 75, "pos_genero": 25, "pos_cat": 15, "diff_primero": "+01:25:01", "diff_anterior": "+00:01:05"}, {"id": 11, "dorsal": 111, "nombre": "ROBERTO RAM\u00cdREZ SILVA", "categoria": "Master B (40-49)", "genero": "M", "pais": "EEUU", "etapa1_sec": 3420, "etapa2_sec": 11688, "total_sec": 15108, "etapa1": "00:57:00", "etapa2": "03:14:48", "total": "04:11:48", "pos_gral": 76, "pos_genero": 51, "pos_cat": 8, "diff_primero": "+01:25:32", "diff_anterior": "+00:00:31"}, {"id": 63, "dorsal": 163, "nombre": "ANDR\u00c9S MART\u00cdNEZ FERN\u00c1NDEZ", "categoria": "Master A (30-39)", "genero": "M", "pais": "CHILE", "etapa1_sec": 1865, "etapa2_sec": 13442, "total_sec": 15307, "etapa1": "00:31:05", "etapa2": "03:44:02", "total": "04:15:07", "pos_gral": 77, "pos_genero": 52, "pos_cat": 6, "diff_primero": "+01:28:51", "diff_anterior": "+00:03:19"}, {"id": 89, "dorsal": 189, "nombre": "JUAN G\u00d3MEZ RODR\u00cdGUEZ", "categoria": "Master C (50+)", "genero": "M", "pais": "CHILE", "etapa1_sec": 2160, "etapa2_sec": 13159, "total_sec": 15319, "etapa1": "00:36:00", "etapa2": "03:39:19", "total": "04:15:19", "pos_gral": 78, "pos_genero": 53, "pos_cat": 12, "diff_primero": "+01:29:03", "diff_anterior": "+00:00:12"}, {"id": 66, "dorsal": 166, "nombre": "VALERIA V\u00c1SQUEZ MART\u00cdNEZ", "categoria": "Damas A", "genero": "F", "pais": "ESPA\u00d1A", "etapa1_sec": 2851, "etapa2_sec": 12501, "total_sec": 15352, "etapa1": "00:47:31", "etapa2": "03:28:21", "total": "04:15:52", "pos_gral": 79, "pos_genero": 26, "pos_cat": 16, "diff_primero": "+01:29:36", "diff_anterior": "+00:00:33"}, {"id": 46, "dorsal": 146, "nombre": "CAMILA GARC\u00cdA L\u00d3PEZ", "categoria": "Elite Femenino", "genero": "F", "pais": "MEXICO", "etapa1_sec": 2773, "etapa2_sec": 12584, "total_sec": 15357, "etapa1": "00:46:13", "etapa2": "03:29:44", "total": "04:15:57", "pos_gral": 80, "pos_genero": 27, "pos_cat": 11, "diff_primero": "+01:29:41", "diff_anterior": "+00:00:05"}, {"id": 91, "dorsal": 191, "nombre": "LUC\u00cdA P\u00c9REZ RAM\u00cdREZ", "categoria": "Damas A", "genero": "F", "pais": "COLOMBIA", "etapa1_sec": 2868, "etapa2_sec": 12503, "total_sec": 15371, "etapa1": "00:47:48", "etapa2": "03:28:23", "total": "04:16:11", "pos_gral": 81, "pos_genero": 28, "pos_cat": 17, "diff_primero": "+01:29:55", "diff_anterior": "+00:00:14"}, {"id": 12, "dorsal": 112, "nombre": "SOF\u00cdA MART\u00cdNEZ MART\u00cdNEZ", "categoria": "Damas A", "genero": "F", "pais": "PERU", "etapa1_sec": 1995, "etapa2_sec": 13460, "total_sec": 15455, "etapa1": "00:33:15", "etapa2": "03:44:20", "total": "04:17:35", "pos_gral": 82, "pos_genero": 29, "pos_cat": 18, "diff_primero": "+01:31:19", "diff_anterior": "+00:01:24"}, {"id": 39, "dorsal": 139, "nombre": "SOF\u00cdA MART\u00cdNEZ RAM\u00cdREZ", "categoria": "Damas A", "genero": "F", "pais": "ECUADOR", "etapa1_sec": 3190, "etapa2_sec": 12405, "total_sec": 15595, "etapa1": "00:53:10", "etapa2": "03:26:45", "total": "04:19:55", "pos_gral": 83, "pos_genero": 30, "pos_cat": 19, "diff_primero": "+01:33:39", "diff_anterior": "+00:02:20"}, {"id": 34, "dorsal": 134, "nombre": "MIGUEL MART\u00cdNEZ TORRES", "categoria": "Elite Masculino", "genero": "M", "pais": "PERU", "etapa1_sec": 3434, "etapa2_sec": 12409, "total_sec": 15843, "etapa1": "00:57:14", "etapa2": "03:26:49", "total": "04:24:03", "pos_gral": 84, "pos_genero": 54, "pos_cat": 14, "diff_primero": "+01:37:47", "diff_anterior": "+00:04:08"}, {"id": 71, "dorsal": 171, "nombre": "DANIELA SILVA SILVA", "categoria": "Damas A", "genero": "F", "pais": "COLOMBIA", "etapa1_sec": 2191, "etapa2_sec": 13751, "total_sec": 15942, "etapa1": "00:36:31", "etapa2": "03:49:11", "total": "04:25:42", "pos_gral": 85, "pos_genero": 31, "pos_cat": 20, "diff_primero": "+01:39:26", "diff_anterior": "+00:01:39"}, {"id": 54, "dorsal": 154, "nombre": "FERNANDO RAM\u00cdREZ SILVA", "categoria": "Master C (50+)", "genero": "M", "pais": "CHILE", "etapa1_sec": 2239, "etapa2_sec": 14047, "total_sec": 16286, "etapa1": "00:37:19", "etapa2": "03:54:07", "total": "04:31:26", "pos_gral": 86, "pos_genero": 55, "pos_cat": 13, "diff_primero": "+01:45:10", "diff_anterior": "+00:05:44"}, {"id": 37, "dorsal": 137, "nombre": "PAULA GARC\u00cdA MART\u00cdNEZ", "categoria": "Elite Femenino", "genero": "F", "pais": "PERU", "etapa1_sec": 3468, "etapa2_sec": 12848, "total_sec": 16316, "etapa1": "00:57:48", "etapa2": "03:34:08", "total": "04:31:56", "pos_gral": 87, "pos_genero": 32, "pos_cat": 12, "diff_primero": "+01:45:40", "diff_anterior": "+00:00:30"}, {"id": 88, "dorsal": 188, "nombre": "MIGUEL MART\u00cdNEZ RODR\u00cdGUEZ", "categoria": "E-Bike", "genero": "M", "pais": "MEXICO", "etapa1_sec": 3168, "etapa2_sec": 13161, "total_sec": 16329, "etapa1": "00:52:48", "etapa2": "03:39:21", "total": "04:32:09", "pos_gral": 88, "pos_genero": 56, "pos_cat": 15, "diff_primero": "+01:45:53", "diff_anterior": "+00:00:13"}, {"id": 98, "dorsal": 198, "nombre": "PAULA V\u00c1SQUEZ TORRES", "categoria": "Damas A", "genero": "F", "pais": "EEUU", "etapa1_sec": 2142, "etapa2_sec": 14188, "total_sec": 16330, "etapa1": "00:35:42", "etapa2": "03:56:28", "total": "04:32:10", "pos_gral": 89, "pos_genero": 33, "pos_cat": 21, "diff_primero": "+01:45:54", "diff_anterior": "+00:00:01"}, {"id": 60, "dorsal": 160, "nombre": "LUIS RODR\u00cdGUEZ RAM\u00cdREZ", "categoria": "Elite Masculino", "genero": "M", "pais": "ECUADOR", "etapa1_sec": 2486, "etapa2_sec": 13873, "total_sec": 16359, "etapa1": "00:41:26", "etapa2": "03:51:13", "total": "04:32:39", "pos_gral": 90, "pos_genero": 57, "pos_cat": 15, "diff_primero": "+01:46:23", "diff_anterior": "+00:00:29"}, {"id": 56, "dorsal": 156, "nombre": "MIGUEL G\u00d3MEZ RODR\u00cdGUEZ", "categoria": "Master A (30-39)", "genero": "M", "pais": "CHILE", "etapa1_sec": 2046, "etapa2_sec": 14314, "total_sec": 16360, "etapa1": "00:34:06", "etapa2": "03:58:34", "total": "04:32:40", "pos_gral": 91, "pos_genero": 58, "pos_cat": 7, "diff_primero": "+01:46:24", "diff_anterior": "+00:00:01"}, {"id": 93, "dorsal": 193, "nombre": "DANIELA MART\u00cdNEZ MART\u00cdNEZ", "categoria": "Elite Femenino", "genero": "F", "pais": "BRASIL", "etapa1_sec": 2595, "etapa2_sec": 13767, "total_sec": 16362, "etapa1": "00:43:15", "etapa2": "03:49:27", "total": "04:32:42", "pos_gral": 92, "pos_genero": 34, "pos_cat": 13, "diff_primero": "+01:46:26", "diff_anterior": "+00:00:02"}, {"id": 27, "dorsal": 127, "nombre": "FERNANDO RODR\u00cdGUEZ V\u00c1SQUEZ", "categoria": "Elite Masculino", "genero": "M", "pais": "PERU", "etapa1_sec": 2962, "etapa2_sec": 13554, "total_sec": 16516, "etapa1": "00:49:22", "etapa2": "03:45:54", "total": "04:35:16", "pos_gral": 93, "pos_genero": 59, "pos_cat": 16, "diff_primero": "+01:49:00", "diff_anterior": "+00:02:34"}, {"id": 48, "dorsal": 148, "nombre": "JUAN G\u00d3MEZ SILVA", "categoria": "Elite Masculino", "genero": "M", "pais": "COLOMBIA", "etapa1_sec": 2560, "etapa2_sec": 14092, "total_sec": 16652, "etapa1": "00:42:40", "etapa2": "03:54:52", "total": "04:37:32", "pos_gral": 94, "pos_genero": 60, "pos_cat": 17, "diff_primero": "+01:51:16", "diff_anterior": "+00:02:16"}, {"id": 68, "dorsal": 168, "nombre": "MARIANA RAM\u00cdREZ RODR\u00cdGUEZ", "categoria": "Elite Femenino", "genero": "F", "pais": "ECUADOR", "etapa1_sec": 2611, "etapa2_sec": 14101, "total_sec": 16712, "etapa1": "00:43:31", "etapa2": "03:55:01", "total": "04:38:32", "pos_gral": 95, "pos_genero": 35, "pos_cat": 14, "diff_primero": "+01:52:16", "diff_anterior": "+00:01:00"}, {"id": 28, "dorsal": 128, "nombre": "CARLOS V\u00c1SQUEZ GARC\u00cdA", "categoria": "Master B (40-49)", "genero": "M", "pais": "ECUADOR", "etapa1_sec": 2485, "etapa2_sec": 14272, "total_sec": 16757, "etapa1": "00:41:25", "etapa2": "03:57:52", "total": "04:39:17", "pos_gral": 96, "pos_genero": 61, "pos_cat": 9, "diff_primero": "+01:53:01", "diff_anterior": "+00:00:45"}, {"id": 75, "dorsal": 175, "nombre": "JORGE L\u00d3PEZ GONZ\u00c1LEZ", "categoria": "Master B (40-49)", "genero": "M", "pais": "MEXICO", "etapa1_sec": 3579, "etapa2_sec": 13530, "total_sec": 17109, "etapa1": "00:59:39", "etapa2": "03:45:30", "total": "04:45:09", "pos_gral": 97, "pos_genero": 62, "pos_cat": 10, "diff_primero": "+01:58:53", "diff_anterior": "+00:05:52"}, {"id": 100, "dorsal": 200, "nombre": "GABRIELA V\u00c1SQUEZ MART\u00cdNEZ", "categoria": "Damas A", "genero": "F", "pais": "ARGENTINA", "etapa1_sec": 2944, "etapa2_sec": 14320, "total_sec": 17264, "etapa1": "00:49:04", "etapa2": "03:58:40", "total": "04:47:44", "pos_gral": 98, "pos_genero": 36, "pos_cat": 22, "diff_primero": "+02:01:28", "diff_anterior": "+00:02:35"}, {"id": 14, "dorsal": 114, "nombre": "CARLOS V\u00c1SQUEZ GONZ\u00c1LEZ", "categoria": "E-Bike", "genero": "M", "pais": "ARGENTINA", "etapa1_sec": 3281, "etapa2_sec": 14081, "total_sec": 17362, "etapa1": "00:54:41", "etapa2": "03:54:41", "total": "04:49:22", "pos_gral": 99, "pos_genero": 63, "pos_cat": 16, "diff_primero": "+02:03:06", "diff_anterior": "+00:01:38"}, {"id": 31, "dorsal": 131, "nombre": "ROBERTO G\u00d3MEZ SILVA", "categoria": "E-Bike", "genero": "M", "pais": "ECUADOR", "etapa1_sec": 3557, "etapa2_sec": 13826, "total_sec": 17383, "etapa1": "00:59:17", "etapa2": "03:50:26", "total": "04:49:43", "pos_gral": 100, "pos_genero": 64, "pos_cat": 17, "diff_primero": "+02:03:27", "diff_anterior": "+00:00:21"}];
+        
+        const tbody = document.getElementById('tableBody');
+        const searchInput = document.getElementById('searchInput');
+        const btnGen = document.getElementById('btn-gen');
+        const btnCat = document.getElementById('btn-cat');
+        const catFilters = document.getElementById('cat-filters');
+        const categorySelect = document.getElementById('categorySelect');
+        const noResults = document.getElementById('noResults');
+        const resultsTable = document.getElementById('resultsTable');
 
-            function filterTable() {
-                const searchTerm = searchInput.value.toLowerCase();
-                const category = categoryFilter.value;
-                let visibleCount = 0;
+        let currentMode = 'general'; // 'general' or 'categoria'
 
-                for (let i = 0; i < rows.length; i++) {
-                    const row = rows[i];
-                    const text = row.textContent.toLowerCase();
-                    const rowCategory = row.cells[3].textContent;
-                    
-                    const matchesSearch = text.includes(searchTerm);
-                    const matchesCategory = category === 'all' || rowCategory === category;
+        function getMedal(pos) {
+            if (pos === 1) return '🥇';
+            if (pos === 2) return '🥈';
+            if (pos === 3) return '🥉';
+            return pos;
+        }
 
-                    if (matchesSearch && matchesCategory) {
-                        row.style.display = '';
-                        visibleCount++;
-                    } else {
-                        row.style.display = 'none';
-                    }
-                }
-
-                if (visibleCount === 0) {
-                    emptyState.classList.remove('hidden');
-                    table.classList.add('hidden');
-                } else {
-                    emptyState.classList.add('hidden');
-                    table.classList.remove('hidden');
-                }
+        function renderTable(data) {
+            tbody.innerHTML = '';
+            
+            if(data.length === 0) {
+                noResults.classList.remove('hidden');
+                resultsTable.classList.add('hidden');
+                return;
             }
+            
+            noResults.classList.add('hidden');
+            resultsTable.classList.remove('hidden');
 
-            searchInput.addEventListener('keyup', filterTable);
-            categoryFilter.addEventListener('change', filterTable);
+            data.forEach((p, index) => {
+                // Alternate row colors
+                const bgClass = index % 2 === 0 ? 'bg-white' : 'bg-gray-100';
+                
+                const tr = document.createElement('tr');
+                tr.className = `${bgClass} border-b border-gray-300 table-row-hover text-center`;
+                
+                tr.innerHTML = `
+                    <td class="p-2 border-r border-gray-300 font-bold text-lg">${getMedal(p.pos_gral)}</td>
+                    <td class="p-2 border-r border-gray-300">${p.pos_genero}</td>
+                    <td class="p-2 border-r border-gray-300">${p.pos_cat}</td>
+                    <td class="p-2 border-r border-gray-300 font-bold text-gray-900">${p.dorsal}</td>
+                    <td class="p-2 border-r border-gray-300 text-left font-bold">${p.nombre}</td>
+                    <td class="p-2 border-r border-gray-300 text-xs">${p.categoria}</td>
+                    <td class="p-2 border-r border-gray-300">${p.genero}</td>
+                    <td class="p-2 border-r border-gray-300">${p.pais}</td>
+                    <td class="p-2 border-r border-gray-300 font-mono">${p.etapa1}</td>
+                    <td class="p-2 border-r border-gray-300 font-mono">${p.etapa2}</td>
+                    <td class="p-2 border-r border-gray-300 font-mono font-bold bg-gray-200">${p.total}</td>
+                    <td class="p-2 border-r border-gray-300 font-mono text-xs text-gray-500">${p.diff_primero}</td>
+                    <td class="p-2 font-mono text-xs text-gray-500">${p.diff_anterior}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function filterData() {
+            const search = searchInput.value.toLowerCase();
+            const cat = categorySelect.value;
+            
+            let filtered = participants.filter(p => {
+                const matchSearch = p.nombre.toLowerCase().includes(search) || 
+                                    p.dorsal.toString().includes(search) || 
+                                    p.pais.toLowerCase().includes(search);
+                                    
+                if (currentMode === 'categoria' && cat !== 'all') {
+                    return matchSearch && p.categoria === cat;
+                }
+                return matchSearch;
+            });
+
+            renderTable(filtered);
+        }
+
+        // Event Listeners
+        searchInput.addEventListener('input', filterData);
+        categorySelect.addEventListener('change', filterData);
+
+        btnGen.addEventListener('click', () => {
+            currentMode = 'general';
+            btnGen.classList.add('active');
+            btnCat.classList.remove('active');
+            catFilters.style.display = 'none';
+            categorySelect.value = 'all';
+            filterData();
         });
+
+        btnCat.addEventListener('click', () => {
+            currentMode = 'categoria';
+            btnCat.classList.add('active');
+            btnGen.classList.remove('active');
+            catFilters.style.display = 'flex';
+            filterData();
+        });
+
+        // Initial render
+        renderTable(participants);
     </script>
 </body>
 </html>
