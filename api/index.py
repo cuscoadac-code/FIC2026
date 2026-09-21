@@ -8,8 +8,8 @@ try:
 except ImportError:
     pass
 
-SUPABASE_URL = os.environ.get("SUPABASE_URL", "TU_SUPABASE_URL")
-SUPABASE_KEY = os.environ.get("SUPABASE_KEY", "TU_SUPABASE_ANON_KEY")
+SUPABASE_URL = os.environ.get("SUPABASE_URL", "https://jfstxtnyntrbivgihxab.supabase.co")
+SUPABASE_KEY = os.environ.get("SUPABASE_KEY", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impmc3R4dG55bnRyYml2Z2loeGFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAwMTIxNzUsImV4cCI6MjEwNTU4ODE3NX0.WqnsWqy5TyurbGnIzmSM_YEMK_nhyNs5RqOjSX_fun0")
 WHATSAPP_API_URL = os.environ.get("WHATSAPP_API_URL", "https://api.ultramsg.com/INSTANCE_ID/messages/chat")
 WHATSAPP_API_TOKEN = os.environ.get("WHATSAPP_API_TOKEN", "TU_ULTRAMSG_TOKEN")
 WHATSAPP_TARGET_NUMBER = "+51994381708"
