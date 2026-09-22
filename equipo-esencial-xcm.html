@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipo Esencial para la Ciclovía del Maíz - FIC 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: '#F59E0B', secondary: '#166534', dark: '#0F172A' }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+    <!-- Navbar (simplified) -->
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <i class="ri-riding-line text-3xl text-primary"></i>
+                <span class="font-bold text-xl tracking-tight text-secondary">FIC <span class="text-primary">2026</span></span>
+            </a>
+            <a href="blog.html" class="text-secondary font-bold hover:text-primary transition-colors flex items-center">
+                <i class="ri-arrow-left-line mr-2"></i> Volver al Blog
+            </a>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20 container mx-auto px-6 max-w-4xl">
+        <article class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <img src="images/mtb_action.jpg" alt="Ciclista de Montaña en Cusco" class="w-full h-[400px] object-cover">
+            
+            <div class="p-8 md:p-12">
+                <span class="text-primary font-bold tracking-widest uppercase text-sm mb-2 block">Guía de Preparación</span>
+                <h1 class="text-4xl md:text-5xl font-bold text-secondary mb-6 leading-tight">El Equipo Esencial para Conquistar la Ciclovía del Maíz 2026</h1>
+                
+                <div class="flex items-center text-gray-500 mb-10 border-b pb-6">
+                    <i class="ri-calendar-event-line mr-2"></i> 22 de Septiembre, 2026
+                    <span class="mx-4">|</span>
+                    <i class="ri-user-line mr-2"></i> Por: Staff Técnico FIC
+                </div>
+
+                <div class="prose prose-lg max-w-none text-gray-700 space-y-6">
+                    <p class="text-xl leading-relaxed text-gray-600 font-medium">Competir en los Andes peruanos no es cualquier reto. Los 62 kilómetros entre Pisac y Ollantaytambo pondrán a prueba no solo tu resistencia, sino también tu preparación logística. Aquí te detallamos el equipo obligatorio y recomendado para la edición 2026 de la Ciclovía del Maíz.</p>
+                    
+                    <h2 class="text-2xl font-bold text-secondary mt-8 mb-4">1. La Máquina (Bicicleta MTB)</h2>
+                    <p>Para el Valle Sagrado, recomendamos encarecidamente una bicicleta de <strong>doble suspensión (Cross Country o Trail)</strong> con un recorrido de 100mm a 120mm. Las bajadas de Urubamba pueden ser técnicas, y tu espalda agradecerá la suspensión trasera. Revisa minuciosamente tus frenos de disco y asegúrate de tener pastillas nuevas.</p>
+
+                    <h2 class="text-2xl font-bold text-secondary mt-8 mb-4">2. Protección y Vestimenta</h2>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li><strong>Casco:</strong> Obligatorio y sin fisuras. Recomendamos tecnología MIPS.</li>
+                        <li><strong>Lentes deportivos:</strong> Para protegerte del polvo en el sector de Calca y los rayos UV extremos de la altura.</li>
+                        <li><strong>Capas (Sistema Cebolla):</strong> La partida en Pisac a las 7:00 AM será gélida (posiblemente bajo cero), pero al mediodía en Ollantaytambo hará calor. Un cortavientos ligero que puedas guardar en tu bolsillo es indispensable.</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold text-secondary mt-8 mb-4">3. Hidratación y Nutrición</h2>
+                    <p>La altura deshidrata más rápido de lo que sientes. Lleva al menos <strong>1.5 a 2 litros de agua</strong> (mochila de hidratación o doble caramañola). Aunque habrán 3 puntos de avituallamiento oficiales, es vital llevar tus propios geles energéticos (recomendamos 1 por cada hora de carrera) y sales hidratantes.</p>
+
+                    <h2 class="text-2xl font-bold text-secondary mt-8 mb-4">4. Kit de Reparación Rápida</h2>
+                    <p>La ruta tiene piedras filosas (lajas incas). Tu kit de supervivencia debe incluir:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Cámara de repuesto (incluso si usas tubeless).</li>
+                        <li>Inflador CO2 con dos cartuchos (para inflado ultra rápido a 2800 m.s.n.m).</li>
+                        <li>Multi-herramienta con tronchacadenas y eslabón rápido (missing link).</li>
+                        <li>Kit de mechas para llantas tubeless.</li>
+                    </ul>
+
+                    <div class="bg-orange-50 border-l-4 border-primary p-6 mt-8 rounded-r-lg">
+                        <h4 class="font-bold text-lg text-secondary mb-2">Consejo Pro:</h4>
+                        <p class="text-gray-700 m-0">No estrenes nada el día de la carrera. Usa las mismas zapatillas, ropa y marca de geles que utilizaste durante tus entrenamientos largos. ¡Nos vemos en la partida en Pisac!</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2026 Ciclovía del Maíz. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
