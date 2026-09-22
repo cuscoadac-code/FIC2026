@@ -1086,23 +1086,39 @@ Ver opciones de hospedaje
 </div>
 <div class="mb-6">
 <label class="block text-gray-700 mb-2">Categoría</label>
-<div class="space-y-2">
-<label class="flex items-center">
-<input type="radio" name="categoria" id="cat-elite" class="custom-checkbox" checked>
-<span class="ml-2">Elite</span>
-</label>
-<label class="flex items-center">
-<input type="radio" name="categoria" id="cat-amateur" class="custom-checkbox">
-<span class="ml-2">Amateur</span>
-</label>
-<label class="flex items-center">
-<input type="radio" name="categoria" id="cat-familiar" class="custom-checkbox">
-<span class="ml-2">Familiar</span>
-</label>
-<label class="flex items-center">
-<input type="radio" name="categoria" id="cat-juvenil" class="custom-checkbox">
-<span class="ml-2">Juvenil</span>
-</label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+    <label class="flex items-center p-2 border rounded hover:bg-gray-50 cursor-pointer border-gray-200">
+        <input type="radio" name="categoria" value="PRECADETE (MIXTO)" class="custom-checkbox text-primary" required checked>
+        <span class="ml-2 font-semibold text-gray-700 text-sm">PRECADETE (MIXTO) <span class="text-xs text-gray-400 block font-normal">12 - 14 años</span></span>
+    </label>
+    <label class="flex items-center p-2 border rounded hover:bg-gray-50 cursor-pointer border-gray-200">
+        <input type="radio" name="categoria" value="CADETES (MIXTO)" class="custom-checkbox text-primary" required>
+        <span class="ml-2 font-semibold text-gray-700 text-sm">CADETES (MIXTO) <span class="text-xs text-gray-400 block font-normal">15 - 17 años</span></span>
+    </label>
+    <label class="flex items-center p-2 border rounded hover:bg-gray-50 cursor-pointer border-gray-200">
+        <input type="radio" name="categoria" value="PRO ELITE" class="custom-checkbox text-primary" required>
+        <span class="ml-2 font-semibold text-gray-700 text-sm">PRO ELITE <span class="text-xs text-gray-400 block font-normal">18+ años</span></span>
+    </label>
+    <label class="flex items-center p-2 border rounded hover:bg-gray-50 cursor-pointer border-gray-200">
+        <input type="radio" name="categoria" value="NOVELES" class="custom-checkbox text-primary" required>
+        <span class="ml-2 font-semibold text-gray-700 text-sm">NOVELES <span class="text-xs text-gray-400 block font-normal">Principiantes</span></span>
+    </label>
+    <label class="flex items-center p-2 border rounded hover:bg-gray-50 cursor-pointer border-gray-200">
+        <input type="radio" name="categoria" value="MASTER A" class="custom-checkbox text-primary" required>
+        <span class="ml-2 font-semibold text-gray-700 text-sm">MASTER A <span class="text-xs text-gray-400 block font-normal">30 - 39 años</span></span>
+    </label>
+    <label class="flex items-center p-2 border rounded hover:bg-gray-50 cursor-pointer border-gray-200">
+        <input type="radio" name="categoria" value="MASTER B" class="custom-checkbox text-primary" required>
+        <span class="ml-2 font-semibold text-gray-700 text-sm">MASTER B <span class="text-xs text-gray-400 block font-normal">40 - 49 años</span></span>
+    </label>
+    <label class="flex items-center p-2 border rounded hover:bg-gray-50 cursor-pointer border-gray-200">
+        <input type="radio" name="categoria" value="MASTER C" class="custom-checkbox text-primary" required>
+        <span class="ml-2 font-semibold text-gray-700 text-sm">MASTER C <span class="text-xs text-gray-400 block font-normal">50+ años</span></span>
+    </label>
+    <label class="flex items-center p-2 border rounded hover:bg-gray-50 cursor-pointer border-gray-200">
+        <input type="radio" name="categoria" value="DAMAS" class="custom-checkbox text-primary" required>
+        <span class="ml-2 font-semibold text-gray-700 text-sm">DAMAS <span class="text-xs text-gray-400 block font-normal">Categoría Femenina</span></span>
+    </label>
 </div>
 </div>
 <div class="mb-6">
