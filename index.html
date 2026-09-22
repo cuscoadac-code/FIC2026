@@ -1128,11 +1128,23 @@ Ver opciones de hospedaje
 </label>
 </div>
 
-<div id="pago-yape-plin" class="bg-gray-100 p-4 rounded mb-4 border-l-4 border-purple-500">
-<p class="text-sm font-bold mb-2 text-purple-700">Instrucciones Yape / Plin:</p>
-<p class="text-sm text-gray-700">1. Envía el monto al número: <span class="font-bold text-lg text-gray-900">993 022 225</span> <br><span class="text-xs text-gray-500">(A nombre de Ayni Sport S.A.C.)</span></p>
-<p class="text-sm text-gray-700 mt-2">2. Presiona el botón <b>"Inscribirse y Pagar"</b> para abrir WhatsApp.</p>
-<p class="text-sm text-gray-700 mt-2">3. <b>Adjunta la captura de pantalla</b> de tu pago directamente en el chat.</p>
+<div id="pago-yape-plin" class="bg-gray-100 p-6 rounded-lg mb-4 border-l-4 border-purple-500">
+    <div class="flex flex-col md:flex-row items-center gap-6">
+        <div class="flex-1">
+            <h5 class="font-bold text-purple-600 mb-4">Instrucciones Yape / Plin:</h5>
+            <ol class="list-decimal list-inside text-gray-700 space-y-2 text-sm mb-4">
+                <li>Escanea el código QR o envía el monto al número: <strong class="text-lg text-gray-900">993 022 225</strong><br><span class="text-xs text-gray-500 ml-5">(A nombre de Ayni Sport S.A.C.)</span></li>
+                <li>Adjunta aquí la captura de tu pago:</li>
+            </ol>
+            <div class="mb-2 ml-5">
+                <input type="file" id="comprobante_yape" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100 cursor-pointer">
+            </div>
+        </div>
+        <div class="w-32 h-32 bg-white p-2 rounded-xl shadow-md border-2 border-purple-200 flex-shrink-0 text-center flex flex-col justify-center items-center">
+            <i class="ri-qr-code-line text-6xl text-purple-600"></i>
+            <span class="text-[10px] font-bold text-gray-500 mt-1 uppercase text-center leading-tight">Ejemplo QR<br>Yape</span>
+        </div>
+    </div>
 </div>
 
 <div id="pago-deposito" class="bg-gray-100 p-4 rounded mb-4 hidden">
@@ -1520,7 +1532,24 @@ async function submitForm(event, form, url) {
 🔢 *Operación/Ref:* ${data.operacion}
 
 📲 *NOTA:* A continuación adjuntaré la captura de pantalla de mi Yape/Plin o voucher para validar mi cupo. ¡Gracias! ✨`);
-                window.open(`https://wa.me/51993022225?text=${mensaje}`, '_blank');
+                
+                const comprobanteInput = document.getElementById('comprobante_yape');
+                if (comprobanteInput && comprobanteInput.files.length > 0) {
+                    const file = comprobanteInput.files[0];
+                    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                        navigator.share({
+                            files: [file],
+                            text: decodeURIComponent(mensaje)
+                        }).catch((error) => {
+                            window.open(`https://wa.me/51993022225?text=${mensaje}`, '_blank');
+                        });
+                    } else {
+                        window.open(`https://wa.me/51993022225?text=${mensaje}`, '_blank');
+                    }
+                } else {
+                    window.open(`https://wa.me/51993022225?text=${mensaje}`, '_blank');
+                }
+
             }
             form.reset();
         } else {
