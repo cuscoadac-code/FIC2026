@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libro de Reclamaciones Virtual - FIC 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: '#F59E0B', secondary: '#166534', dark: '#0F172A' }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800 flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <i class="ri-riding-line text-3xl text-primary"></i>
+                <span class="font-bold text-xl tracking-tight text-secondary">FIC <span class="text-primary">2026</span></span>
+            </a>
+            <a href="index.html" class="text-secondary font-bold hover:text-primary transition-colors flex items-center">
+                <i class="ri-arrow-left-line mr-2"></i> Volver
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-32 pb-20 container mx-auto px-6 max-w-4xl">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="bg-gray-900 text-white p-8 text-center border-b-4 border-primary">
+                <i class="ri-book-read-line text-5xl mb-4 inline-block text-primary"></i>
+                <h1 class="text-3xl font-bold uppercase tracking-wide">Libro de Reclamaciones Virtual</h1>
+                <p class="mt-2 text-gray-300">Conforme a lo establecido en el Código de Protección y Defensa del Consumidor (Ley N° 29571)</p>
+            </div>
+            
+            <div class="p-8 md:p-12">
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded mb-8">
+                    <h4 class="font-bold text-blue-800 mb-1">Ayni Sport S.A.C.</h4>
+                    <p class="text-sm text-blue-700">RUC: 20612898503<br>Dirección: Mz. a Lote 21 Urb. Mariscal Gamarra I Etapa, Cusco</p>
+                </div>
+
+                <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Reclamo registrado exitosamente. Recibirá una copia en su correo en los próximos minutos. Plazo máximo de atención: 15 días hábiles.'); window.location.href='index.html';">
+                    
+                    <h3 class="text-xl font-bold text-secondary mb-4 border-b pb-2">1. Identificación del Consumidor</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2 text-sm">Nombres</label>
+                            <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2 text-sm">Apellidos</label>
+                            <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2 text-sm">Tipo de Documento</label>
+                            <select class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary focus:outline-none">
+                                <option>DNI</option>
+                                <option>CE</option>
+                                <option>Pasaporte</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2 text-sm">N° Documento</label>
+                            <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary focus:outline-none">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-gray-700 font-bold mb-2 text-sm">Correo Electrónico</label>
+                            <input type="email" required class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary focus:outline-none">
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-secondary mb-4 border-b pb-2">2. Detalle del Reclamo / Queja</h3>
+                    <div class="mb-6">
+                        <div class="flex gap-6 mb-4">
+                            <label class="flex items-center">
+                                <input type="radio" name="tipo_reclamo" value="Reclamo" class="mr-2" required> Reclamo
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="tipo_reclamo" value="Queja" class="mr-2"> Queja
+                            </label>
+                        </div>
+                        <div class="text-xs text-gray-500 mb-4 bg-gray-100 p-3 rounded">
+                            <strong>Reclamo:</strong> Disconformidad relacionada a los servicios deportivos o turísticos.<br>
+                            <strong>Queja:</strong> Disconformidad no relacionada a los productos o servicios, o malestar respecto a la atención al cliente.
+                        </div>
+                        
+                        <label class="block text-gray-700 font-bold mb-2 text-sm">Detalle de su solicitud</label>
+                        <textarea required rows="5" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary focus:outline-none placeholder-gray-400" placeholder="Describa el hecho que motiva su reclamo o queja..."></textarea>
+                    </div>
+
+                    <div class="mb-8">
+                        <label class="block text-gray-700 font-bold mb-2 text-sm">Pedido del consumidor</label>
+                        <textarea required rows="3" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary focus:outline-none placeholder-gray-400" placeholder="¿Qué solución espera recibir?"></textarea>
+                    </div>
+
+                    <div class="mb-8">
+                        <label class="flex items-start">
+                            <input type="checkbox" required class="mt-1 mr-3">
+                            <span class="text-sm text-gray-600">Declaro que la información proporcionada es verdadera. Autorizo el tratamiento de mis datos personales para la atención de esta solicitud, conforme a la Ley N° 29733.</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="w-full bg-primary hover:bg-yellow-600 text-white font-bold py-4 rounded-lg shadow-lg transition-colors text-lg">
+                        Enviar Reclamo
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-8 text-center mt-auto">
+        <p class="text-gray-400 text-sm mb-1">&copy; 2026 Ciclovía del Maíz. Todos los derechos reservados.</p>
+        <p class="text-gray-500 text-xs font-mono">Ayni Sport S.A.C. | RUC: 20612898503</p>
+    </footer>
+</body>
+</html>

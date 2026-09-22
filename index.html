@@ -1192,11 +1192,24 @@ Ver opciones de hospedaje
 <input type="text" id="num_operacion_paypal" class="w-full px-4 py-2 mt-2 border border-gray-300 rounded focus:outline-none focus:border-primary" placeholder="Código de transacción (Ej. 3LX9... )">
 </div>
 </div>
+<div class="mb-6 hidden" id="contenedor_autorizacion_padres">
+    <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded mb-4">
+        <h4 class="font-bold text-red-700 text-sm">Autorización Obligatoria para Menores</h4>
+        <p class="text-xs text-red-600 mb-2">Para categorías formativas, es obligatorio subir la autorización firmada por los padres o apoderados.</p>
+        <input type="file" id="autorizacion_padres" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-red-100 file:text-red-700 hover:file:bg-red-200">
+    </div>
+</div>
+<div class="mb-4">
+    <label class="flex items-start cursor-pointer">
+        <input type="checkbox" required class="custom-checkbox mt-1">
+        <span class="ml-2 text-sm text-gray-700">Acepto los <a href="#" onclick="event.preventDefault(); showLegalModal('terminos')" class="text-primary hover:underline">términos y condiciones del evento</a> y la política de reembolso.</span>
+    </label>
+</div>
 <div class="mb-6">
-<label class="flex items-center">
-<input type="checkbox" class="custom-checkbox">
-<span class="ml-2 text-sm">Acepto los términos y condiciones del evento</span>
-</label>
+    <label class="flex items-start cursor-pointer">
+        <input type="checkbox" required class="custom-checkbox mt-1">
+        <span class="ml-2 text-sm text-gray-700"><strong>Autorizo expresamente</strong> el tratamiento de mis datos sensibles (datos de salud, historial médico y alergias) con la finalidad exclusiva de atención médica y prevención de riesgos durante la competencia, conforme a la <a href="#" onclick="event.preventDefault(); showLegalModal('privacidad')" class="text-primary hover:underline">Política de Privacidad</a>.</span>
+    </label>
 </div>
 <button type="submit" class="bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-8 !rounded-button text-lg shadow-lg transition-all whitespace-nowrap w-full">
 Completar Inscripción
@@ -1368,15 +1381,32 @@ Suscribir
 </form>
 </div>
 </div>
-<div class="border-t border-gray-800 pt-8">
-<div class="flex flex-col md:flex-row justify-between items-center">
-<p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2026 Ciclovía del Maíz. Todos los derechos reservados. Desarrollado por <a href="https://cixlab.site" target="_blank" class="text-primary hover:text-white transition-colors font-bold">Cix Lab</a>.</p>
-<div class="flex space-x-4">
-<button onclick="showLegalModal('Términos y Condiciones', 'Estos son los términos y condiciones de prueba para la participación en la Ciclovía del Maíz...')" class="text-gray-400 hover:text-white transition-colors text-sm">Términos y Condiciones</button>
-<button onclick="showLegalModal('Política de Privacidad', 'Nuestra política de privacidad protege tus datos de acuerdo a las leyes vigentes...')" class="text-gray-400 hover:text-white transition-colors text-sm">Política de Privacidad</button>
-<button onclick="showLegalModal('Cookies', 'Usamos cookies para mejorar tu experiencia en nuestra plataforma y recordar tus preferencias.')" class="text-gray-400 hover:text-white transition-colors text-sm">Cookies</button>
-</div>
-</div>
+<div class="border-t border-gray-800 pt-8 mt-12">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+        <div class="mb-6 md:mb-0">
+            <p class="text-gray-400 text-sm mb-1">&copy; 2026 Ciclovía del Maíz. Todos los derechos reservados.</p>
+            <p class="text-gray-500 text-xs font-mono">Ayni Sport S.A.C. | RUC: 20612898503</p>
+            <p class="text-gray-500 text-xs mt-1">Desarrollado por <a href="https://cixlab.site" target="_blank" class="text-primary hover:text-white transition-colors font-bold">Cix Lab</a>.</p>
+        </div>
+        <div class="flex flex-wrap gap-4 items-center">
+            <button type="button" onclick="showLegalModal('terminos')" id="btn-terminos" class="text-gray-400 hover:text-white transition-colors text-sm">Términos y Condiciones</button>
+            <button type="button" onclick="showLegalModal('privacidad')" id="btn-privacidad" class="text-gray-400 hover:text-white transition-colors text-sm">Política de Privacidad</button>
+            <a href="reclamaciones.html" class="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-1"><i class="ri-book-read-line"></i> Libro de Reclamaciones</a>
+            <a href="esnna.html" class="text-white bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-xs font-bold transition-colors flex items-center gap-1"><i class="ri-shield-user-fill"></i> Contra la ESNNA</a>
+        </div>
+    </div>
+    
+    <!-- Certifications -->
+    <div class="flex flex-wrap gap-4 items-center pt-4 border-t border-gray-800 justify-center md:justify-start">
+        <div class="bg-white px-3 py-1 rounded flex items-center gap-2">
+            <span class="text-red-600 font-bold text-xs uppercase tracking-wider">Perú</span>
+            <span class="text-gray-800 text-xs font-semibold border-l pl-2">MINCETUR</span>
+        </div>
+        <div class="bg-secondary px-3 py-1 rounded flex items-center gap-2">
+            <i class="ri-shield-check-fill text-white"></i>
+            <span class="text-white font-bold text-xs">Safe Travels</span>
+        </div>
+    </div>
 </div>
 </div>
 </footer>
@@ -1590,9 +1620,43 @@ async function submitForm(event, form, url) {
     }
 }
 
-function showLegalModal(title, content) {
-  document.getElementById('modal-legal-title').textContent = title;
-  document.getElementById('modal-legal-content').textContent = content;
+const legalTexts = {
+    terminos: `
+        <div class="space-y-4 text-gray-700 text-sm">
+            <h4 class="font-bold text-lg text-secondary border-b pb-2">1. Condiciones Generales</h4>
+            <p>Al inscribirse en la Ciclovía del Maíz 2026, el participante declara conocer y aceptar el presente reglamento. Toda inscripción es personal e intransferible a menos que se comunique con la debida anticipación bajo nuestros procedimientos oficiales.</p>
+            
+            <h4 class="font-bold text-lg text-secondary border-b pb-2 mt-4">2. Política de Reembolso y Cancelación</h4>
+            <p>De conformidad con el Código de Protección y Defensa del Consumidor (INDECOPI), si el evento se suspende o reprograma unilateralmente por causas directamente atribuibles a la organización (Ayni Sport S.A.C.), el participante tiene pleno derecho a solicitar la devolución del 100% del valor abonado. El plazo máximo de respuesta y ejecución del reembolso será de <strong>15 días calendario</strong> desde la solicitud formal.</p>
+            
+            <h4 class="font-bold text-lg text-secondary border-b pb-2 mt-4">3. Condición de "No Show"</h4>
+            <p>Se configura como "No Show" cuando el participante inscrito no se presenta en la fecha, lugar y hora indicadas para el recojo de kits o el inicio de la competencia, sin haber emitido un aviso formal previo dentro de los plazos establecidos. En este caso, se aplicarán penalidades tarifarias o la retención del 100% del pago por gastos operativos ya incurridos.</p>
+
+            <h4 class="font-bold text-lg text-secondary border-b pb-2 mt-4">4. Asunción Informada de Riesgos</h4>
+            <p>El ciclismo de montaña en el Valle Sagrado (turismo de aventura) conlleva un riesgo físico inherente. El participante asume por cuenta propia los riesgos de lesiones, caídas u otros incidentes deportivos en exteriores. Esta asunción no exime a Ayni Sport S.A.C. de su deber legal de garantizar la idoneidad, seguridad de la ruta, señalización, personal paramédico especializado y equipos de rescate disponibles a lo largo de los 62km.</p>
+        </div>
+    `,
+    privacidad: `
+        <div class="space-y-4 text-gray-700 text-sm">
+            <h4 class="font-bold text-lg text-secondary border-b pb-2">1. Registro de Banco de Datos</h4>
+            <p>En estricto cumplimiento de la Ley N° 29733 (Ley de Protección de Datos Personales) y su reciente modificación mediante D.S. N° 016-2024-JUS, Ayni Sport S.A.C. declara que la base de datos de competidores se encuentra inscrita en el Registro Nacional de Protección de Datos Personales (RNPDP) administrado por el MINJUSDH.</p>
+            
+            <h4 class="font-bold text-lg text-secondary border-b pb-2 mt-4">2. Tratamiento de Datos de Salud (Sensibles)</h4>
+            <p>Los datos médicos recopilados (evaluaciones de aptitud, alergias, historial médico) tienen una finalidad restrictiva y exclusiva: <strong>la prevención de riesgos y la atención de emergencias durante la ruta ciclista</strong>. Estos datos no serán cedidos bajo ninguna circunstancia para fines de segmentación publicitaria comercial ni a terceros patrocinadores.</p>
+            
+            <h4 class="font-bold text-lg text-secondary border-b pb-2 mt-4">3. Protección de Menores</h4>
+            <p>El tratamiento de datos de participantes en categorías formativas ("Precadetes" y "Cadetes") se realiza velando por el interés superior del menor, requiriendo obligatoriamente la "Autorización de Padres" firmada y aplicando protocolos de confidencialidad para evitar la indexación pública de su identidad.</p>
+
+            <h4 class="font-bold text-lg text-secondary border-b pb-2 mt-4">4. Ejercicio de Derechos ARCO</h4>
+            <p>Todo titular de datos puede ejercer de manera gratuita sus Derechos ARCO (Acceso, Rectificación, Cancelación, Oposición) y Portabilidad escribiendo al Oficial de Datos Personales (ODP) al correo: aynisporteam@gmail.com.</p>
+        </div>
+    `
+};
+
+function showLegalModal(type) {
+  let title = type === 'terminos' ? 'Términos y Condiciones' : 'Política de Privacidad y Tratamiento de Datos';
+  document.getElementById('modal-legal-title').innerHTML = title;
+  document.getElementById('modal-legal-content').innerHTML = legalTexts[type];
   document.getElementById('modal-legal').classList.remove('hidden');
 }
 
@@ -1987,6 +2051,24 @@ window.host = 'readdy.ai';
                     };
                 }, 5000); // Cambia cada 5 segundos
             }
+
+            // Parental Authorization Logic
+            const categoryRadios = document.querySelectorAll('input[name="categoria"]');
+            const authContainer = document.getElementById('contenedor_autorizacion_padres');
+            const authInput = document.getElementById('autorizacion_padres');
+
+            categoryRadios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    const val = e.target.value;
+                    if (val === 'PRECADETE (MIXTO)' || val === 'CADETES (MIXTO)') {
+                        authContainer.classList.remove('hidden');
+                        authInput.required = true;
+                    } else {
+                        authContainer.classList.add('hidden');
+                        authInput.required = false;
+                    }
+                });
+            });
         });
     </script>
 </body>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contra la ESNNA - Ciclovía del Maíz 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: '#F59E0B', secondary: '#166534', dark: '#0F172A' }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800 flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <i class="ri-riding-line text-3xl text-primary"></i>
+                <span class="font-bold text-xl tracking-tight text-secondary">FIC <span class="text-primary">2026</span></span>
+            </a>
+            <a href="index.html" class="text-secondary font-bold hover:text-primary transition-colors flex items-center">
+                <i class="ri-arrow-left-line mr-2"></i> Volver
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-32 pb-20 container mx-auto px-6 max-w-3xl flex items-center justify-center">
+        <div class="bg-white rounded-2xl shadow-xl border-t-8 border-red-600 p-8 md:p-12 w-full text-center">
+            <div class="w-24 h-24 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="ri-shield-user-fill text-5xl"></i>
+            </div>
+            
+            <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 uppercase tracking-tight">Contra la Explotación Sexual de Menores</h1>
+            
+            <div class="bg-red-50 p-6 rounded-lg mb-8">
+                <p class="text-xl md:text-2xl font-bold text-red-700 leading-snug">
+                    "La Explotación Sexual de Niñas, Niños y Adolescentes es un delito en el Perú, penado con la privación de la libertad."
+                </p>
+            </div>
+            
+            <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                Ayni Sport S.A.C. y la organización del Festival Internacional de Ciclismo "Ciclovía del Maíz 2026" se adhieren estrictamente a la <strong>Ley N° 28868</strong> y rechazan categóricamente cualquier forma de explotación infantil.
+            </p>
+            <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                El turismo de aventura y los eventos deportivos en el Valle Sagrado de los Incas deben ser espacios seguros para nuestra niñez. Si eres testigo de un caso de ESNNA, denúncialo inmediatamente.
+            </p>
+
+            <a href="tel:1818" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-full text-xl shadow-lg transition-transform transform hover:scale-105">
+                <i class="ri-phone-fill mr-2"></i> Denuncia gratis a la Línea 1818
+            </a>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-8 text-center mt-auto">
+        <p class="text-gray-400 text-sm mb-1">&copy; 2026 Ciclovía del Maíz. Todos los derechos reservados.</p>
+        <p class="text-gray-500 text-xs font-mono">Ayni Sport S.A.C. | RUC: 20612898503</p>
+    </footer>
+</body>
+</html>
