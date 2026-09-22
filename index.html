@@ -281,7 +281,7 @@ background-color: #2C5F2D;
 
 </header>
 <!-- Hero Section -->
-<section id="inicio" class="relative h-screen flex items-center" style="background-image: url('images/mtb_action.jpg');">
+<section id="inicio" class="relative h-screen flex items-center bg-cover bg-center transition-all duration-1000" style="background-image: url('images/mtb_action.jpg');">
 <div class="absolute inset-0 bg-black bg-opacity-40"></div>
 <div class="container mx-auto px-6 relative z-10">
 <div class="max-w-3xl text-white">
@@ -1996,5 +1996,30 @@ window.host = 'readdy.ai';
     <span class="bg-gray-900 text-white text-xs font-bold px-3 py-1.5 rounded-full mt-2 shadow-lg border border-gray-700">Asesor FIC</span>
 </a>
 
+    <script>
+        // Hero Background Slider
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroSection = document.getElementById('inicio');
+            if (heroSection) {
+                const heroImages = [
+                    'images/mtb_action.jpg',
+                    'images/gallery_5.jpg',
+                    'images/gallery_6.jpg',
+                    'images/gallery_8.jpg'
+                ];
+                let currentImageIndex = 0;
+                
+                setInterval(() => {
+                    currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+                    // Preload to avoid flicker
+                    const img = new Image();
+                    img.src = heroImages[currentImageIndex];
+                    img.onload = () => {
+                        heroSection.style.backgroundImage = `url('${heroImages[currentImageIndex]}')`;
+                    };
+                }, 5000); // Cambia cada 5 segundos
+            }
+        });
+    </script>
 </body>
 </html>
