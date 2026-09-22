@@ -788,14 +788,19 @@ Inscríbete ahora
 <p class="text-gray-600 text-sm">Participa en clases de cocina tradicional y aprende a preparar platos típicos con productos locales y técnicas ancestrales.</p>
 </div>
 </div>
-<div class="bg-white p-6 rounded-lg shadow-md flex">
-<div class="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden mr-4">
-<img src="images/culture_ritual.jpg" alt="FIC 2026 Valle Sagrado Cusco - Rituales andinos" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500 hover:shadow-2xl">
-</div>
-<div>
-<h4 class="font-bold mb-2">Rituales Andinos</h4>
-<p class="text-gray-600 text-sm">Participa en auténticas ceremonias de agradecimiento a la Pachamama guiadas por chamanes locales.</p>
-</div>
+<div class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-center">
+  <div class="flex items-center mb-4">
+      <div class="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden mr-4 bg-gray-200">
+        <img src="images/mtb_action.jpg" alt="FIC 2026 Valle Sagrado Cusco - Talleres de Bicicleta" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">Asistencia Técnica</h4>
+        <p class="text-gray-600 text-sm">Mecánicos y repuestos en ruta.</p>
+      </div>
+  </div>
+  <button onclick="document.getElementById('modal-talleres').classList.remove('hidden')" class="w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded transition-colors flex items-center justify-center gap-2 shadow">
+      <i class="ri-tools-line"></i> Ver talleres de la ruta
+  </button>
 </div>
 </div>
 </div>
@@ -1548,7 +1553,82 @@ Suscribir
   </div>
 </div>
 
-<!-- Modal Success -->
+
+  <!-- Modal Talleres -->
+  <div id="modal-talleres" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6">
+    <div class="absolute inset-0 bg-black bg-opacity-70 transition-opacity" onclick="document.getElementById('modal-talleres').classList.add('hidden')"></div>
+    <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative z-10">
+      <div class="p-6 border-b border-gray-200 flex justify-between items-center sticky top-0 bg-white">
+        <h3 class="text-2xl font-bold flex items-center gap-2"><i class="ri-tools-fill text-primary"></i> Talleres en la Ruta</h3>
+        <button onclick="document.getElementById('modal-talleres').classList.add('hidden')" class="text-gray-500 hover:text-gray-700">
+          <i class="ri-close-line ri-xl"></i>
+        </button>
+      </div>
+      <div class="p-6 space-y-4 max-h-[70vh] overflow-y-auto">
+        
+        <!-- Urubamba 1 -->
+        <div class="border rounded-lg p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-primary transition-colors">
+          <div class="flex-1">
+            <h4 class="font-bold flex items-center gap-2">Tienda y Taller Bicis (Urubamba) <i class="ri-map-pin-line text-gray-400 text-sm"></i></h4>
+            <p class="text-sm text-gray-600 mt-1">Av. Patahuasi s/n. Mantenimiento, venta de repuestos y accesorios. Taller completo y profesional.</p>
+          </div>
+          <div class="text-left md:text-right">
+            <a href="https://wa.me/51984709080?text=Hola,%20vengo%20de%20parte%20de%20la%20FIC%202026.%20Quisiera%20consultar%20sobre%20asistencia%20mecánica." target="_blank" class="inline-block bg-green-500 hover:bg-green-600 text-white text-sm font-bold py-2 px-4 rounded transition-colors shadow flex items-center gap-2">
+                <i class="ri-whatsapp-line"></i> Contactar
+            </a>
+          </div>
+        </div>
+
+        <!-- Lamay 1 -->
+        <div class="border rounded-lg p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-primary transition-colors">
+          <div class="flex-1">
+            <a href="https://www.google.com/maps/search/El+Bike+Project+Lamay" target="_blank" class="hover:text-primary transition-colors">
+                <h4 class="font-bold flex items-center gap-2">El Bike Project (Lamay) <i class="ri-map-pin-line text-gray-400 text-sm"></i></h4>
+            </a>
+            <p class="text-sm text-gray-600 mt-1">Centro especializado en La Base Lamay. Soporte mecánico avanzado y zona de ciclistas.</p>
+          </div>
+          <div class="text-left md:text-right">
+            <a href="https://wa.me/51999999999?text=Hola,%20vengo%20de%20parte%20de%20la%20FIC%202026.%20Necesito%20asistencia%20mecánica." target="_blank" class="inline-block bg-green-500 hover:bg-green-600 text-white text-sm font-bold py-2 px-4 rounded transition-colors shadow flex items-center gap-2">
+                <i class="ri-whatsapp-line"></i> Contactar
+            </a>
+          </div>
+        </div>
+
+        <!-- Ollantaytambo 1 -->
+        <div class="border rounded-lg p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-primary transition-colors">
+          <div class="flex-1">
+            <a href="https://www.google.com/maps/search/Ortiz+Adventure+Ollantaytambo" target="_blank" class="hover:text-primary transition-colors">
+                <h4 class="font-bold flex items-center gap-2">Ortiz Adventure (Ollantaytambo) <i class="ri-map-pin-line text-gray-400 text-sm"></i></h4>
+            </a>
+            <p class="text-sm text-gray-600 mt-1">Soporte mecánico de emergencia y repuestos cerca de la plaza principal de Ollanta.</p>
+          </div>
+          <div class="text-left md:text-right">
+            <a href="https://wa.me/51999999999?text=Hola,%20vengo%20de%20parte%20de%20la%20FIC%202026.%20Necesito%20asistencia%20mecánica." target="_blank" class="inline-block bg-green-500 hover:bg-green-600 text-white text-sm font-bold py-2 px-4 rounded transition-colors shadow flex items-center gap-2">
+                <i class="ri-whatsapp-line"></i> Contactar
+            </a>
+          </div>
+        </div>
+
+        <!-- Urubamba 2 -->
+        <div class="border rounded-lg p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-primary transition-colors">
+          <div class="flex-1">
+            <a href="https://www.google.com/maps/search/Bull+House+World+Urubamba" target="_blank" class="hover:text-primary transition-colors">
+                <h4 class="font-bold flex items-center gap-2">Bull House World (Urubamba) <i class="ri-map-pin-line text-gray-400 text-sm"></i></h4>
+            </a>
+            <p class="text-sm text-gray-600 mt-1">Ubicado en Torrechayoc. Reparaciones de bicicletas y asistencia en ruta.</p>
+          </div>
+          <div class="text-left md:text-right">
+            <a href="https://wa.me/51999999999?text=Hola,%20vengo%20de%20parte%20de%20la%20FIC%202026.%20Necesito%20asistencia%20mecánica." target="_blank" class="inline-block bg-green-500 hover:bg-green-600 text-white text-sm font-bold py-2 px-4 rounded transition-colors shadow flex items-center gap-2">
+                <i class="ri-whatsapp-line"></i> Contactar
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Success -->
 <div id="modal-success" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden flex items-center justify-center p-4">
   <div class="bg-white rounded-lg shadow-xl w-full max-w-md text-center p-8">
     <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-500">
