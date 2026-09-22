@@ -296,8 +296,13 @@ background-color: #2C5F2D;
 </header>
 <!-- Hero Section -->
 <section id="inicio" class="relative h-screen flex items-center overflow-hidden">
-<div class="absolute inset-0 bg-cover bg-center animate-kenburns" style="background-image: url('images/hero_epic_mtb.jpg');"></div>
-<div class="absolute inset-0 bg-black bg-opacity-40"></div>
+<!-- Video Background -->
+<video id="hero-video" autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-mountain-biker-riding-on-a-dirt-trail-9762-large.mp4" type="video/mp4">
+    Tu navegador no soporta videos HTML5.
+</video>
+<!-- Dark Overlay -->
+<div class="absolute inset-0 bg-black bg-opacity-50"></div>
 <div class="container mx-auto px-6 relative z-10">
 <div class="max-w-3xl text-white">
 <h1 class="text-4xl md:text-6xl font-bold mb-2 md:mb-4 leading-tight">Festival Internacional de Ciclismo</h1>
@@ -332,6 +337,11 @@ Inscríbete ahora
 </div>
 </div>
 </div>
+
+<!-- Botón de Audio Flotante -->
+<button id="audio-toggle" class="absolute top-24 right-6 md:right-10 z-20 bg-black/40 backdrop-blur-sm border border-white/30 text-white px-5 py-2.5 rounded-full flex items-center hover:bg-black/60 transition shadow-lg group">
+    <i class="ri-volume-mute-line mr-2 text-xl group-hover:scale-110 transition-transform"></i> <span id="audio-text" class="font-bold text-sm">Activar Sonido</span>
+</button>
 </section>
 <!-- La Ruta Sagrada -->
 <section id="ruta" class="py-20 bg-white">
@@ -2075,6 +2085,30 @@ window.host = 'readdy.ai';
                     }
                 });
             });
+        });
+
+        // Audio Toggle Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('hero-video');
+            const audioBtn = document.getElementById('audio-toggle');
+            const audioText = document.getElementById('audio-text');
+            const audioIcon = audioBtn.querySelector('i');
+
+            if (video && audioBtn) {
+                audioBtn.addEventListener('click', () => {
+                    if (video.muted) {
+                        video.muted = false;
+                        audioText.textContent = 'Silenciar';
+                        audioIcon.classList.remove('ri-volume-mute-line');
+                        audioIcon.classList.add('ri-volume-up-line');
+                    } else {
+                        video.muted = true;
+                        audioText.textContent = 'Activar Sonido';
+                        audioIcon.classList.remove('ri-volume-up-line');
+                        audioIcon.classList.add('ri-volume-mute-line');
+                    }
+                });
+            }
         });
     </script>
 </body>
