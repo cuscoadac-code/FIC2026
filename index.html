@@ -1449,7 +1449,7 @@ function togglePaymentInfo() {
     }
 }
 
-function submitForm(event, form, url) {
+async function submitForm(event, form, url) {
     event.preventDefault();
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn ? submitBtn.innerHTML : '';
