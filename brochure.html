@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Brochure FIC 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Open Sans', sans-serif; background-color: #e5e7eb; margin: 0; padding: 0; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Montserrat', sans-serif; }
+        .page {
+            width: 210mm;
+            height: 297mm;
+            background: white;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            page-break-after: always;
+        }
+        @media print {
+            @page { margin: 0; size: A4; }
+            body { background-color: white; margin: 0; }
+            .page { margin: 0; box-shadow: none; page-break-after: always; border: none; }
+        }
+        .hero-bg {
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.85)), url('images/hero_epic_mtb.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .text-primary { color: #F59E0B; }
+        .bg-primary { background-color: #F59E0B; }
+        .text-secondary { color: #166534; }
+        .bg-secondary { background-color: #166534; }
+    </style>
+</head>
+<body>
+
+    <!-- PÁGINA 1: PORTADA Y RUTAS -->
+    <div class="page flex flex-col">
+        <!-- Hero Header -->
+        <div class="h-[120mm] hero-bg text-white p-12 flex flex-col justify-end">
+            <h2 class="text-2xl font-bold tracking-widest text-primary mb-2 uppercase">Cusco, Perú</h2>
+            <h1 class="text-6xl font-heading font-black leading-tight mb-4">FESTIVAL INTERNACIONAL<br>DE CICLISMO 2026</h1>
+            <p class="text-2xl font-light mb-6">Pedalea entre leyendas. Vive la Ciclovía del Maíz.</p>
+            <div class="inline-block bg-primary text-secondary font-bold text-2xl px-8 py-4 rounded-lg w-max shadow-lg">
+                22 DE NOVIEMBRE, 2026
+            </div>
+        </div>
+
+        <!-- Rutas -->
+        <div class="flex-1 p-12 bg-white">
+            <div class="text-center mb-10">
+                <h2 class="text-4xl font-black text-secondary uppercase tracking-tight">La Ruta Épica (62KM)</h2>
+                <div class="w-24 h-1 bg-primary mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-8">
+                <!-- Sector 1 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+                    <img src="images/route_sector1.jpg" class="w-full h-48 object-cover" alt="Sector 1">
+                    <div class="p-6">
+                        <h3 class="font-black text-lg text-secondary mb-1">SECTOR 1: PISAC - CALCA</h3>
+                        <p class="text-primary font-bold text-lg mb-3">18 KM</p>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">Caminos rurales bordeando el Río Vilcanota hasta llegar a la provincia de Calca.</p>
+                        <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full">Dificultad: Media</span>
+                    </div>
+                </div>
+                <!-- Sector 2 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+                    <img src="images/route_sector2.jpg" class="w-full h-48 object-cover" alt="Sector 2">
+                    <div class="p-6">
+                        <h3 class="font-black text-lg text-secondary mb-1">SECTOR 2: CALCA - URUBAMBA</h3>
+                        <p class="text-primary font-bold text-lg mb-3">21 KM</p>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">Por el corazón del Valle Sagrado a través de impresionantes cultivos de maíz.</p>
+                        <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full">Dificultad: Media</span>
+                    </div>
+                </div>
+                <!-- Sector 3 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+                    <img src="images/route_sector3.jpg" class="w-full h-48 object-cover" alt="Sector 3">
+                    <div class="p-6">
+                        <h3 class="font-black text-lg text-secondary mb-1">SECTOR 3: URUBAMBA - OLLANTAYTAMBO</h3>
+                        <p class="text-primary font-bold text-lg mb-3">23 KM</p>
+                        <p class="text-sm text-gray-600 mb-4 leading-relaxed">El gran final. Un recorrido técnico hacia la histórica ciudad inca viviente.</p>
+                        <span class="bg-orange-100 text-orange-700 text-xs font-bold px-3 py-1 rounded-full">Dificultad: Alta</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PÁGINA 2: CRONOGRAMA, PAQUETES Y METODO INSCRIPCION -->
+    <div class="page flex flex-col p-12 bg-white relative">
+        <div class="text-center mb-10">
+            <h2 class="text-4xl font-black text-secondary uppercase tracking-tight">Cronograma Oficial</h2>
+            <div class="w-24 h-1 bg-primary mx-auto mt-4"></div>
+        </div>
+
+        <!-- Cronograma Grid -->
+        <div class="flex-1 space-y-8">
+            <!-- Día 1 -->
+            <div class="border-l-4 border-primary pl-8 py-2">
+                <h3 class="text-2xl font-bold text-secondary mb-5">Día 1: Viernes 20 de Noviembre</h3>
+                <ul class="space-y-5">
+                    <li class="flex items-center"><div class="w-40 font-bold text-primary text-lg">09:00 - 12:00</div><div class="text-gray-700 font-semibold text-lg">Registro de participantes y entrega de kits <br><span class="text-sm text-gray-500 font-normal">📍 Cusco (Lugar por confirmar)</span></div></li>
+                </ul>
+            </div>
+            
+            <!-- Día 2 -->
+            <div class="border-l-4 border-primary pl-8 py-2">
+                <h3 class="text-2xl font-bold text-secondary mb-5">Día 2: Domingo 22 de Noviembre (El Evento)</h3>
+                <ul class="space-y-5">
+                    <li class="flex items-center"><div class="w-40 font-bold text-primary text-lg">07:00 - 08:00</div><div class="text-gray-700 font-semibold text-lg">Concentración y Partida Oficial <br><span class="text-sm text-gray-500 font-normal">📍 Puente de Pisac</span></div></li>
+                    <li class="flex items-center"><div class="w-40 font-bold text-primary text-lg">08:30 - 13:00</div><div class="text-gray-700 font-semibold text-lg">Competencia XCM <br><span class="text-sm text-gray-500 font-normal">📍 Pisac - Calca - Urubamba - Ollantaytambo</span></div></li>
+                    <li class="flex items-center"><div class="w-40 font-bold text-primary text-lg">13:00 - 15:00</div><div class="text-gray-700 font-semibold text-lg">Ceremonia de Premiación <br><span class="text-sm text-gray-500 font-normal">📍 Plaza de Armas de Ollantaytambo</span></div></li>
+                    <li class="flex items-center"><div class="w-40 font-bold text-primary text-lg">16:00</div><div class="text-gray-700 font-semibold text-lg">Fiesta de Clausura y Sorteo Final <br><span class="text-sm text-gray-500 font-normal">📍 Plaza de Armas de Ollantaytambo</span></div></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- INSCRIPCIÓN Y METODOS DE PAGO -->
+        <div class="mt-8 bg-gray-100 rounded-2xl p-8 border border-gray-200">
+            <h3 class="text-2xl font-black mb-6 text-secondary text-center uppercase">Proceso de Inscripción</h3>
+            <div class="flex gap-8 items-center">
+                <div class="flex-1 space-y-4">
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-primary">
+                        <h4 class="font-bold text-gray-800 text-lg mb-2">1. Elige tu Paquete</h4>
+                        <div class="flex justify-between text-gray-600">
+                            <span><strong>Básico:</strong> S/ 80 (Dorsal, medalla, seguro)</span>
+                            <span><strong>Premium:</strong> S/ 130 (+ Jersey y VIP)</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500">
+                        <h4 class="font-bold text-gray-800 text-lg mb-2">2. Método de Pago</h4>
+                        <p class="text-gray-600 text-sm">Transfiere por Yape o Plin al número: <strong>993 022 225</strong> (A nombre de Gino Bryan Dias Flores).</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
+                        <h4 class="font-bold text-gray-800 text-lg mb-2">3. Registra tu Participación</h4>
+                        <p class="text-gray-600 text-sm">Ingresa a <strong>www.ficperu.online</strong>, sube la captura de pantalla de tu pago y completa tus datos.</p>
+                    </div>
+                </div>
+                
+                <div class="w-48 flex flex-col items-center justify-center bg-white p-4 rounded-xl shadow-md">
+                    <img src="images/qr_yape.jpg" alt="QR Yape" class="w-32 h-32 object-contain mb-3 border p-1 rounded">
+                    <span class="text-sm text-secondary font-bold text-center">Escanea y Paga por Yape</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
