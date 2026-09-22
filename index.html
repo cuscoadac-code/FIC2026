@@ -1162,19 +1162,29 @@ Ver opciones de hospedaje
 </div>
 
 <div id="pago-yape-plin" class="bg-gray-100 p-6 rounded-lg mb-4 border-l-4 border-purple-500">
-    <div class="flex flex-col md:flex-row items-center gap-6">
-        <div class="flex-1">
-            <h5 class="font-bold text-purple-600 mb-4">Instrucciones Yape / Plin:</h5>
-            <ol class="list-decimal list-inside text-gray-700 space-y-2 text-sm mb-4">
-                <li>Escanea el código QR o envía el monto al número: <strong class="text-lg text-gray-900">993 022 225</strong><br><span class="text-xs text-gray-500 ml-5">(Gino Bryan Dias Flores)</span></li>
-                <li>Adjunta aquí la captura de tu pago:</li>
+    <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+        <div class="flex-1 w-full text-center md:text-left">
+            <h5 class="font-bold text-purple-600 mb-4 text-2xl">Instrucciones Yape / Plin:</h5>
+            <ol class="list-decimal list-inside text-gray-700 space-y-4 text-lg mb-4">
+                <li>Abre tu app Yape o Plin.</li>
+                <li>Escanea el código QR o envía el monto al número:<br> <strong class="text-3xl text-gray-900 block mt-2 text-center md:text-left">993 022 225</strong><span class="text-sm text-gray-500 block text-center md:text-left">(A nombre de: Gino Bryan Dias Flores)</span></li>
+                <li>Toma una captura de pantalla (screenshot) de la operación exitosa.</li>
+                <li>Sube la captura de pantalla usando el botón grande debajo del código QR.</li>
             </ol>
-            <div class="mb-2 ml-5">
-                <input type="file" id="comprobante_yape" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100 cursor-pointer">
-            </div>
         </div>
-        <div class="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-white p-3 rounded-2xl shadow-xl border-4 border-purple-300 flex-shrink-0 text-center flex flex-col justify-center items-center">
-            <img src="images/qr_yape.jpg" alt="QR Yape Gino Bryan Dias Flores" class="w-full h-full object-contain rounded-xl">
+        <div class="w-full md:w-[400px] flex-shrink-0 flex flex-col items-center gap-4">
+            <div class="w-full bg-white p-4 rounded-3xl shadow-xl border-4 border-purple-300 flex flex-col items-center">
+                <img src="images/qr_yape.jpg" alt="QR Yape Gino Bryan Dias Flores" class="w-full h-auto max-w-[320px] object-contain rounded-xl shadow-sm mb-4">
+                
+                <div class="w-full p-4 bg-purple-50 border-2 border-dashed border-purple-400 rounded-2xl hover:bg-purple-100 transition-colors group cursor-pointer relative overflow-hidden">
+                    <label for="comprobante_yape" class="cursor-pointer w-full flex flex-col items-center justify-center">
+                        <i class="ri-upload-cloud-2-fill text-4xl text-purple-500 group-hover:scale-110 transition-transform mb-2"></i>
+                        <span class="font-bold text-purple-700 text-lg text-center">SUBIR CAPTURA DE PAGO</span>
+                        <span class="text-xs text-purple-500 mt-1 text-center">Haz clic aquí para seleccionar tu imagen</span>
+                    </label>
+                    <input type="file" id="comprobante_yape" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" required>
+                </div>
+            </div>
         </div>
     </div>
 </div>
