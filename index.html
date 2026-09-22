@@ -782,23 +782,33 @@ Inscríbete ahora
 <div>
 <h3 class="text-2xl font-bold mb-6">Experiencias Auténticas</h3>
 <div class="space-y-6">
-<div class="bg-white p-6 rounded-lg shadow-md flex">
-<div class="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden mr-4">
-<img src="images/culture_weaving.jpg" alt="FIC 2026 Valle Sagrado Cusco - Talleres artesanales" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500 hover:shadow-2xl">
+<div class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-center">
+  <div class="flex items-center mb-4">
+      <div class="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden mr-4">
+        <img src="images/culture_weaving.jpg" alt="FIC 2026 Valle Sagrado Cusco - Talleres artesanales" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500 hover:shadow-2xl">
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">Talleres Artesanales</h4>
+        <p class="text-gray-600 text-sm">Textiles y cerámica ancestral.</p>
+      </div>
+  </div>
+  <button onclick="document.getElementById('modal-artesania').classList.remove('hidden')" class="w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded transition-colors flex items-center justify-center gap-2 shadow">
+      <i class="ri-palette-line"></i> Ver talleres locales
+  </button>
 </div>
-<div>
-<h4 class="font-bold mb-2">Talleres Artesanales</h4>
-<p class="text-gray-600 text-sm">Aprende técnicas ancestrales de tejido y cerámica con artesanos locales. Llévate una pieza única creada por ti mismo.</p>
-</div>
-</div>
-<div class="bg-white p-6 rounded-lg shadow-md flex">
-<div class="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden mr-4">
-<img src="images/culture_cooking.jpg" alt="FIC 2026 Valle Sagrado Cusco - Gastronomía andina" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500 hover:shadow-2xl">
-</div>
-<div>
-<h4 class="font-bold mb-2">Gastronomía Andina</h4>
-<p class="text-gray-600 text-sm">Participa en clases de cocina tradicional y aprende a preparar platos típicos con productos locales y técnicas ancestrales.</p>
-</div>
+<div class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-center">
+  <div class="flex items-center mb-4">
+      <div class="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden mr-4">
+        <img src="images/culture_cooking.jpg" alt="FIC 2026 Valle Sagrado Cusco - Gastronomía andina" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500 hover:shadow-2xl">
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">Gastronomía Andina</h4>
+        <p class="text-gray-600 text-sm">Clases de cocina y restaurantes típicos.</p>
+      </div>
+  </div>
+  <button onclick="document.getElementById('modal-gastronomia').classList.remove('hidden')" class="w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded transition-colors flex items-center justify-center gap-2 shadow">
+      <i class="ri-restaurant-line"></i> Ver opciones locales
+  </button>
 </div>
 <div class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-center">
   <div class="flex items-center mb-4">
@@ -1584,6 +1594,134 @@ Suscribir
   </div>
 </div>
 
+
+  
+  <!-- Modal Artesania -->
+  <div id="modal-artesania" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6">
+    <div class="absolute inset-0 bg-black bg-opacity-70 transition-opacity" onclick="document.getElementById('modal-artesania').classList.add('hidden')"></div>
+    <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative z-10">
+      <div class="p-6 border-b border-gray-200 flex justify-between items-center sticky top-0 bg-white">
+        <h3 class="text-2xl font-bold flex items-center gap-2"><i class="ri-palette-fill text-primary"></i> Talleres Artesanales</h3>
+        <button onclick="document.getElementById('modal-artesania').classList.add('hidden')" class="text-gray-500 hover:text-gray-700">
+          <i class="ri-close-line ri-xl"></i>
+        </button>
+      </div>
+      <div class="p-6 space-y-4 max-h-[70vh] overflow-y-auto">
+        
+        <div class="border rounded-lg p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-primary transition-colors">
+          <div class="flex-1">
+            <h4 class="font-bold flex items-center gap-2">Centro Textil Awanacancha (Pisac) <i class="ri-map-pin-line text-gray-400 text-sm"></i></h4>
+            <p class="text-sm text-gray-600 mt-1">Exhibición de camélidos andinos y demostración en vivo de tejido tradicional.</p>
+          </div>
+          <div class="text-left md:text-right">
+            <a href="https://wa.me/51999999999?text=Hola,%20vengo%20de%20parte%20de%20la%20FIC%202026.%20Quisiera%20información%20sobre%20visitas." target="_blank" class="inline-block bg-green-500 hover:bg-green-600 text-white text-sm font-bold py-2 px-4 rounded transition-colors shadow flex items-center gap-2">
+                <i class="ri-whatsapp-line"></i> Contactar
+            </a>
+          </div>
+        </div>
+
+        <div class="border rounded-lg p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-primary transition-colors">
+          <div class="flex-1">
+            <h4 class="font-bold flex items-center gap-2">Awamaki (Ollantaytambo) <i class="ri-map-pin-line text-gray-400 text-sm"></i></h4>
+            <p class="text-sm text-gray-600 mt-1">Empodera a mujeres tejedoras. Ofrecen tours y talleres inmersivos de textilería andina.</p>
+          </div>
+          <div class="text-left md:text-right">
+            <a href="https://wa.me/51999999999?text=Hola,%20vengo%20de%20parte%20de%20la%20FIC%202026.%20Deseo%20reservar%20un%20taller%20textil." target="_blank" class="inline-block bg-green-500 hover:bg-green-600 text-white text-sm font-bold py-2 px-4 rounded transition-colors shadow flex items-center gap-2">
+                <i class="ri-whatsapp-line"></i> Contactar
+            </a>
+          </div>
+        </div>
+
+        <div class="border rounded-lg p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-primary transition-colors">
+          <div class="flex-1">
+            <h4 class="font-bold flex items-center gap-2">Mercado de Artesanías (Pisac) <i class="ri-map-pin-line text-gray-400 text-sm"></i></h4>
+            <p class="text-sm text-gray-600 mt-1">El mercado más grande de la región. Cerámica, plata y tejidos hechos a mano por comuneros.</p>
+          </div>
+          <div class="text-left md:text-right">
+            <a href="https://wa.me/51999999999?text=Hola,%20vengo%20de%20parte%20de%20la%20FIC%202026.%20Busco%20artesanías%20al%20por%20mayor/menor." target="_blank" class="inline-block bg-green-500 hover:bg-green-600 text-white text-sm font-bold py-2 px-4 rounded transition-colors shadow flex items-center gap-2">
+                <i class="ri-whatsapp-line"></i> Contactar
+            </a>
+          </div>
+        </div>
+
+        <div class="border rounded-lg p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-primary transition-colors">
+          <div class="flex-1">
+            <h4 class="font-bold flex items-center gap-2">Asociaciones Textiles (Chinchero) <i class="ri-map-pin-line text-gray-400 text-sm"></i></h4>
+            <p class="text-sm text-gray-600 mt-1">Famosos por sus técnicas de teñido natural con cochinilla y hierbas locales. Visita obligada.</p>
+          </div>
+          <div class="text-left md:text-right">
+            <a href="https://wa.me/51999999999?text=Hola,%20vengo%20de%20parte%20de%20la%20FIC%202026.%20Quisiera%20programar%20una%20demostración." target="_blank" class="inline-block bg-green-500 hover:bg-green-600 text-white text-sm font-bold py-2 px-4 rounded transition-colors shadow flex items-center gap-2">
+                <i class="ri-whatsapp-line"></i> Contactar
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Modal Gastronomia -->
+  <div id="modal-gastronomia" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6">
+    <div class="absolute inset-0 bg-black bg-opacity-70 transition-opacity" onclick="document.getElementById('modal-gastronomia').classList.add('hidden')"></div>
+    <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative z-10">
+      <div class="p-6 border-b border-gray-200 flex justify-between items-center sticky top-0 bg-white">
+        <h3 class="text-2xl font-bold flex items-center gap-2"><i class="ri-restaurant-fill text-primary"></i> Gastronomía Andina</h3>
+        <button onclick="document.getElementById('modal-gastronomia').classList.add('hidden')" class="text-gray-500 hover:text-gray-700">
+          <i class="ri-close-line ri-xl"></i>
+        </button>
+      </div>
+      <div class="p-6 space-y-4 max-h-[70vh] overflow-y-auto">
+        
+        <div class="border rounded-lg p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-primary transition-colors">
+          <div class="flex-1">
+            <h4 class="font-bold flex items-center gap-2">Picantería Chuncho (Ollantaytambo) <i class="ri-map-pin-line text-gray-400 text-sm"></i></h4>
+            <p class="text-sm text-gray-600 mt-1">Comida típica ollantina preparada con ingredientes orgánicos de los valles cercanos.</p>
+          </div>
+          <div class="text-left md:text-right">
+            <a href="https://wa.me/51999999999?text=Hola,%20vengo%20de%20parte%20de%20la%20FIC%202026.%20Deseo%20reservar%20una%20mesa." target="_blank" class="inline-block bg-green-500 hover:bg-green-600 text-white text-sm font-bold py-2 px-4 rounded transition-colors shadow flex items-center gap-2">
+                <i class="ri-whatsapp-line"></i> Contactar
+            </a>
+          </div>
+        </div>
+
+        <div class="border rounded-lg p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-primary transition-colors">
+          <div class="flex-1">
+            <h4 class="font-bold flex items-center gap-2">Clases de Cocina Parwa (Lamay) <i class="ri-map-pin-line text-gray-400 text-sm"></i></h4>
+            <p class="text-sm text-gray-600 mt-1">Turismo vivencial en Huchuy Qosqo. Aprende a preparar quinoa y cuy al horno.</p>
+          </div>
+          <div class="text-left md:text-right">
+            <a href="https://wa.me/51999999999?text=Hola,%20vengo%20de%20parte%20de%20la%20FIC%202026.%20Deseo%20tomar%20clases%20de%20cocina." target="_blank" class="inline-block bg-green-500 hover:bg-green-600 text-white text-sm font-bold py-2 px-4 rounded transition-colors shadow flex items-center gap-2">
+                <i class="ri-whatsapp-line"></i> Contactar
+            </a>
+          </div>
+        </div>
+
+        <div class="border rounded-lg p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-primary transition-colors">
+          <div class="flex-1">
+            <h4 class="font-bold flex items-center gap-2">MIL Centro (Moray) <i class="ri-map-pin-line text-gray-400 text-sm"></i></h4>
+            <p class="text-sm text-gray-600 mt-1">Alta cocina de investigación de ecosistemas de altura por Virgilio Martínez. Requiere reserva previa.</p>
+          </div>
+          <div class="text-left md:text-right">
+            <a href="https://wa.me/51999999999?text=Hola,%20vengo%20de%20parte%20de%20la%20FIC%202026.%20Quisiera%20consultar%20disponibilidad." target="_blank" class="inline-block bg-green-500 hover:bg-green-600 text-white text-sm font-bold py-2 px-4 rounded transition-colors shadow flex items-center gap-2">
+                <i class="ri-whatsapp-line"></i> Contactar
+            </a>
+          </div>
+        </div>
+
+        <div class="border rounded-lg p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-primary transition-colors">
+          <div class="flex-1">
+            <h4 class="font-bold flex items-center gap-2">Restaurante Hawa (Urubamba) <i class="ri-map-pin-line text-gray-400 text-sm"></i></h4>
+            <p class="text-sm text-gray-600 mt-1">Cocina novoandina de alto nivel con vistas espectaculares al río Vilcanota.</p>
+          </div>
+          <div class="text-left md:text-right">
+            <a href="https://wa.me/51999999999?text=Hola,%20vengo%20de%20parte%20de%20la%20FIC%202026.%20Deseo%20reservar%20mesa." target="_blank" class="inline-block bg-green-500 hover:bg-green-600 text-white text-sm font-bold py-2 px-4 rounded transition-colors shadow flex items-center gap-2">
+                <i class="ri-whatsapp-line"></i> Contactar
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Modal Talleres -->
   <div id="modal-talleres" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6">
