@@ -201,17 +201,48 @@ background-color: #2C5F2D;
 <div class="flex items-center">
 <h1 class="text-white text-2xl font-bold">Ciclovía del Maíz</h1>
 </div>
-<div class="hidden md:flex space-x-8 text-white">
-<a href="index.html#inicio" class="hover:text-primary transition-colors">Inicio</a>
-<a href="index.html#ruta" class="hover:text-primary transition-colors">La Ruta</a>
-<a href="index.html#festival" class="hover:text-primary transition-colors">El Festival</a>
-<a href="index.html#categorias" class="hover:text-primary transition-colors">Categorías</a>
-<a href="index.html#turismo" class="hover:text-primary transition-colors">Turismo</a>
-<a href="index.html#galeria" class="hover:text-primary transition-colors">Galería</a>
-<a href="index.html#voluntariado" class="hover:text-primary transition-colors">Voluntariado</a>
-<a href="resultados.html" class="hover:text-primary transition-colors">Resultados</a>
-<a href="blog.html" class="hover:text-primary transition-colors">Blog</a>
-<a href="index.html#inscripcion" class="hover:text-primary transition-colors">Inscripción</a>
+<div class="hidden md:flex space-x-6 text-white font-bold items-center">
+    <!-- Grupo 1 -->
+    <a href="index.html#inicio" class="hover:text-primary transition-colors">Inicio</a>
+    
+    <!-- Grupo 2 -->
+    <div class="relative group">
+        <button class="hover:text-primary transition-colors flex items-center outline-none py-2">La Carrera <i class="ri-arrow-down-s-line ml-1"></i></button>
+        <div class="absolute left-0 mt-0 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border-t-4 border-primary z-50 overflow-hidden">
+            <a href="index.html#ruta" class="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-primary text-sm font-semibold border-b border-gray-100">La Ruta</a>
+            <a href="index.html#categorias" class="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-primary text-sm font-semibold border-b border-gray-100">Categorías</a>
+            <a href="index.html#paquetes" class="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-primary text-sm font-semibold">Paquetes y Precios</a>
+        </div>
+    </div>
+
+    <!-- Grupo 3 -->
+    <div class="relative group">
+        <button class="hover:text-primary transition-colors flex items-center outline-none py-2">El Festival <i class="ri-arrow-down-s-line ml-1"></i></button>
+        <div class="absolute left-0 mt-0 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border-t-4 border-primary z-50 overflow-hidden">
+            <a href="index.html#festival" class="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-primary text-sm font-semibold border-b border-gray-100">Actividades</a>
+            <a href="index.html#turismo" class="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-primary text-sm font-semibold border-b border-gray-100">Turismo</a>
+            <a href="index.html#galeria" class="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-primary text-sm font-semibold">Galería de Fotos</a>
+        </div>
+    </div>
+
+    <!-- Grupo 4 -->
+    <div class="relative group">
+        <button class="hover:text-primary transition-colors flex items-center outline-none py-2">Comunidad <i class="ri-arrow-down-s-line ml-1"></i></button>
+        <div class="absolute left-0 mt-0 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border-t-4 border-primary z-50 overflow-hidden">
+            <a href="resultados.html" class="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-primary text-sm font-semibold border-b border-gray-100">Resultados</a>
+            <a href="blog.html" class="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-primary text-sm font-semibold border-b border-gray-100">Blog Oficial</a>
+            <a href="index.html#voluntariado" class="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-primary text-sm font-semibold">Voluntariado</a>
+        </div>
+    </div>
+
+    <!-- Grupo 5 -->
+    <div class="relative group">
+        <button class="hover:text-primary transition-colors flex items-center outline-none py-2">Información <i class="ri-arrow-down-s-line ml-1"></i></button>
+        <div class="absolute left-0 mt-0 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border-t-4 border-primary z-50 overflow-hidden">
+            <a href="index.html#inscripcion" class="block px-4 py-3 text-primary bg-orange-50 hover:bg-orange-100 font-extrabold text-sm border-b border-orange-100">¡Inscríbete Aquí!</a>
+            <a href="index.html#faq" class="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-primary text-sm font-semibold border-b border-gray-100">Preguntas Frecuentes</a>
+        </div>
+    </div>
 </div>
 <div class="md:hidden flex items-center">
 <button id="mobile-menu-btn" class="text-white focus:outline-none">
@@ -223,21 +254,30 @@ background-color: #2C5F2D;
 </nav>
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-800">
-    <div class="flex flex-col px-6 py-4 space-y-4 text-white font-bold">
-        <a href="#inicio" class="mobile-link hover:text-primary transition-colors">Inicio</a>
-        <a href="#ruta" class="mobile-link hover:text-primary transition-colors">La Ruta</a>
-        <a href="#festival" class="mobile-link hover:text-primary transition-colors">El Festival</a>
-        <a href="#categorias" class="mobile-link hover:text-primary transition-colors">Categorías</a>
-        <a href="#turismo" class="mobile-link hover:text-primary transition-colors">Turismo</a>
-        <a href="#galeria" class="mobile-link hover:text-primary transition-colors">Galería</a>
-        <a href="#voluntariado" class="mobile-link hover:text-primary transition-colors">Voluntariado</a>
-        <a href="#faq" class="mobile-link hover:text-primary transition-colors">FAQ</a>
-        <a href="resultados.html" class="hover:text-primary transition-colors">Resultados</a>
-        <a href="blog.html" class="hover:text-primary transition-colors">Blog</a>
-        <a href="#inscripcion" class="mobile-link text-primary hover:text-white transition-colors">Inscripción</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-800 overflow-y-auto max-h-[80vh]">
+        <div class="container mx-auto px-6 py-4 flex flex-col space-y-2">
+            <a href="index.html#inicio" class="text-white hover:text-primary py-2 font-bold mobile-link">1. Inicio</a>
+            
+            <div class="text-gray-400 font-bold text-xs uppercase tracking-wider mt-4 mb-2">2. La Carrera</div>
+            <a href="index.html#ruta" class="text-white hover:text-primary py-2 pl-4 border-l-2 border-gray-700 mobile-link">La Ruta</a>
+            <a href="index.html#categorias" class="text-white hover:text-primary py-2 pl-4 border-l-2 border-gray-700 mobile-link">Categorías</a>
+            <a href="index.html#paquetes" class="text-white hover:text-primary py-2 pl-4 border-l-2 border-gray-700 mobile-link">Paquetes y Precios</a>
+
+            <div class="text-gray-400 font-bold text-xs uppercase tracking-wider mt-4 mb-2">3. El Festival</div>
+            <a href="index.html#festival" class="text-white hover:text-primary py-2 pl-4 border-l-2 border-gray-700 mobile-link">Actividades</a>
+            <a href="index.html#turismo" class="text-white hover:text-primary py-2 pl-4 border-l-2 border-gray-700 mobile-link">Turismo</a>
+            <a href="index.html#galeria" class="text-white hover:text-primary py-2 pl-4 border-l-2 border-gray-700 mobile-link">Galería de Fotos</a>
+
+            <div class="text-gray-400 font-bold text-xs uppercase tracking-wider mt-4 mb-2">4. Comunidad</div>
+            <a href="resultados.html" class="text-white hover:text-primary py-2 pl-4 border-l-2 border-gray-700 mobile-link">Resultados</a>
+            <a href="blog.html" class="text-white hover:text-primary py-2 pl-4 border-l-2 border-gray-700 mobile-link">Blog Oficial</a>
+            <a href="index.html#voluntariado" class="text-white hover:text-primary py-2 pl-4 border-l-2 border-gray-700 mobile-link">Voluntariado</a>
+
+            <div class="text-gray-400 font-bold text-xs uppercase tracking-wider mt-4 mb-2">5. Información</div>
+            <a href="index.html#faq" class="text-white hover:text-primary py-2 pl-4 border-l-2 border-gray-700 mobile-link">Preguntas Frecuentes</a>
+            <a href="index.html#inscripcion" class="bg-primary text-white text-center rounded py-3 mt-4 font-bold mobile-link">¡Inscríbete Aquí!</a>
+        </div>
     </div>
-</div>
 
 </header>
 <!-- Hero Section -->
@@ -914,6 +954,66 @@ Ver opciones de hospedaje
         </div>
     </section>
 
+
+<section id="paquetes" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4">Paquetes de Inscripción</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Elige el paquete que mejor se adapte a tu experiencia en la FIC 2026.</p>
+        </div>
+        
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Paquete Basico -->
+            <div class="bg-gray-50 rounded-2xl shadow-lg overflow-hidden border border-gray-200 flex flex-col">
+                <div class="p-8 text-center bg-gray-100 border-b border-gray-200">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">PAQUETE BÁSICO</h3>
+                    <div class="text-5xl font-extrabold text-primary mb-2">S/ 80</div>
+                    <p class="text-sm text-gray-500 font-bold uppercase tracking-wider">Soles</p>
+                </div>
+                <div class="p-8 flex-1">
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center"><i class="ri-checkbox-circle-fill text-gray-400 text-xl mr-3"></i><span class="font-bold text-gray-700">KIT DE INSCRIPCIÓN</span></li>
+                        <li class="flex items-center"><i class="ri-checkbox-circle-fill text-gray-400 text-xl mr-3"></i><span class="font-bold text-gray-700">SORTEO FINAL</span></li>
+                        <li class="flex items-center"><i class="ri-checkbox-circle-fill text-gray-400 text-xl mr-3"></i><span class="font-bold text-gray-700">MEDALLA FINISHER</span></li>
+                        <li class="flex items-center"><i class="ri-checkbox-circle-fill text-gray-400 text-xl mr-3"></i><span class="font-bold text-gray-700">PREMIOS (3 PRIMEROS PUESTOS)</span></li>
+                        <li class="flex items-center"><i class="ri-checkbox-circle-fill text-gray-400 text-xl mr-3"></i><span class="font-bold text-gray-700">BOX LUNCH</span></li>
+                    </ul>
+                </div>
+                <div class="p-8 pt-0 mt-auto">
+                    <a href="#inscripcion" onclick="document.getElementById('pack-basico').checked = true;" class="block w-full text-center bg-gray-800 hover:bg-gray-900 text-white font-bold py-4 rounded-full transition-colors">
+                        Seleccionar Básico
+                    </a>
+                </div>
+            </div>
+
+            <!-- Paquete Premium -->
+            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-primary transform md:-translate-y-4 flex flex-col relative">
+                <div class="absolute top-0 right-0 bg-primary text-white font-bold px-4 py-1 rounded-bl-lg text-sm uppercase tracking-wider">Popular</div>
+                <div class="p-8 text-center bg-orange-50 border-b border-orange-100">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">PAQUETE PREMIUM</h3>
+                    <div class="text-5xl font-extrabold text-primary mb-2">S/ 130</div>
+                    <p class="text-sm text-gray-500 font-bold uppercase tracking-wider">Soles</p>
+                </div>
+                <div class="p-8 flex-1">
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center"><i class="ri-checkbox-circle-fill text-primary text-xl mr-3"></i><span class="font-bold text-gray-700">KIT DE INSCRIPCIÓN</span></li>
+                        <li class="flex items-center"><i class="ri-checkbox-circle-fill text-primary text-xl mr-3"></i><span class="font-bold text-gray-700">SORTEO FINAL</span></li>
+                        <li class="flex items-center"><i class="ri-checkbox-circle-fill text-primary text-xl mr-3"></i><span class="font-bold text-gray-700">MEDALLA FINISHER</span></li>
+                        <li class="flex items-center"><i class="ri-checkbox-circle-fill text-primary text-xl mr-3"></i><span class="font-bold text-gray-700">PREMIOS (3 PRIMEROS PUESTOS)</span></li>
+                        <li class="flex items-center"><i class="ri-checkbox-circle-fill text-primary text-xl mr-3"></i><span class="font-bold text-gray-700">BOX LUNCH</span></li>
+                        <li class="flex items-center"><i class="ri-checkbox-circle-fill text-primary text-xl mr-3"></i><span class="font-bold text-gray-900 bg-orange-100 px-2 py-1 rounded">MOVILIDAD PRIVADA IDA Y VUELTA</span></li>
+                    </ul>
+                </div>
+                <div class="p-8 pt-0 mt-auto">
+                    <a href="#inscripcion" onclick="document.getElementById('pack-premium').checked = true;" class="block w-full text-center bg-primary hover:bg-orange-600 text-white font-bold py-4 rounded-full transition-colors shadow-lg">
+                        Seleccionar Premium
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="inscripcion" class="py-20 bg-gray-50">
 <div class="container mx-auto px-6">
 <div class="text-center mb-16">
@@ -1017,21 +1117,22 @@ Ver opciones de hospedaje
 </div>
 </div>
 <div class="mb-6">
-<label class="block text-gray-700 mb-2">Paquete</label>
-<div class="space-y-2">
-<label class="flex items-center">
-<input type="radio" name="paquete" id="pack-basico" class="custom-checkbox">
-<span class="ml-2">Inscripción General (S/ 80)</span>
-</label>
-<label class="flex items-center">
-<input type="radio" name="paquete" id="pack-premium" class="custom-checkbox" checked>
-<span class="ml-2">Inscripción + Movilidad (S/ 120)</span>
-</label>
-<label class="flex items-center">
-<input type="radio" name="paquete" id="pack-vip" class="custom-checkbox">
-<span class="ml-2">Paquete Completo: Inscripción, Transporte, Hospedaje y Tour (S/ 890)</span>
-</label>
-</div>
+<label class="block text-gray-700 mb-2 font-bold">Paquete FIC 2026</label>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+    <label class="flex items-center p-4 border rounded-lg hover:bg-gray-50 cursor-pointer">
+        <input type="radio" name="paquete" id="pack-basico" value="PAQUETE BÁSICO (S/ 80)" class="custom-checkbox text-primary" required>
+        <div class="ml-3">
+            <span class="block font-bold text-gray-800">PAQUETE BÁSICO</span>
+            <span class="block text-sm text-gray-500 font-semibold">S/ 80</span>
+        </div>
+    </label>
+    <label class="flex items-center p-4 border rounded-lg hover:bg-orange-50 cursor-pointer border-orange-300 bg-orange-50">
+        <input type="radio" name="paquete" id="pack-premium" value="PAQUETE PREMIUM (S/ 130)" class="custom-checkbox text-primary" checked required>
+        <div class="ml-3">
+            <span class="block font-bold text-orange-700">PAQUETE PREMIUM</span>
+            <span class="block text-sm text-orange-600 font-bold">S/ 130</span>
+        </div>
+    </label>
 </div>
 
 <div class="mb-6">
@@ -1400,7 +1501,7 @@ function submitForm(event, form, url) {
         data.categoria = cat ? cat.value : '';
 
         const pack = document.querySelector('input[name="paquete"]:checked');
-        data.paquete = pack ? pack.nextElementSibling.textContent.trim() : '';
+        data.paquete = pack ? pack.value : '';
         
         const metodo = document.querySelector('input[name="metodo_pago"]:checked');
         data.metodo_pago = metodo ? metodo.value : '';
