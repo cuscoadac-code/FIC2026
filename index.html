@@ -249,6 +249,14 @@ background-color: #2C5F2D;
         </div>
     </div>
 
+    
+    <!-- Grupo Tienda -->
+    <div class="relative group flex items-center ml-4">
+        <a href="tienda.html" class="bg-primary/20 text-primary hover:bg-primary hover:text-white px-4 py-2 rounded-full transition-colors flex items-center font-bold text-sm border border-primary/50 shadow-[0_0_15px_rgba(249,115,22,0.5)]">
+            <i class="ri-shopping-bag-3-fill mr-2"></i> Merch Oficial
+        </a>
+    </div>
+
     <!-- Grupo 5 -->
     <div class="relative group">
         <button class="hover:text-primary transition-colors flex items-center outline-none py-2">Información <i class="ri-arrow-down-s-line ml-1"></i></button>
@@ -276,6 +284,10 @@ background-color: #2C5F2D;
             <a href="index.html#ruta" class="text-white hover:text-primary py-2 pl-4 border-l-2 border-gray-700 mobile-link">La Ruta</a>
             <a href="index.html#categorias" class="text-white hover:text-primary py-2 pl-4 border-l-2 border-gray-700 mobile-link">Categorías</a>
             <a href="index.html#paquetes" class="text-white hover:text-primary py-2 pl-4 border-l-2 border-gray-700 mobile-link">Paquetes y Precios</a>
+
+            
+            <div class="text-primary font-bold text-xs uppercase tracking-wider mt-4 mb-2">★ Merchandising</div>
+            <a href="tienda.html" class="text-white bg-primary/20 hover:bg-primary py-2 px-4 rounded-lg font-bold mobile-link flex items-center gap-2"><i class="ri-shopping-bag-3-fill"></i> Tienda Oficial</a>
 
             <div class="text-gray-400 font-bold text-xs uppercase tracking-wider mt-4 mb-2">3. El Festival</div>
             <a href="index.html#festival" class="text-white hover:text-primary py-2 pl-4 border-l-2 border-gray-700 mobile-link">Actividades</a>
@@ -1402,7 +1414,26 @@ Suscribir
 </form>
 </div>
 </div>
-<div class="border-t border-gray-800 pt-8 mt-12">
+
+    <!-- Banner Tienda Oficial -->
+    <div class="relative rounded-2xl overflow-hidden mb-12 shadow-2xl group border border-gray-800">
+        <div class="absolute inset-0 bg-black">
+            <img src="images/merch_jersey.jpg" alt="FIC 2026 Merch" class="w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity duration-500 group-hover:scale-105 transform">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/90 to-transparent"></div>
+        <div class="relative z-10 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between">
+            <div class="mb-6 md:mb-0 max-w-xl text-center md:text-left">
+                <span class="inline-block py-1 px-3 rounded bg-red-600 text-white font-bold text-xs tracking-wider mb-4 uppercase animate-pulse">Preventa Limitada</span>
+                <h3 class="text-3xl md:text-4xl font-heading font-black text-white mb-2 uppercase">Viste la Aventura</h3>
+                <p class="text-gray-300">Descubre el Jersey Oficial y la línea de merchandising de la FIC 2026. Unidades limitadas.</p>
+            </div>
+            <a href="tienda.html" class="bg-primary hover:bg-white hover:text-primary text-white font-bold py-4 px-8 rounded-full transition-colors whitespace-nowrap shadow-[0_0_20px_rgba(249,115,22,0.6)] flex items-center gap-2">
+                <i class="ri-shopping-cart-2-line ri-xl"></i> Visitar Tienda
+            </a>
+        </div>
+    </div>
+
+      <div class="border-t border-gray-800 pt-8 mt-12">
     <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
         <div class="mb-6 md:mb-0">
             <p class="text-gray-400 text-sm mb-1">&copy; 2026 Ciclovía del Maíz. Todos los derechos reservados.</p>
