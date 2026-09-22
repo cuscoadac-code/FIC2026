@@ -804,28 +804,28 @@ Ver opciones de hospedaje
             <h3 class="text-3xl font-bold text-secondary mb-8 border-b-2 border-primary pb-2 inline-block">Galería de Fotos</h3>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <div class="group relative overflow-hidden rounded-lg shadow-md aspect-square bg-gray-200">
-                    <img src="images/pisac.jpg" alt="FIC 2026 Valle Sagrado Cusco - Ciclismo Cusco" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 hover:shadow-2xl">
+                    <img src="images/gallery_1.jpg" alt="FIC 2026 - Galería 1" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 hover:shadow-2xl">
                 </div>
                 <div class="group relative overflow-hidden rounded-lg shadow-md aspect-square bg-gray-200">
-                    <img src="images/maras.jpg" alt="FIC 2026 Valle Sagrado Cusco - MTB Action" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 hover:shadow-2xl">
+                    <img src="images/gallery_2.jpg" alt="FIC 2026 - Galería 2" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 hover:shadow-2xl">
                 </div>
                 <div class="group relative overflow-hidden rounded-lg shadow-md aspect-square bg-gray-200">
-                    <img src="images/moray.jpg" alt="FIC 2026 Valle Sagrado Cusco - MTB Trail" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 hover:shadow-2xl">
+                    <img src="images/gallery_3.jpg" alt="FIC 2026 - Galería 3" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 hover:shadow-2xl">
                 </div>
                 <div class="group relative overflow-hidden rounded-lg shadow-md aspect-square bg-gray-200">
-                    <img src="images/chinchero.jpg" alt="FIC 2026 Valle Sagrado Cusco - Cycling Group" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 hover:shadow-2xl">
+                    <img src="images/gallery_4.jpg" alt="FIC 2026 - Galería 4" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 hover:shadow-2xl">
                 </div>
                 <div class="group relative overflow-hidden rounded-lg shadow-md aspect-square bg-gray-200">
-                    <img src="images/mtb_action.jpg" alt="FIC 2026 Valle Sagrado Cusco - Mountain Bike" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 hover:shadow-2xl">
+                    <img src="images/gallery_5.jpg" alt="FIC 2026 - Galería 5" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 hover:shadow-2xl">
                 </div>
                 <div class="group relative overflow-hidden rounded-lg shadow-md aspect-square bg-gray-200">
-                    <img src="images/mtb_action.jpg" alt="FIC 2026 Valle Sagrado Cusco - Bike Wheel" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 hover:shadow-2xl">
+                    <img src="images/gallery_6.jpg" alt="FIC 2026 - Galería 6" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 hover:shadow-2xl">
                 </div>
                 <div class="group relative overflow-hidden rounded-lg shadow-md aspect-square bg-gray-200">
-                    <img src="images/mtb_action.jpg" alt="FIC 2026 Valle Sagrado Cusco - Cyclist Sunset" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 hover:shadow-2xl">
+                    <img src="images/gallery_7.jpg" alt="FIC 2026 - Galería 7" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 hover:shadow-2xl">
                 </div>
                 <div class="group relative overflow-hidden rounded-lg shadow-md aspect-square bg-gray-200">
-                    <img src="images/mtb_action.jpg" alt="FIC 2026 Valle Sagrado Cusco - Mountain Path" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 hover:shadow-2xl">
+                    <img src="images/gallery_8.jpg" alt="FIC 2026 - Galería 8" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 hover:shadow-2xl">
                 </div>
             </div>
         </div>
@@ -1028,30 +1028,19 @@ Ver opciones de hospedaje
 </div>
 
 <div class="mb-6 bg-gray-50 p-4 rounded-lg border border-gray-200">
-    <h4 class="font-bold text-gray-800 mb-4">Datos de Facturación (Ayni Sport S.A.C.)</h4>
+    <h4 class="font-bold text-gray-800 mb-4">Datos de Comprobante (Ayni Sport S.A.C.)</h4>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <div>
-            <label class="block text-gray-700 mb-2 font-bold" for="tipo_comprobante">Tipo de Comprobante</label>
-            <select id="tipo_comprobante" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary" onchange="toggleFacturaFields()">
-                <option value="Boleta">Boleta de Venta</option>
-                <option value="Factura">Factura</option>
-            </select>
+            <label class="block text-gray-700 mb-2 font-bold">Tipo de Comprobante</label>
+            <div class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded text-gray-600 font-semibold flex items-center justify-between">
+                Boleta de Venta
+                <i class="ri-check-line text-green-600"></i>
+            </div>
+            <input type="hidden" id="tipo_comprobante" name="tipo_comprobante" value="Boleta">
         </div>
         <div>
             <label class="block text-gray-700 mb-2 font-bold" id="label_doc" for="documento">DNI / Pasaporte</label>
             <input type="text" id="documento" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
-        </div>
-    </div>
-    
-    <!-- Campos exclusivos para Factura -->
-    <div id="campos_factura" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-            <label class="block text-gray-700 mb-2 font-bold" for="razon_social">Razón Social</label>
-            <input type="text" id="razon_social" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
-        </div>
-        <div>
-            <label class="block text-gray-700 mb-2 font-bold" for="direccion_fiscal">Dirección Fiscal</label>
-            <input type="text" id="direccion_fiscal" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
         </div>
     </div>
 </div>
