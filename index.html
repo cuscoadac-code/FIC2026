@@ -1958,8 +1958,7 @@ async function submitForm(event, form, url) {
 
 💳 *DATOS DE FACTURACIÓN (Ayni Sport S.A.C.):*
 📄 *Comprobante:* ${data.tipo_comprobante}
-🆔 *Documento:* ${data.documento} ${data.tipo_comprobante === 'Factura' ? '
-🏢 *Razón Social:* ' + data.razon_social : ''}
+🆔 *Documento:* ${data.documento} ${data.tipo_comprobante === 'Factura' ? '\n🏢 *Razón Social:* ' + data.razon_social : ''}
 
 💰 *PAGO:*
 *Método:* ${data.metodo_pago}
