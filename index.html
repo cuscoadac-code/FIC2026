@@ -4,27 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Festival Internacional de Ciclismo – Ciclovía del Maíz 2026</title>
-<script src="https://cdn.tailwindcss.com/3.4.16">function handleFileUpload(input) {
-    const labelSpan = input.previousElementSibling.querySelector('span.font-bold');
-    const icon = input.previousElementSibling.querySelector('i');
-    const subtext = input.previousElementSibling.querySelector('span.text-xs');
-    
-    if (input.files && input.files[0]) {
-        labelSpan.innerHTML = '¡Archivo Cargado!';
-        labelSpan.classList.remove('text-purple-700');
-        labelSpan.classList.add('text-green-600');
-        
-        icon.classList.replace('ri-upload-cloud-2-fill', 'ri-check-double-line');
-        icon.classList.replace('text-purple-500', 'text-green-500');
-        
-        subtext.innerHTML = input.files[0].name;
-        subtext.classList.replace('text-purple-500', 'text-green-500');
-        
-        input.parentElement.classList.replace('border-purple-400', 'border-green-500');
-        input.parentElement.classList.replace('bg-purple-50', 'bg-green-50');
-    }
-}
-</script>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <script>tailwind.config={theme:{extend:{colors:{primary:'#FFB800',secondary:'#2C5F2D'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2523,5 +2503,28 @@ window.host = 'readdy.ai';
             }
         }
     </script>
+
+<script>
+function handleFileUpload(input) {
+    const labelSpan = input.previousElementSibling.querySelector('span.font-bold');
+    const icon = input.previousElementSibling.querySelector('i');
+    const subtext = input.previousElementSibling.querySelector('span.text-xs');
+    
+    if (input.files && input.files[0]) {
+        labelSpan.innerHTML = '¡Archivo Cargado!';
+        labelSpan.classList.remove('text-purple-700');
+        labelSpan.classList.add('text-green-600');
+        
+        icon.classList.replace('ri-upload-cloud-2-fill', 'ri-check-double-line');
+        icon.classList.replace('text-purple-500', 'text-green-500');
+        
+        subtext.innerHTML = input.files[0].name;
+        subtext.classList.replace('text-purple-500', 'text-green-500');
+        
+        input.parentElement.classList.replace('border-purple-400', 'border-green-500');
+        input.parentElement.classList.replace('bg-purple-50', 'bg-green-50');
+    }
+}
+</script>
 </body>
 </html>
