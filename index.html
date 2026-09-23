@@ -1151,98 +1151,127 @@ Ver opciones de hospedaje
 </div>
 <div>
 <label class="block text-gray-700 mb-2" for="edad">Edad</label>
-<input type="number" id="edad" min="12" max="99" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary">
+<div class="relative">
+<select id="edad" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary appearance-none pr-8">
+    <option value="">Selecciona tu edad</option>
+    <option value="12">12 años</option>
+    <option value="13">13 años</option>
+    <option value="14">14 años</option>
+    <option value="15">15 años</option>
+    <option value="16">16 años</option>
+    <option value="17">17 años</option>
+    <option value="18">18 años</option>
+    <option value="19">19 años</option>
+    <option value="20">20 años</option>
+    <option value="21">21 años</option>
+    <option value="22">22 años</option>
+    <option value="23">23 años</option>
+    <option value="24">24 años</option>
+    <option value="25">25 años</option>
+    <option value="26">26 años</option>
+    <option value="27">27 años</option>
+    <option value="28">28 años</option>
+    <option value="29">29 años</option>
+    <option value="30">30 años</option>
+    <option value="31">31 años</option>
+    <option value="32">32 años</option>
+    <option value="33">33 años</option>
+    <option value="34">34 años</option>
+    <option value="35">35 años</option>
+    <option value="36">36 años</option>
+    <option value="37">37 años</option>
+    <option value="38">38 años</option>
+    <option value="39">39 años</option>
+    <option value="40">40 años</option>
+    <option value="41">41 años</option>
+    <option value="42">42 años</option>
+    <option value="43">43 años</option>
+    <option value="44">44 años</option>
+    <option value="45">45 años</option>
+    <option value="46">46 años</option>
+    <option value="47">47 años</option>
+    <option value="48">48 años</option>
+    <option value="49">49 años</option>
+    <option value="50">50 años</option>
+    <option value="51">51 años</option>
+    <option value="52">52 años</option>
+    <option value="53">53 años</option>
+    <option value="54">54 años</option>
+    <option value="55">55 años</option>
+    <option value="56">56 años</option>
+    <option value="57">57 años</option>
+    <option value="58">58 años</option>
+    <option value="59">59 años</option>
+    <option value="60">60 años</option>
+    <option value="61">61 años</option>
+    <option value="62">62 años</option>
+    <option value="63">63 años</option>
+    <option value="64">64 años</option>
+    <option value="65">65 años</option>
+    <option value="66">66 años</option>
+    <option value="67">67 años</option>
+    <option value="68">68 años</option>
+    <option value="69">69 años</option>
+    <option value="70">70 años</option>
+    <option value="71">71 años</option>
+    <option value="72">72 años</option>
+    <option value="73">73 años</option>
+    <option value="74">74 años</option>
+    <option value="75">75 años</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+    <i class="ri-arrow-down-s-line text-xl"></i>
+</div>
+</div>
 </div>
 </div>
 <div class="mb-6">
 <label class="block text-gray-700 mb-2">Categoría</label>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-    <label class="flex items-center p-2 border rounded hover:bg-gray-50 cursor-pointer border-gray-200">
-        <input type="radio" name="categoria" value="PRECADETE (MIXTO)" class="custom-checkbox text-primary" required checked>
-        <span class="ml-2 font-semibold text-gray-700 text-sm">PRECADETE (MIXTO) <span class="text-xs text-gray-400 block font-normal">12 - 14 años</span></span>
-    </label>
-    <label class="flex items-center p-2 border rounded hover:bg-gray-50 cursor-pointer border-gray-200">
-        <input type="radio" name="categoria" value="CADETES (MIXTO)" class="custom-checkbox text-primary" required>
-        <span class="ml-2 font-semibold text-gray-700 text-sm">CADETES (MIXTO) <span class="text-xs text-gray-400 block font-normal">15 - 17 años</span></span>
-    </label>
-    <label class="flex items-center p-2 border rounded hover:bg-gray-50 cursor-pointer border-gray-200">
-        <input type="radio" name="categoria" value="PRO ELITE" class="custom-checkbox text-primary" required>
-        <span class="ml-2 font-semibold text-gray-700 text-sm">PRO ELITE <span class="text-xs text-gray-400 block font-normal">18+ años</span></span>
-    </label>
-    <label class="flex items-center p-2 border rounded hover:bg-gray-50 cursor-pointer border-gray-200">
-        <input type="radio" name="categoria" value="NOVELES" class="custom-checkbox text-primary" required>
-        <span class="ml-2 font-semibold text-gray-700 text-sm">NOVELES <span class="text-xs text-gray-400 block font-normal">Principiantes</span></span>
-    </label>
-    <label class="flex items-center p-2 border rounded hover:bg-gray-50 cursor-pointer border-gray-200">
-        <input type="radio" name="categoria" value="MASTER A" class="custom-checkbox text-primary" required>
-        <span class="ml-2 font-semibold text-gray-700 text-sm">MASTER A <span class="text-xs text-gray-400 block font-normal">30 - 39 años</span></span>
-    </label>
-    <label class="flex items-center p-2 border rounded hover:bg-gray-50 cursor-pointer border-gray-200">
-        <input type="radio" name="categoria" value="MASTER B" class="custom-checkbox text-primary" required>
-        <span class="ml-2 font-semibold text-gray-700 text-sm">MASTER B <span class="text-xs text-gray-400 block font-normal">40 - 49 años</span></span>
-    </label>
-    <label class="flex items-center p-2 border rounded hover:bg-gray-50 cursor-pointer border-gray-200">
-        <input type="radio" name="categoria" value="MASTER C" class="custom-checkbox text-primary" required>
-        <span class="ml-2 font-semibold text-gray-700 text-sm">MASTER C <span class="text-xs text-gray-400 block font-normal">50+ años</span></span>
-    </label>
-    <label class="flex items-center p-2 border rounded hover:bg-gray-50 cursor-pointer border-gray-200">
-        <input type="radio" name="categoria" value="DAMAS" class="custom-checkbox text-primary" required>
-        <span class="ml-2 font-semibold text-gray-700 text-sm">DAMAS <span class="text-xs text-gray-400 block font-normal">Categoría Femenina</span></span>
-    </label>
+<div class="relative">
+<select id="categoria" name="categoria" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary appearance-none pr-8" onchange="checkCategory()">
+    <option value="">Selecciona tu categoría</option>
+    <option value="PRECADETE (MIXTO)">PRECADETE (MIXTO) - 12 a 14 años</option>
+    <option value="CADETES (MIXTO)">CADETES (MIXTO) - 15 a 17 años</option>
+    <option value="PRO ELITE">PRO ELITE - 18+ años</option>
+    <option value="NOVELES">NOVELES - Principiantes</option>
+    <option value="MASTER A">MASTER A - 30 a 39 años</option>
+    <option value="MASTER B">MASTER B - 40 a 49 años</option>
+    <option value="MASTER C">MASTER C - 50+ años</option>
+    <option value="DAMAS">DAMAS - Categoría Femenina</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+    <i class="ri-arrow-down-s-line text-xl"></i>
+</div>
 </div>
 </div>
 <div class="mb-6">
 <label class="block text-gray-700 mb-2 font-bold">Paquete FIC 2026</label>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
-                        <label class="flex items-center p-4 border rounded-lg hover:bg-gray-50 cursor-pointer">
-                            <input type="radio" name="paquete" id="pack-basico" value="PAQUETE BIKER (S/ 90)" class="custom-checkbox text-primary" required>
-                            <div class="ml-3">
-                                <span class="block font-bold text-gray-800">PAQUETE BIKER</span>
-                                <span class="block text-sm text-gray-500 font-semibold">S/ 90</span>
-                            </div>
-                        </label>
-                        <label class="flex items-center p-4 border rounded-lg hover:bg-gray-50 cursor-pointer">
-                            <input type="radio" name="paquete" id="pack-transporte" value="BIKER + TRANSPORTE (S/ 140)" class="custom-checkbox text-primary" required>
-                            <div class="ml-3">
-                                <span class="block font-bold text-gray-800">BIKER + TRANSPORTE</span>
-                                <span class="block text-sm text-gray-500 font-semibold">S/ 140</span>
-                            </div>
-                        </label>
-                        <label class="flex items-center p-4 border rounded-lg hover:bg-orange-50 cursor-pointer border-orange-300 bg-orange-50">
-                            <input type="radio" name="paquete" id="pack-jersey" value="BIKER + JERSEY (S/ 150)" class="custom-checkbox text-primary" checked required>
-                            <div class="ml-3">
-                                <span class="block font-bold text-orange-700">BIKER + JERSEY</span>
-                                <span class="block text-sm text-orange-600 font-bold">S/ 150</span>
-                            </div>
-                        </label>
-                        <label class="flex items-center p-4 border rounded-lg hover:bg-gray-800 cursor-pointer border-gray-700 bg-gray-900">
-                            <input type="radio" name="paquete" id="pack-full" value="PAQUETE BIKER FULL (S/ 200)" class="custom-checkbox text-primary" required>
-                            <div class="ml-3">
-                                <span class="block font-bold text-yellow-500">PAQUETE BIKER FULL</span>
-                                <span class="block text-sm text-gray-300 font-bold">S/ 200</span>
-                            </div>
-                        </label>
-                    </div>
+<div class="relative mb-6">
+<select id="paquete" name="paquete" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary appearance-none pr-8">
+    <option value="">Selecciona tu paquete</option>
+    <option value="PAQUETE BIKER (S/ 90)">PAQUETE BIKER - S/ 90</option>
+    <option value="BIKER + TRANSPORTE (S/ 140)">BIKER + TRANSPORTE - S/ 140</option>
+    <option value="BIKER + JERSEY (S/ 150)">BIKER + JERSEY - S/ 150</option>
+    <option value="PAQUETE BIKER FULL (S/ 200)">PAQUETE BIKER FULL - S/ 200</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+    <i class="ri-arrow-down-s-line text-xl"></i>
+</div>
+</div>
 
 <div class="mb-6">
 <label class="block text-gray-700 mb-2">Método de Pago</label>
-<div class="space-y-2 mb-4">
-<label class="flex items-center">
-<input type="radio" name="metodo_pago" value="Yape" class="custom-checkbox" onchange="togglePaymentInfo()" checked>
-<span class="ml-2">Yape</span>
-</label>
-<label class="flex items-center">
-<input type="radio" name="metodo_pago" value="Plin" class="custom-checkbox" onchange="togglePaymentInfo()">
-<span class="ml-2">Plin</span>
-</label>
-<label class="flex items-center">
-<input type="radio" name="metodo_pago" value="Depósito Bancario" class="custom-checkbox" onchange="togglePaymentInfo()">
-<span class="ml-2">Depósito Bancario</span>
-</label>
-<label class="flex items-center">
-<input type="radio" name="metodo_pago" value="PayPal" class="custom-checkbox" onchange="togglePaymentInfo()">
-<span class="ml-2">PayPal</span>
-</label>
+<div class="relative mb-4">
+<select id="metodo_pago" name="metodo_pago" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-primary appearance-none pr-8" onchange="togglePaymentInfo()">
+    <option value="">Selecciona método de pago</option>
+    <option value="Yape">Yape</option>
+    <option value="Plin">Plin</option>
+    <option value="Depósito Bancario">Depósito Bancario</option>
+    <option value="PayPal">PayPal</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+    <i class="ri-arrow-down-s-line text-xl"></i>
+</div>
 </div>
 
 <div id="pago-yape-plin" class="bg-gray-100 p-6 rounded-lg mb-4 border-l-4 border-purple-500">
@@ -1903,7 +1932,7 @@ Suscribir
 <script>
 async 
 function togglePaymentInfo() {
-    const metodo = document.querySelector('input[name="metodo_pago"]:checked').value;
+    const metodo = document.getElementById('metodo_pago').value;
     document.getElementById('pago-yape-plin').classList.add('hidden');
     document.getElementById('pago-deposito').classList.add('hidden');
     document.getElementById('pago-paypal').classList.add('hidden');
@@ -1935,13 +1964,13 @@ async function submitForm(event, form, url) {
         data.edad = document.getElementById('edad').value;
         data.tipo_comprobante = document.getElementById('tipo_comprobante').value;
         data.documento = document.getElementById('documento').value;
-        const cat = document.querySelector('input[name="categoria"]:checked');
+        const cat = document.getElementById('categoria');
         data.categoria = cat ? cat.value : '';
 
-        const pack = document.querySelector('input[name="paquete"]:checked');
+        const pack = document.getElementById('paquete');
         data.paquete = pack ? pack.value : '';
         
-        const metodo = document.querySelector('input[name="metodo_pago"]:checked');
+        const metodo = document.getElementById('metodo_pago');
         data.metodo_pago = metodo ? metodo.value : '';
         if (data.metodo_pago === 'Yape' || data.metodo_pago === 'Plin') {
             data.operacion = 'Captura enviada por WhatsApp';
