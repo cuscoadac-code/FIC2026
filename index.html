@@ -1954,39 +1954,63 @@ async function submitForm(event, form, url) {
         if (emailInput) data.email = emailInput.value;
     }
 
-        try {
-        // Bypass the missing backend and directly show success + WhatsApp redirect
-        setTimeout(() => {
-            document.getElementById('modal-success').classList.remove('hidden');
-            
-            // Redirigir a WhatsApp si es el formulario de inscripciÃ³n
-            if (form.id === 'form-inscripcion') {
-                const mensaje = encodeURIComponent(`ðŸš´â€â™‚ï¸ *Â¡Hola FIC 2026! Deseo confirmar mi inscripciÃ³n.* ðŸš´â€â™€ï¸
+            try {
+        // Enviar a la base de datos Supabase a través del backend en Vercel
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        
+        // Indistintamente de si el backend responde 200 o falla (por límites de Vercel/Supabase),
+        // aseguramos que el usuario pase a WhatsApp con sus datos armados.
+        document.getElementById('modal-success').classList.remove('hidden');
+        
+        if (form.id === 'form-inscripcion') {
+            const mensaje = encodeURIComponent(`🚴‍♂️ *¡Hola FIC 2026! Deseo confirmar mi inscripción.* 🚴‍♀️
 
-ðŸ“ *MIS DATOS:*
+📝 *MIS DATOS:*
 - *Nombre:* ${data.nombre} ${data.apellido}
 - *Documento:* ${data.documento}
-- *Edad:* ${data.edad} aÃ±os
-- *PaÃ­s:* ${data.pais}
+- *Edad:* ${data.edad} años
+- *País:* ${data.pais}
 
-ðŸš´ *CATEGORÃA Y PAQUETE:*
-- *CategorÃ­a:* ${data.categoria}
+🚴 *CATEGORÍA Y PAQUETE:*
+- *Categoría:* ${data.categoria}
 - *Paquete:* ${data.paquete}
 
-ðŸ’° *PAGO:*
-- *MÃ©todo:* ${data.metodo_pago}
-- *OperaciÃ³n:* ${data.operacion}
+💰 *PAGO:*
+- *Método:* ${data.metodo_pago}
+- *Operación:* ${data.operacion}
 
 (Estoy adjuntando mi voucher de pago por este medio).`);
-                
-                window.open(`https://wa.me/51999999999?text=${mensaje}`, '_blank');
-            }
             
-            if (submitBtn) {
-                submitBtn.innerHTML = '<i class="ri-check-line"></i> Â¡InscripciÃ³n Completada!';
-                submitBtn.classList.replace('bg-primary', 'bg-green-500');
-            }
-        }, 800); // Simulate network delay
+            window.open(`https://wa.me/51999999999?text=${mensaje}`, '_blank');
+        }
+        
+        if (submitBtn) {
+            submitBtn.innerHTML = '<i class="ri-check-line"></i> ¡Inscripción Completada!';
+            submitBtn.classList.replace('bg-primary', 'bg-green-500');
+        }
+    } catch (error) {
+        console.error('Error de red al guardar en Base de Datos:', error);
+        
+        // Fallback: Si el servidor falla estrepitosamente, igual lo mandamos a WhatsApp
+        document.getElementById('modal-success').classList.remove('hidden');
+        if (form.id === 'form-inscripcion') {
+            const mensaje = encodeURIComponent(`🚴‍♂️ *¡Hola FIC 2026!* (Inscripción de contingencia)
+- *Nombre:* ${data.nombre} ${data.apellido}
+- *Documento:* ${data.documento}
+- *Pago:* ${data.metodo_pago}`);
+            window.open(`https://wa.me/51999999999?text=${mensaje}`, '_blank');
+        }
+        
+        if (submitBtn) {
+            submitBtn.innerHTML = '<i class="ri-error-warning-line"></i> Completado vía WhatsApp';
+            submitBtn.disabled = false;
+        }
+    }
+}, 800); // Simulate network delay
     } catch (error) {
         console.error('Error:', error);
         if (submitBtn) {
