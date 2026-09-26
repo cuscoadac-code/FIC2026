@@ -1,50 +1,95 @@
 from fpdf import FPDF
-import datetime
 
 class PDF(FPDF):
     def header(self):
-        self.set_font("helvetica", "B", 16)
-        self.cell(0, 10, "REGLAMENTO Y BASES - CICLOVIA DEL MAIZ 2026", border=False, align="C")
-        self.ln(15)
-
-    def footer(self):
-        self.set_y(-15)
-        self.set_font("helvetica", "I", 8)
-        self.cell(0, 10, f"Pagina {self.page_no()} - Ayni Sport S.A.C. | RUC: 20612898503", align="C")
+        self.set_font('Arial', 'B', 15)
+        self.cell(0, 10, 'Bases Tecnicas y Organizacion', 0, 1, 'C')
+        self.set_font('Arial', '', 11)
+        self.cell(0, 10, 'Reglamento oficial y detalles de la competencia FIC 2026.', 0, 1, 'C')
+        self.ln(10)
 
 pdf = PDF()
 pdf.add_page()
-pdf.set_font("helvetica", size=11)
+pdf.set_font("Arial", size = 11)
 
-texto = """1. ORGANIZACION Y RESPONSABILIDAD
-El evento 'Ciclovia del Maiz 2026' es organizado exclusivamente por Ayni Sport S.A.C., con RUC 20612898503, con domicilio legal en Mz. a Lote 21 Urb. Mariscal Gamarra I Etapa, Cusco, Peru. La organizacion se reserva el derecho de modificar el presente reglamento para garantizar la seguridad y el correcto desarrollo del evento.
+text = """
+1. Responsables
+Ayni Sport SAC.
 
-2. CATEGORIAS Y PARTICIPACION
-Las categorias oficiales estan abiertas para deportistas a partir de los 12 anos (con Autorizacion de Padres obligatoria para menores de edad en las categorias Precadete y Cadete) y sin limite de edad superior en las categorias Master. Todo participante debe portar su Documento de Identidad original durante el recojo del kit.
+Municipalidades auspiciadoras:
+- Municipalidad de Pisac
+- Municipalidad de Taray
+- Municipalidad de Qoya
+- Municipalidad de Lamay
+- Municipalidad de Calca
+- Municipalidad de Huayllabamba
+- Municipalidad de Yucay
+- Municipalidad de Urubamba
+- Municipalidad de Ollantaytambo
 
-3. TRATAMIENTO DE DATOS PERSONALES (Ley N 29733)
-De conformidad con el D.S. N 016-2024-JUS, la base de datos de los competidores inscritos se encuentra registrada ante la Autoridad Nacional de Proteccion de Datos Personales (ANPD). Los datos de salud sensibles (historial, alergias) seran utilizados de manera restrictiva y exclusiva para la prevencion de riesgos y atencion de emergencias durante la competencia.
+2. Participantes
+- Uso de casco obligatorio.
+- Exclusivamente bicicletas montaneras con llantas mayores a 2.1mm de ancho. (SE VAN A MEDIR EL ANCHO DE LAS LLANTAS)
+- Para competir deben cumplir con la inscripcion y las reglas del evento.
+- La participacion es de responsabilidad individual salvo menores de edad quienes dependen de sus padres o apoderados.
+- Los competidores deben firmar el documento de compromiso de NO RIESGO. Ya que es un deporte de aventura y que participan por voluntad propia.
+- Cualquier competidor que incumpla las bases seran descalificados.
+- Todos los competidores, directivos, representantes y demas personas que intervengan en este evento lo hacen por su PROPIA CUENTA Y RIESGO.
 
-4. POLITICAS DE REEMBOLSO Y CANCELACION (INDECOPI)
-Bajo el Codigo de Proteccion y Defensa del Consumidor, si el evento es suspendido o modificado sustancialmente por causas atribuibles a la organizacion, el participante podra solicitar la devolucion integra del monto pagado. Ayni Sport S.A.C. cuenta con un plazo maximo legal de 15 dias calendario para efectuar la devolucion tras la solicitud formal del cliente al correo aynisporteam@gmail.com.
+3. Inscripciones
+Las fechas de inscripciones es desde el 01 de octubre hasta jueves 19 noviembre a media noche.
 
-5. PENALIDAD POR 'NO SHOW'
-El participante que no asista al recojo de su kit o no se presente a la partida oficial en la fecha y hora indicadas sin previo aviso sustentado, perdera el total de su inscripcion, siendo los montos abonados retenidos como penalidad y compensacion de gastos operativos.
+Medios de inscripcion:
+1. Virtual: Via Yape al n CEL +51 993022225 (adjuntar captura de pantalla del deposito) y datos: Nombre completo - Categoria - Fecha nac. - DNI - Nacionalidad. Tanto en el formulario virtual y fisico.
+2. Presencial: Calle Chiwampata 543 San Blas Esquina con Alabado, AGENCIA LUNA LLENA.
 
-6. DESCARGO DE RESPONSABILIDAD Y ASUNCION DE RIESGOS
-El ciclismo de montana (XCM) en la ruta Pisac-Ollantaytambo es un deporte de aventura sujeto al riesgo fisico inherente (caidas, esfuerzo fisico extremo en altitud). 
-Con la inscripcion, el participante declara voluntariamente que:
-a) Participa asumiendo total responsabilidad sobre su condicion fisica y aptitud deportiva.
-b) Entiende que la organizacion no se hace responsable por perdidas materiales ni lesiones derivadas del riesgo normal de la competencia, a pesar del cumplimiento legal de Ayni Sport S.A.C. de contar con guias, rescate paramedico y un plan de contingencia operativo.
-c) Exime de cualquier reclamacion civil a Ayni Sport S.A.C. por contingencias inherentes a su propia destreza o negligencia tecnica.
+- El registro es personal. En caso de ser menor de edad, con autorizacion del padre o apoderado.
+- La edad minima para este nivel es de 12 anos.
+- Firma de carta de compromiso de Riesgo y declaracion jurada.
+- Identificacion en la competencia es su numero bien legible.
+- El derecho de participacion es intransferible. No hay reembolso.
+- La identificacion externa del competidor sera su numero correctamente ubicado en su bicicleta.
 
-7. COMPORTAMIENTO Y SANCIONES
-La organizacion sancionara con la descalificacion inmediata a quien agreda verbal o fisicamente a otro participante o staff, o a quien arroje basura (envolturas, botellas) a lo largo del Valle Sagrado.
+4. De la Competencia
+- La competencia se rige bajo las bases.
+- Los competidores deben estar media hora antes en la linea de partida.
+- Primero partiran las categorias de mayor a menor experiencia.
+- Partida: 8:00 am desde San Salvador con direccion a Huayllabamba.
+- La categoria NOVEL sera bien revisada (solo competidores sin experiencia).
 
-Para ejercer sus Derechos ARCO o interponer una queja, ingrese a nuestro Libro de Reclamaciones Virtual en la web oficial: ficperu.online.
+5. Penalizaciones
+- Comportamiento Antideportivo.
+- Realizar cortes en la carrera.
+- Ingresar en otra categoria.
+- Falta de numeracion / equipamiento.
+- Uso de caminos no autorizados.
+- Desobediencia a instrucciones.
+
+6. Categorias
+(La edad es en base al ano de nacimiento mas no del dia de cumpleanos)
+
+- Pre cadetes (12 a 14)
+- Cadetes (15 a 17)
+- Elite (18 a 29)
+- Master A (30 - 39)
+- Master B (40 - 49)
+- Master C (50 a mayor)
+- Enduro
+- Damas Elite
+- Damas Master
+- Noveles / Turismo
+- Damas Noveles (> 5)
+
+7. Programa del Evento
+- 06:00 hrs: Bienvenida, saludo y entrega de box lunch a los competidores.
+- 07:00 - 08:00 hrs: Calentamiento para competidores.
+- 09:00 hrs: Control de numeros para la competencia.
+- 10:00 hrs: Partida oficial desde Pisac.
+- 11:00 - 12:30 hrs: Llegada de los primeros lugares y del peloton a Urubamba.
+- 14:00 hrs: Premiacion de categorias.
 """
 
-pdf.multi_cell(0, 6, texto)
+for line in text.split('\n'):
+    pdf.multi_cell(0, 7, txt = line)
 
-pdf.output("reglamento-fic2026.pdf")
-print("PDF generado con exito.")
+pdf.output("bases_tecnicas.pdf")
