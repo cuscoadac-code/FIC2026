@@ -1022,7 +1022,7 @@ Ver opciones de hospedaje
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">Elige el paquete que mejor se adapte a tu experiencia en la FIC 2026.</p>
         </div>
         
-                                      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
               <!-- Paquete Biker -->
               <div class="bg-gray-50 rounded-2xl shadow-lg overflow-hidden border border-gray-200 flex flex-col">
                   <div class="p-6 text-center bg-gray-100 border-b border-gray-200">
@@ -1042,8 +1042,9 @@ Ver opciones de hospedaje
               </div>
 
               <!-- Paquete Biker + Transporte -->
-              <div class="bg-gray-50 rounded-2xl shadow-lg overflow-hidden border border-gray-200 flex flex-col">
-                  <div class="p-6 text-center bg-gray-100 border-b border-gray-200">
+              <div class="bg-gray-50 rounded-2xl shadow-lg overflow-hidden border border-gray-200 flex flex-col relative">
+                  <div class="absolute top-0 right-0 bg-primary text-white font-bold px-3 py-1 rounded-bl-lg text-xs uppercase tracking-wider">Popular</div>
+                  <div class="p-6 text-center bg-orange-50 border-b border-orange-100">
                       <h3 class="text-xl font-bold text-gray-800 mb-2">BIKER + TRANSPORTE</h3>
                       <div class="text-4xl font-extrabold text-primary mb-2">S/ 140</div>
                   </div>
@@ -1060,24 +1061,6 @@ Ver opciones de hospedaje
                   </div>
               </div>
 
-              <!-- Paquete Biker + Jersey -->
-              <div class="bg-gray-50 rounded-2xl shadow-lg overflow-hidden border border-gray-200 flex flex-col relative">
-                  <div class="absolute top-0 right-0 bg-primary text-white font-bold px-3 py-1 rounded-bl-lg text-xs uppercase tracking-wider">Popular</div>
-                  <div class="p-6 text-center bg-orange-50 border-b border-orange-100">
-                      <h3 class="text-xl font-bold text-gray-800 mb-2">BIKER + JERSEY</h3>
-                      <div class="text-4xl font-extrabold text-primary mb-2">S/ 150</div>
-                  </div>
-                  <div class="p-6 flex-1">
-                      <ul class="space-y-3 mb-6">
-                          <li class="flex items-center"><i class="ri-checkbox-circle-fill text-primary text-lg mr-2"></i><span class="font-bold text-gray-700 text-sm">KIT DE INSCRIPCIÓN</span></li>
-                          <li class="flex items-center"><i class="ri-checkbox-circle-fill text-primary text-lg mr-2"></i><span class="font-bold text-gray-700 text-sm">SORTEO FINAL</span></li>
-                          <li class="flex items-center"><i class="ri-checkbox-circle-fill text-primary text-lg mr-2"></i><span class="font-bold text-gray-700 text-sm">MEDALLA FINISHER</span></li>
-                          <li class="flex items-center"><i class="ri-checkbox-circle-fill text-primary text-lg mr-2"></i><span class="font-bold text-gray-700 text-sm">PREMIOS PARA LOS 3 PRIMEROS PUESTOS</span></li>
-                          <li class="flex items-center"><i class="ri-checkbox-circle-fill text-primary text-lg mr-2"></i><span class="font-bold text-gray-700 text-sm">BOX LUNCH</span></li>
-                          <li class="flex items-center"><i class="ri-checkbox-circle-fill text-primary text-lg mr-2"></i><span class="font-bold text-gray-700 text-sm">INSCRIPCIÓN BÁSICA</span></li>
-                      </ul>
-                  </div>
-              </div>
               
               <!-- Paquete Biker Full -->
               <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden border border-gray-700 flex flex-col relative">
@@ -1276,7 +1259,6 @@ Ver opciones de hospedaje
     <option value="">Selecciona tu paquete</option>
     <option value="PAQUETE BIKER (S/ 90)">PAQUETE BIKER - S/ 90</option>
     <option value="BIKER + TRANSPORTE (S/ 140)">BIKER + TRANSPORTE - S/ 140</option>
-    <option value="BIKER + JERSEY (S/ 150)">BIKER + JERSEY - S/ 150</option>
     <option value="PAQUETE BIKER FULL (S/ 200)">PAQUETE BIKER FULL - S/ 200</option>
 </select>
 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
