@@ -207,7 +207,7 @@ background-color: #2C5F2D;
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚴</text></svg>">
 </head>
-<body id="main-body" style="display: none;">
+<body id="main-body" class="bg-gray-50 text-gray-800 font-sans antialiased">
 
 <!-- Password Protection Overlay -->
 <div id="password-overlay" class="fixed inset-0 bg-white z-[9999] flex flex-col items-center justify-center" style="display: flex;">
@@ -223,15 +223,25 @@ background-color: #2C5F2D;
 </div>
 
 <script>
-    // Show overlay immediately
-    document.getElementById('password-overlay').style.display = 'flex';
+    // SOLO EN LOCAL: Verificar si estamos en localhost
+    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    
+    if (isLocalhost) {
+        // Show overlay immediately
+        document.getElementById('password-overlay').style.display = 'flex';
+        document.getElementById('main-body').style.display = 'none';
+    } else {
+        // Si es Vercel o la web publica, ocultar el bloqueo y mostrar la web normal
+        document.getElementById('password-overlay').style.display = 'none';
+        document.getElementById('main-body').style.display = 'block';
+    }
     
     function checkPassword() {
         const pwd = document.getElementById('site-password').value;
         if (pwd === '4') {
             document.getElementById('password-overlay').style.display = 'none';
             document.getElementById('main-body').style.display = 'block';
-            document.getElementById('main-body').style.overflow = 'auto';
+            document.getElementById('main-body').style.overflow = '';
             // Store session
             sessionStorage.setItem('site_access', 'granted');
         } else {
@@ -239,11 +249,11 @@ background-color: #2C5F2D;
         }
     }
     
-    // Check if already authenticated in this session
-    if (sessionStorage.getItem('site_access') === 'granted') {
+    // Check if already authenticated in this session (solo si estamos en local)
+    if (isLocalhost && sessionStorage.getItem('site_access') === 'granted') {
         document.getElementById('password-overlay').style.display = 'none';
         document.getElementById('main-body').style.display = 'block';
-        document.getElementById('main-body').style.overflow = 'auto';
+        document.getElementById('main-body').style.overflow = '';
     }
 </script>
 
