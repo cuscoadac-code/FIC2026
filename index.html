@@ -223,18 +223,9 @@ background-color: #2C5F2D;
 </div>
 
 <script>
-    // SOLO EN LOCAL: Verificar si estamos en localhost
-    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    
-    if (isLocalhost) {
-        // Show overlay immediately
-        document.getElementById('password-overlay').style.display = 'flex';
-        document.getElementById('main-body').style.display = 'none';
-    } else {
-        // Si es Vercel o la web publica, ocultar el bloqueo y mostrar la web normal
-        document.getElementById('password-overlay').style.display = 'none';
-        document.getElementById('main-body').style.display = 'block';
-    }
+    // Bloqueo total para todos los usuarios (local y web)
+    document.getElementById('password-overlay').style.display = 'flex';
+    document.getElementById('main-body').style.display = 'none';
     
     function checkPassword() {
         const pwd = document.getElementById('site-password').value;
@@ -249,8 +240,8 @@ background-color: #2C5F2D;
         }
     }
     
-    // Check if already authenticated in this session (solo si estamos en local)
-    if (isLocalhost && sessionStorage.getItem('site_access') === 'granted') {
+    // Check if already authenticated in this session
+    if (sessionStorage.getItem('site_access') === 'granted') {
         document.getElementById('password-overlay').style.display = 'none';
         document.getElementById('main-body').style.display = 'block';
         document.getElementById('main-body').style.overflow = '';
